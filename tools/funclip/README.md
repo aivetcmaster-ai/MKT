@@ -66,6 +66,8 @@ Chạy một lần, sau đó FunClip khởi động nhanh và không phụ thu�
 # thêm --with-sensevoice nếu cần model đa ngôn ngữ
 ```
 
+Script kiểm tra kết nối tới `modelscope.cn` trước, nếu mạng bị chặn sẽ báo ngay thay vì treo hàng phút. Muốn bỏ qua bước kiểm tra này thì thêm `--skip-check`.
+
 Model lưu ở `~/.cache/modelscope`. Có thể nén thư mục này và chép sang máy khác trong đội để khỏi tải lại.
 
 ## Chạy

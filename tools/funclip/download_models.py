@@ -31,16 +31,43 @@ OPTIONAL_MODELS = [
 ]
 
 
+def _can_reach_modelscope(timeout=10):
+    """Kiem tra nhanh ket noi, tranh treo lau khi mang bi chan."""
+    import urllib.error
+    import urllib.request
+
+    try:
+        req = urllib.request.Request("https://www.modelscope.cn/api/v1/models",
+                                     method="HEAD")
+        urllib.request.urlopen(req, timeout=timeout)
+        return True
+    except urllib.error.HTTPError:
+        # May chu tra ve ma loi HTTP nghia la van ket noi duoc.
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--with-sensevoice", action="store_true",
                         help="Tai them model SenseVoiceSmall")
+    parser.add_argument("--skip-check", action="store_true",
+                        help="Bo qua buoc kiem tra ket noi toi modelscope.cn")
     args = parser.parse_args()
 
     try:
         from modelscope.hub.snapshot_download import snapshot_download
     except ImportError:
         print("Chua cai thu vien modelscope. Chay: pip install modelscope", file=sys.stderr)
+        return 1
+
+    if not args.skip_check and not _can_reach_modelscope():
+        print("Khong ket noi duoc toi modelscope.cn.", file=sys.stderr)
+        print("Mang cong ty hoac proxy dang chan. Tai model o may khac roi chep thu muc",
+              file=sys.stderr)
+        print("~/.cache/modelscope sang, hoac chay lai voi --skip-check de thu truc tiep.",
+              file=sys.stderr)
         return 1
 
     targets = list(CORE_MODELS)
