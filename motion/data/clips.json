@@ -1,0 +1,89 @@
+{
+  "luuY": "Nội dung trong file này là bản nháp. Câu chữ mô tả tính năng, quy trình và mọi con số phải được phòng chuyên môn xác nhận, người có thẩm quyền duyệt trước khi đăng.",
+  "clips": [
+    {
+      "id": "meo-qua-tram-tron-tru",
+      "composition": "VetcTip9x16",
+      "props": {
+        "lockup": "assets/logo/vetc-wordmark-white-alpha.png",
+        "eyebrow": "Mẹo cho bác tài",
+        "headline": ["Qua trạm", "một lần là trót lọt"],
+        "lead": "Ba việc làm trước khi lăn bánh để không phải dừng lại ở làn ETC.",
+        "tips": [
+          {
+            "title": "Kiểm tra số dư trước chuyến đi",
+            "detail": "Số dư đủ thì barie mở, không phải lùi ra làn hỗn hợp."
+          },
+          {
+            "title": "Dán thẻ đúng vị trí đã hướng dẫn",
+            "detail": "Thẻ dán sai chỗ là đầu đọc không nhận."
+          },
+          {
+            "title": "Biển số trên xe khớp với tài khoản",
+            "detail": "Đổi biển hay đổi xe thì cập nhật lại ngay."
+          }
+        ],
+        "note": "Cần hỗ trợ, bác tài gọi tổng đài 24/7.",
+        "hotline": "1900 6010",
+        "website": "vetc.com.vn",
+        "tagline": "Sống hiện đại - Lái văn minh"
+      }
+    },
+    {
+      "id": "nap-tien-truoc-chuyen-di",
+      "composition": "VetcTip9x16",
+      "props": {
+        "lockup": "assets/logo/vetc-wordmark-white-alpha.png",
+        "eyebrow": "Tài khoản giao thông",
+        "headline": ["Nạp tiền", "trước khi lên đường"],
+        "lead": "Giữ số dư đủ cho cả chuyến, qua trạm nào cũng nhẹ đầu.",
+        "tips": [
+          {
+            "title": "Nạp ngay trên ứng dụng VETC",
+            "detail": "Mở ứng dụng, chọn nạp tiền, tiền vào tài khoản giao thông."
+          },
+          {
+            "title": "Bật thông báo số dư thấp",
+            "detail": "Biết trước để nạp, không phát hiện khi đã tới trạm."
+          },
+          {
+            "title": "Đi đường dài thì nạp dư một chút",
+            "detail": "Một chuyến qua nhiều trạm, dư ra cho chắc."
+          }
+        ],
+        "note": "Số dư và lịch sử giao dịch xem trực tiếp trong ứng dụng.",
+        "hotline": "1900 6010",
+        "website": "vetc.com.vn",
+        "tagline": "Sống hiện đại - Lái văn minh"
+      }
+    },
+    {
+      "id": "doi-xe-doi-bien-so",
+      "composition": "VetcTip9x16",
+      "props": {
+        "lockup": "assets/logo/vetc-wordmark-white-alpha.png",
+        "eyebrow": "Việc cần làm ngay",
+        "headline": ["Đổi xe, đổi biển", "nhớ báo lại"],
+        "lead": "Thông tin trên tài khoản khớp với xe thì hệ thống mới nhận đúng.",
+        "tips": [
+          {
+            "title": "Cập nhật biển số mới",
+            "detail": "Biển cũ còn trong tài khoản là giao dịch dễ sai."
+          },
+          {
+            "title": "Sang tên xe thì chuyển thẻ theo",
+            "detail": "Người mua và người bán cùng làm cho gọn."
+          },
+          {
+            "title": "Thẻ hỏng hoặc bong thì đổi thẻ",
+            "detail": "Thẻ không còn đọc được thì qua trạm sẽ vướng."
+          }
+        ],
+        "note": "Thủ tục làm tại điểm dịch vụ VETC hoặc theo hướng dẫn của tổng đài.",
+        "hotline": "1900 6010",
+        "website": "vetc.com.vn",
+        "tagline": "Sống hiện đại - Lái văn minh"
+      }
+    }
+  ]
+}

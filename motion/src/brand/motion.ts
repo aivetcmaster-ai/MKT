@@ -3,6 +3,9 @@
 // không nảy, không phóng to, Smart Line không xoay.
 import { interpolate, Easing } from 'remotion';
 
+/** Nhịp hình chuẩn của mọi bản dựng VETC. */
+export const FPS = 30;
+
 export const DURATION_FAST = 120;
 export const DURATION_BASE = 200;
 export const DURATION_SLOW = 400;

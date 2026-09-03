@@ -11,9 +11,11 @@
     "typecheck": "tsc --noEmit",
     "render:parking": "remotion render src/index.ts VetcParking1x1 out/vetc-parking-motion-1x1.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
     "gif:parking": "remotion render src/index.ts VetcParking1x1 out/vetc-parking-motion-1x1.gif --codec=gif --every-nth-frame=2 --width=540",
-    "upgrade": "remotion upgrade"
+    "upgrade": "remotion upgrade",
+    "render:tips": "node scripts/render-batch.mjs"
   },
   "dependencies": {
+    "@remotion/bundler": "^4.0.520",
     "@remotion/cli": "4.0.520",
     "@remotion/renderer": "4.0.520",
     "react": "^19.2.8",
