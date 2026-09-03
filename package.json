@@ -3,6 +3,7 @@
   "private": true,
   "description": "Bộ công cụ xử lý ảnh, font, video cho tài liệu và ấn phẩm VETC",
   "dependencies": {
+    "playwright-core": "^1.56.1",
     "sharp": "^0.35.4"
   }
 }

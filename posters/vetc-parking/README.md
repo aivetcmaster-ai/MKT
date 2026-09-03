@@ -36,16 +36,20 @@ chỉ trượt và mờ dần, không nảy, không phóng to, Smart Line không
 
 ## Xuất lại
 
-Cần Node và Chromium (Playwright), thêm ffmpeg có H.264 cho phần video.
-Từ thư mục này:
+Cần Node, Chromium (Playwright) và ffmpeg có H.264 cho phần video.
+
+Trên phiên Claude Code chạy web, hook `.claude/hooks/session-start.sh` đã tự cài
+sẵn ffmpeg, oxipng, fonttools, phụ thuộc npm và đặt biến `CHROMIUM_PATH`, nên chỉ
+cần chạy lệnh dựng. Trên máy cá nhân, cài phụ thuộc npm ở thư mục gốc repo trước:
 
 ```bash
-npm i playwright-core ffmpeg-static
+npm install                                       # từ thư mục gốc repo
 node render.mjs                                   # poster PNG và PDF
-FFMPEG_PATH=$(node -p "require('ffmpeg-static')") node render-motion.mjs   # MP4 và GIF
+node render-motion.mjs                            # MP4 và GIF
 ```
 
-Đổi đường dẫn Chromium bằng biến `CHROMIUM_PATH` nếu máy cài chỗ khác.
+Đổi đường dẫn Chromium bằng biến `CHROMIUM_PATH`, đường dẫn ffmpeg bằng
+`FFMPEG_PATH`, nếu máy cài chỗ khác.
 
 ## Cần rà trước khi đăng
 
