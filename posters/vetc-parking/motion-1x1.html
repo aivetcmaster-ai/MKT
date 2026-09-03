@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>VETC Parking - motion graphic 1:1</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+  html,body{margin:0;padding:0;background:#F5F5F7}
+  .poster{
+    position:relative;width:1080px;height:1080px;overflow:hidden;
+    display:flex;flex-direction:column;
+    font-family:var(--font-sans);
+    background:var(--vetc-green);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- khối xanh ---- */
+  .stage{
+    background:var(--vetc-green);color:var(--vetc-white);
+    padding:56px;box-sizing:border-box;flex:none;
+    display:flex;flex-direction:column;align-items:flex-start;
+  }
+  .lockup{height:64px;width:auto;display:block;flex:none}
+  .eyebrow{
+    margin:44px 0 0;font-size:20px;font-weight:600;
+    text-transform:uppercase;letter-spacing:var(--tracking-uppercase);
+    color:rgba(255,255,255,.85);
+  }
+  .headline{
+    margin:24px 0 0;font-size:88px;line-height:var(--leading-display);
+    font-weight:800;letter-spacing:-.01em;
+  }
+  .headline span{display:block}
+  .lead{
+    margin:32px 0 0;font-size:28px;line-height:var(--leading-body);
+    font-weight:400;color:rgba(255,255,255,.92);max-width:840px;
+  }
+
+  /* ---- khối trắng ---- */
+  .panel{
+    position:relative;flex:1;min-height:0;overflow:hidden;
+    display:flex;flex-direction:column;background:var(--vetc-white);
+  }
+  .wipe{position:absolute;inset:0;background:var(--vetc-green);z-index:2}
+  .steps{
+    flex:1;min-height:0;box-sizing:border-box;padding:0 56px;
+    display:flex;align-items:center;gap:36px;
+  }
+  .step{flex:1}
+  .step-ico{width:72px;height:72px;display:block}
+  .step-no{
+    margin:24px 0 0;font-size:20px;font-weight:700;
+    letter-spacing:var(--tracking-uppercase);color:var(--green-plus-2);
+    text-transform:uppercase;
+  }
+  .step-title{
+    margin:10px 0 0;font-size:28px;line-height:1.15;
+    font-weight:700;color:var(--vetc-black);
+  }
+  .note{
+    margin:0 56px;flex:none;height:76px;box-sizing:border-box;
+    display:flex;align-items:center;
+    border-top:1px solid var(--neutral-300);
+    font-size:20px;line-height:1.35;color:var(--neutral-500);
+  }
+
+  /* ---- Smart Line + dải liên hệ ---- */
+  .band{height:80px;flex:none;overflow:hidden;background:var(--vetc-green)}
+  .band .vetc-smartline{height:100%}
+  .contact{
+    height:80px;flex:none;background:var(--vetc-green);color:var(--vetc-white);
+    display:flex;align-items:center;padding:0 56px;box-sizing:border-box;
+    font-size:20px;font-weight:600;
+  }
+  .contact .sep{margin:0 16px;color:rgba(255,255,255,.55);font-weight:400}
+  .contact .tag{margin-left:auto;font-weight:400;color:rgba(255,255,255,.9)}
+
+  .outro{position:absolute;inset:0;background:var(--vetc-green);z-index:5;opacity:0}
+</style>
+</head>
+<body>
+<div class="poster" id="poster">
+
+  <div class="stage">
+    <img class="lockup" id="lockup" src="./assets/logo/sub-parking-white.png" alt="VETC Parking">
+    <p class="eyebrow" id="eyebrow">Gửi xe không tiền mặt</p>
+    <h1 class="headline"><span id="h1">Lấy xe là đi,</span><span id="h2">không dừng trả tiền</span></h1>
+    <p class="lead" id="lead">Bật tự động thanh toán phí gửi xe trên ứng dụng VETC. Barie mở, xe lăn bánh, phí trừ thẳng vào tài khoản giao thông.</p>
+  </div>
+
+  <div class="panel">
+    <div class="steps">
+      <div class="step" id="s1">
+        <img class="step-ico" src="./assets/icons/wallet.png" alt="">
+        <p class="step-no">Bước 1</p>
+        <p class="step-title">Bật tự động thanh toán</p>
+      </div>
+      <div class="step" id="s2">
+        <img class="step-ico" src="./assets/icons/parking.png" alt="">
+        <p class="step-no">Bước 2</p>
+        <p class="step-title">Vào bãi liên kết</p>
+      </div>
+      <div class="step" id="s3">
+        <img class="step-ico" src="./assets/icons/check-circle.png" alt="">
+        <p class="step-no">Bước 3</p>
+        <p class="step-title">Lấy xe và đi</p>
+      </div>
+    </div>
+    <p class="note" id="note">Vui lòng duy trì số dư đủ trong tài khoản giao thông để giao dịch thành công.</p>
+    <div class="wipe" id="wipe"></div>
+  </div>
+
+  <div class="band"><div class="vetc-smartline" id="smartline"></div></div>
+
+  <div class="contact" id="contact">
+    <span>1900 6010</span><span class="sep">/</span><span>vetc.com.vn</span>
+    <span class="tag">Sống hiện đại - Lái văn minh</span>
+  </div>
+
+  <div class="outro" id="outro"></div>
+</div>
+
+<script>
+/* Bộ tween tất định: setTime(t) dựng đúng một khung hình cho mọi giá trị t.
+   Nhịp theo quy tắc chuyển động VETC: cubic-bezier(.2,0,0,1), mỗi bước 400ms,
+   chỉ trượt và mờ dần, không nảy, không phóng to. */
+const DURATION = 8.0;
+const EASE = bezier(.2, 0, 0, 1);
+
+function bezier(x1, y1, x2, y2) {
+  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+  const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+  const fx = t => ((ax * t + bx) * t + cx) * t;
+  const dfx = t => (3 * ax * t + 2 * bx) * t + cx;
+  return x => {
+    let t = x;
+    for (let i = 0; i < 8; i++) {
+      const d = dfx(t);
+      if (Math.abs(d) < 1e-6) break;
+      t -= (fx(t) - x) / d;
+    }
+    t = Math.min(1, Math.max(0, t));
+    return ((ay * t + by) * t + cy) * t;
+  };
+}
+
+const clamp01 = v => Math.min(1, Math.max(0, v));
+const at = (t, start, dur) => EASE(clamp01((t - start) / dur));
+
+// id, thời điểm vào (giây), kiểu chuyển động
+const RISE = [
+  ['lockup',   0.20],
+  ['eyebrow',  0.60],
+  ['h1',       0.80],
+  ['h2',       1.00],
+  ['lead',     1.50],
+  ['s1',       2.60],
+  ['s2',       2.80],
+  ['s3',       3.00],
+  ['note',     3.50],
+];
+
+function setTime(t) {
+  for (const [id, start] of RISE) {
+    const p = at(t, start, 0.4);
+    const el = document.getElementById(id);
+    el.style.opacity = p;
+    el.style.transform = 'translateY(' + (24 * (1 - p)).toFixed(2) + 'px)';
+  }
+  // tấm xanh trượt xuống, mở ra khối trắng
+  const wipe = at(t, 2.10, 0.4);
+  document.getElementById('wipe').style.transform = 'translateY(' + (wipe * 100).toFixed(2) + '%)';
+
+  // Smart Line chạy từ trái sang phải, đúng hướng quy định
+  const line = at(t, 3.90, 0.4);
+  document.getElementById('smartline').style.transform = 'translateX(' + (-100 + line * 100).toFixed(2) + '%)';
+
+  // dải liên hệ trượt lên
+  const contact = at(t, 4.30, 0.4);
+  document.getElementById('contact').style.transform = 'translateY(' + ((1 - contact) * 100).toFixed(2) + '%)';
+
+  // đóng cảnh về nền xanh để ghép vòng lặp liền mạch
+  document.getElementById('outro').style.opacity = at(t, 7.40, 0.5);
+}
+
+window.setTime = setTime;
+window.DURATION = DURATION;
+setTime(0);
+</script>
+</body>
+</html>

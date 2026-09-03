@@ -10,6 +10,9 @@ bộ nhận diện VETC (Brand Guideline Nov 2025).
 | `poster-1x1.html` | Bản dựng gốc, mở trực tiếp bằng trình duyệt |
 | `vetc-parking-poster-1x1.png` | Ảnh xuất, 2160x2160 (deviceScaleFactor 2) |
 | `vetc-parking-poster-1x1.pdf` | Bản PDF 1080x1080 để in hoặc lưu trữ |
+| `motion-1x1.html` | Bản motion graphic, có bộ tween tất định `setTime(t)` |
+| `vetc-parking-motion-1x1.mp4` | Video 1080x1080, 30fps, 8 giây, H.264 |
+| `vetc-parking-motion-1x1.gif` | GIF 540x540, 15fps, dùng cho chat và email |
 | `styles.css`, `tokens/`, `fonts/` | Token màu, chữ, khoảng cách và font VETC Sans |
 | `assets/` | Logo lock-up VETC Parking và bộ icon thương hiệu |
 
@@ -21,14 +24,28 @@ bộ nhận diện VETC (Brand Guideline Nov 2025).
 - Lề 56px, lưới 4px, không đổ bóng, không emoji.
 - Smart Line neo đáy, không xoay, chiếm dưới một phần ba bố cục.
 
-## Xuất lại ảnh
+## Motion graphic
 
-Cần Node và Chromium (Playwright). Từ thư mục này:
+Dài 8 giây, ghép vòng lặp liền mạch (khung đầu và khung cuối trùng khít).
+Kịch bản: logo, eyebrow, headline hai dòng, dẫn nhập, tấm xanh trượt xuống mở ra
+khối trắng, ba bước hiện lần lượt, Smart Line chạy từ trái sang phải, dải liên hệ
+trượt lên, giữ hình, rồi khép về nền xanh.
+
+Bám quy tắc chuyển động trong guideline: mỗi bước 400ms, nhịp `cubic-bezier(.2,0,0,1)`,
+chỉ trượt và mờ dần, không nảy, không phóng to, Smart Line không xoay.
+
+## Xuất lại
+
+Cần Node và Chromium (Playwright), thêm ffmpeg có H.264 cho phần video.
+Từ thư mục này:
 
 ```bash
-npm i playwright-core
-node render.mjs
+npm i playwright-core ffmpeg-static
+node render.mjs                                   # poster PNG và PDF
+FFMPEG_PATH=$(node -p "require('ffmpeg-static')") node render-motion.mjs   # MP4 và GIF
 ```
+
+Đổi đường dẫn Chromium bằng biến `CHROMIUM_PATH` nếu máy cài chỗ khác.
 
 ## Cần rà trước khi đăng
 
