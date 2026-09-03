@@ -1,0 +1,28 @@
+{
+  "name": "vetc-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Xưởng dựng motion graphic VETC bằng Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "compositions": "remotion compositions src/index.ts",
+    "render": "remotion render src/index.ts",
+    "still": "remotion still src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render:parking": "remotion render src/index.ts VetcParking1x1 out/vetc-parking-motion-1x1.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
+    "gif:parking": "remotion render src/index.ts VetcParking1x1 out/vetc-parking-motion-1x1.gif --codec=gif --every-nth-frame=2 --width=540",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.520",
+    "@remotion/renderer": "4.0.520",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "4.0.520"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "typescript": "^7.0.2"
+  }
+}
