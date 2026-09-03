@@ -1,0 +1,4 @@
+# Video editing toolchain (Python)
+# Cài: pip install -r requirements.txt
+# ffmpeg đi kèm qua imageio-ffmpeg, không cần cài ffmpeg hệ thống.
+moviepy==2.2.1
