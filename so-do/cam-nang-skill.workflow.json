@@ -1,0 +1,352 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Quy trình dùng Skill trên Claude tại VETC",
+    "output": "cam-nang-skill.html",
+    "quality_profile": "showcase",
+    "visual_preset": "vetc",
+    "views": [
+      {
+        "id": "chuan-bi",
+        "label": "Chuẩn bị một lần",
+        "focus": [
+          "setup",
+          "project",
+          "skillco",
+          "skillrieng"
+        ],
+        "note": "Những việc chỉ làm một lần rồi dùng mãi: bật gói skill, nối connector, tạo Project."
+      },
+      {
+        "id": "lam-viec",
+        "label": "Vòng làm việc hằng ngày",
+        "focus": [
+          "andanh",
+          "yeucau",
+          "congcu",
+          "chay",
+          "duyetnd"
+        ],
+        "note": "Ẩn danh dữ liệu, gõ yêu cầu, Claude chạy theo skill, người có thẩm quyền duyệt trước khi phát hành."
+      },
+      {
+        "id": "skill-rieng",
+        "label": "Biến việc lặp thành skill",
+        "focus": [
+          "chay",
+          "donggoi",
+          "skillrieng"
+        ],
+        "note": "Khi một câu lệnh dùng tới lần thứ ba, đóng gói thành skill riêng và upload lên tài khoản."
+      }
+    ],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "frontend": {
+          "label": "Thao tác người dùng"
+        },
+        "backend": {
+          "label": "Bước xử lý"
+        },
+        "security": {
+          "label": "Quy tắc và kiểm soát"
+        },
+        "messagebus": {
+          "label": "Hành động công cụ"
+        },
+        "database": {
+          "label": "Dữ liệu và bối cảnh"
+        },
+        "cloud": {
+          "label": "Dịch vụ nền"
+        },
+        "external": {
+          "label": "Hệ thống bên ngoài"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "chuanbi",
+      "label": "Chuẩn bị một lần"
+    },
+    {
+      "id": "khoskill",
+      "label": "Kho skill"
+    },
+    {
+      "id": "nguoidung",
+      "label": "Lãnh đạo và nhân viên"
+    },
+    {
+      "id": "xuly",
+      "label": "Claude xử lý"
+    },
+    {
+      "id": "duyet",
+      "label": "Duyệt và phát hành"
+    },
+    {
+      "id": "dongoi",
+      "label": "Đóng gói việc lặp lại"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p_chuanbi",
+      "label": "Chuẩn bị",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "p_lamviec",
+      "label": "Làm việc",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "p_phathanh",
+      "label": "Duyệt và phát hành",
+      "fromCol": 4,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "yeucau",
+    "chay",
+    "duyetnd",
+    "phathanh"
+  ],
+  "nodes": [
+    {
+      "id": "setup",
+      "lane": "chuanbi",
+      "col": 0,
+      "type": "backend",
+      "label": "Bật gói skill",
+      "sublabel": "Tám gói theo nhóm nghề",
+      "tag": "Làm một lần",
+      "width": 150
+    },
+    {
+      "id": "project",
+      "lane": "chuanbi",
+      "col": 1,
+      "type": "database",
+      "label": "Tạo Project",
+      "sublabel": "Kho tài liệu dùng chung",
+      "width": 150
+    },
+    {
+      "id": "skillco",
+      "lane": "khoskill",
+      "col": 1,
+      "type": "backend",
+      "label": "Skill có sẵn",
+      "sublabel": "Hơn 200 skill nền tảng",
+      "width": 150
+    },
+    {
+      "id": "skillrieng",
+      "lane": "khoskill",
+      "col": 2,
+      "type": "backend",
+      "label": "Skill riêng VETC",
+      "sublabel": "Mười một skill đặc thù",
+      "width": 150
+    },
+    {
+      "id": "andanh",
+      "lane": "nguoidung",
+      "col": 1,
+      "type": "security",
+      "label": "Ẩn danh dữ liệu",
+      "sublabel": "Biển số, CCCD, số thẻ",
+      "tag": "Bắt buộc",
+      "width": 150
+    },
+    {
+      "id": "yeucau",
+      "lane": "nguoidung",
+      "col": 2,
+      "type": "frontend",
+      "label": "Gõ yêu cầu",
+      "sublabel": "Tiếng Việt hoặc tên skill",
+      "width": 150
+    },
+    {
+      "id": "congcu",
+      "lane": "xuly",
+      "col": 2,
+      "type": "cloud",
+      "label": "Công cụ nền",
+      "sublabel": "Web, đọc file, tạo file",
+      "width": 150
+    },
+    {
+      "id": "chay",
+      "lane": "xuly",
+      "col": 3,
+      "type": "backend",
+      "label": "Chạy theo skill",
+      "sublabel": "Trả bản nháp trong chat",
+      "tag": "Đúng khung, đúng thứ tự",
+      "width": 150
+    },
+    {
+      "id": "duyetnd",
+      "lane": "duyet",
+      "col": 4,
+      "type": "security",
+      "label": "Duyệt nội dung",
+      "sublabel": "AI soạn, người ký",
+      "tag": "Không bỏ qua",
+      "width": 150
+    },
+    {
+      "id": "phathanh",
+      "lane": "duyet",
+      "col": 5,
+      "type": "external",
+      "label": "Phát hành",
+      "sublabel": "Word, slide, trang tra cứu",
+      "width": 150
+    },
+    {
+      "id": "donggoi",
+      "lane": "dongoi",
+      "col": 5,
+      "type": "messagebus",
+      "label": "Đóng gói skill",
+      "sublabel": "Đặt tên vetc-tên việc",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_setup",
+      "from": "setup",
+      "to": "project"
+    },
+    {
+      "id": "e_project",
+      "from": "project",
+      "to": "chay",
+      "label": "Tài liệu nền",
+      "variant": "dashed"
+    },
+    {
+      "id": "e_skillco",
+      "from": "skillco",
+      "to": "chay",
+      "label": "Khung chuyên môn"
+    },
+    {
+      "id": "e_skillrieng",
+      "from": "skillrieng",
+      "to": "chay",
+      "label": "Giọng và dữ kiện VETC"
+    },
+    {
+      "id": "e_andanh",
+      "from": "andanh",
+      "to": "yeucau",
+      "label": "Dữ liệu đã ẩn danh",
+      "variant": "security"
+    },
+    {
+      "id": "e_yeucau",
+      "from": "yeucau",
+      "to": "chay",
+      "label": "Yêu cầu và tài liệu",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_congcu",
+      "from": "congcu",
+      "to": "chay",
+      "label": "Tự chạy khi cần",
+      "variant": "dashed"
+    },
+    {
+      "id": "e_nhap",
+      "from": "chay",
+      "to": "duyetnd",
+      "label": "Bản nháp",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_dat",
+      "from": "duyetnd",
+      "to": "phathanh",
+      "label": "Đạt",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_chuadat",
+      "from": "duyetnd",
+      "to": "chay",
+      "label": "Chưa đạt, chỉnh lại",
+      "variant": "dashed",
+      "role": "return"
+    },
+    {
+      "id": "e_lap",
+      "from": "chay",
+      "to": "donggoi",
+      "label": "Lặp tới lần thứ ba",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "e_upload",
+      "from": "donggoi",
+      "to": "skillrieng",
+      "label": "Upload lên tài khoản",
+      "variant": "dashed",
+      "role": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Chuẩn bị một lần",
+      "items": [
+        "Bật tám gói skill theo nhóm nghề, bốn gói tạo file luôn có sẵn",
+        "Nối Gmail, Google Drive, lịch làm việc và Canva",
+        "Tạo Project làm kho tài liệu dùng chung giữa các phiên"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Ba cách gọi skill",
+      "items": [
+        "Gõ tự nhiên bằng tiếng Việt, hệ thống tự chọn skill phù hợp",
+        "Gõ dấu gạch chéo rồi tên skill để chọn từ danh sách",
+        "Nêu thẳng tên skill trong câu để ép dùng đúng skill đó"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Skill riêng của VETC",
+      "items": [
+        "Mười một skill giữ giọng chính sách, dữ kiện thật và nhận diện",
+        "vetc-data-guard kiểm tra và ẩn danh dữ liệu trước khi đưa vào",
+        "Dùng tới lần thứ ba thì đóng gói, đặt tên vetc-tên việc"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Ba nguyên tắc không đổi",
+      "items": [
+        "Không đưa dữ liệu khách hàng ra ngoài khi chưa ẩn danh",
+        "Không để AI ra quyết định cuối, người có thẩm quyền ký",
+        "Không dùng kết quả chưa đối chiếu được nguồn"
+      ]
+    }
+  ]
+}
