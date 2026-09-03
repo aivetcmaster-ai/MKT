@@ -1,0 +1,3 @@
+# Bộ nhận dạng giọng nói SYSTRAN/faster-whisper cho VETC
+# Chạy CPU, không cần ffmpeg (giải mã audio/video bằng PyAV)
+faster-whisper==1.2.1

@@ -1,0 +1,8 @@
+# Môi trường ảo Python
+.venv/
+.venv-whisper/
+__pycache__/
+*.pyc
+
+# Cache model của faster-whisper khi tải về trong repo
+models/
