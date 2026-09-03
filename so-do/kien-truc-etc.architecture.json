@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Kiến trúc hệ thống thu phí điện tử không dừng (ETC)",
+    "output": "kien-truc-etc.html",
+    "quality_profile": "showcase",
+    "visual_preset": "vetc",
+    "views": [
+      {
+        "id": "thu-phi-tai-lan",
+        "label": "Thu phí tại làn",
+        "focus": ["vehicle", "lane", "station", "core"],
+        "note": "Đường đi của một lượt xe qua trạm, từ lúc đọc thẻ tới khi giao dịch được ghi nhận."
+      },
+      {
+        "id": "tai-khoan-va-nap-tien",
+        "label": "Tài khoản và nạp tiền",
+        "focus": ["app", "bank", "gateway", "core", "account"],
+        "note": "Dòng tiền vào tài khoản giao thông và kênh tự phục vụ của chủ phương tiện."
+      },
+      {
+        "id": "doi-soat-doanh-thu",
+        "label": "Đối soát và doanh thu",
+        "focus": ["account", "db", "clearing", "bot"],
+        "note": "Lưu vết giao dịch, đối soát liên thông và chia doanh thu về nhà đầu tư BOT."
+      }
+    ]
+  },
+  "components": [
+    { "id": "app", "type": "frontend", "label": "App và Web khách hàng", "sublabel": "Tra cứu, nạp tiền, khiếu nại", "pos": [340, 60], "size": [175, 76] },
+    { "id": "bank", "type": "external", "label": "Ngân hàng, ví điện tử", "sublabel": "Kênh nạp tiền liên kết", "pos": [655, 60], "size": [175, 76] },
+    { "id": "gateway", "type": "security", "label": "API Gateway", "sublabel": "TLS, chữ ký số", "pos": [970, 60], "size": [175, 76], "tag": "Chống gian lận" },
+
+    { "id": "vehicle", "type": "external", "label": "Phương tiện", "sublabel": "Thẻ RFID dán kính lái", "pos": [40, 290], "size": [160, 76] },
+    { "id": "lane", "type": "backend", "label": "Thiết bị làn", "sublabel": "Đầu đọc RFID, camera LPR", "pos": [340, 290], "size": [175, 76], "tag": "Barrie tự động" },
+    { "id": "station", "type": "backend", "label": "Máy chủ trạm", "sublabel": "Ghép và kiểm tra bản ghi", "pos": [655, 290], "size": [175, 76], "tag": "Store and forward" },
+    { "id": "core", "type": "backend", "label": "Hệ thống ETC trung tâm", "sublabel": "Định phí, xử lý giao dịch", "pos": [970, 290], "size": [175, 76] },
+
+    { "id": "bot", "type": "external", "label": "Nhà đầu tư BOT", "sublabel": "Đơn vị quản lý trạm", "pos": [40, 520], "size": [160, 76] },
+    { "id": "clearing", "type": "backend", "label": "Đối soát liên thông", "sublabel": "Giữa các nhà cung cấp ETC", "pos": [340, 520], "size": [175, 76] },
+    { "id": "db", "type": "database", "label": "CSDL giao dịch", "sublabel": "Lưu vết, phục vụ tra soát", "pos": [655, 520], "size": [175, 76] },
+    { "id": "account", "type": "backend", "label": "Tài khoản giao thông", "sublabel": "Số dư, phương tiện, chủ xe", "pos": [970, 520], "size": [175, 76] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Trạm thu phí", "wraps": ["lane", "station"] },
+    { "kind": "region", "label": "Trung tâm dữ liệu ETC", "wraps": ["core", "account"] }
+  ],
+  "connections": [
+    { "id": "doc-the", "from": "vehicle", "to": "lane", "label": "Đọc thẻ, nhận biển số", "variant": "emphasis" },
+    { "id": "ban-ghi-lan", "from": "lane", "to": "station", "label": "Bản ghi qua làn" },
+    { "id": "day-giao-dich", "from": "station", "to": "core", "label": "Đẩy giao dịch, gửi bù" },
+    { "id": "lenh-nap-tien", "from": "app", "to": "bank", "label": "Lệnh nạp tiền" },
+    { "id": "bao-co", "from": "bank", "to": "gateway", "label": "Báo có thanh toán" },
+    { "id": "api-da-ky", "from": "gateway", "to": "core", "label": "API đã ký số", "variant": "security", "labelAt": [1058, 213] },
+    { "id": "tru-tien", "from": "core", "to": "account", "label": "Trừ tiền theo biểu phí", "variant": "emphasis", "labelAt": [1058, 443] },
+    { "id": "ghi-giao-dich", "from": "account", "to": "db", "label": "Ghi giao dịch" },
+    { "id": "du-lieu-doi-soat", "from": "db", "to": "clearing", "label": "Dữ liệu đối soát" },
+    { "id": "chia-doanh-thu", "from": "clearing", "to": "bot", "label": "Chia doanh thu" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Tại làn", "items": ["Đầu đọc RFID UHF nhận diện thẻ dán trên kính lái", "Camera nhận dạng biển số để đối chiếu với thẻ", "Barrie mở tự động khi giao dịch hợp lệ"] },
+    { "dot": "emerald", "title": "Xử lý trung tâm", "items": ["Máy chủ trạm lưu đệm khi mất kết nối và gửi bù sau", "Trung tâm định phí theo biểu phí từng trạm và loại xe", "Trừ tiền trên tài khoản giao thông của chủ phương tiện"] },
+    { "dot": "violet", "title": "Kênh khách hàng", "items": ["Nạp tiền qua ngân hàng và ví điện tử liên kết", "Tra cứu số dư, lịch sử giao dịch trên app hoặc web", "Tiếp nhận khiếu nại và tra soát giao dịch"] },
+    { "dot": "amber", "title": "Đối soát và tuân thủ", "items": ["Đối soát liên thông giữa các nhà cung cấp dịch vụ ETC", "Chia doanh thu về nhà đầu tư BOT theo kỳ đối soát", "Lưu vết đầy đủ phục vụ báo cáo cơ quan quản lý"] }
+  ]
+}

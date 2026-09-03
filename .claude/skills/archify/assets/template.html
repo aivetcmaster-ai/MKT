@@ -348,6 +348,80 @@
       --toolbar-menu-bg: #fbf8f1;
     }
 
+    /* ==========================================================
+       VETC — brand preset for VETC (Tasco) documents and decks.
+       VETC Green #2DBE60 leads, dark green #1E9E4F and pale green
+       #E8F8EE support, amber #F5A623 is accent only. Semantic
+       component hues stay distinct so the map remains readable.
+       ========================================================== */
+    [data-preset="vetc"][data-theme="dark"] {
+      --bg: #06140F;
+      --grid: #143526;
+      --panel: rgba(8, 26, 19, 0.86);
+      --panel-border: #1E4A34;
+      --lane-fill: rgba(13, 40, 28, 0.52);
+      --lane-stroke: #2C6446;
+      --text: #EFFBF3;
+      --text-muted: #9DBFAB;
+      --text-dim: #567965;
+      --text-faint: #7B9E89;
+      --mask: #0A1D16;
+      --frontend-fill: rgba(45, 212, 191, 0.14);
+      --frontend-stroke: #5EEAD4;
+      --backend-fill: rgba(45, 190, 96, 0.16);
+      --backend-stroke: #56D98A;
+      --database-fill: rgba(167, 139, 250, 0.14);
+      --database-stroke: #C4B5FD;
+      --cloud-fill: rgba(96, 165, 250, 0.13);
+      --cloud-stroke: #93C5FD;
+      --security-fill: rgba(248, 113, 113, 0.13);
+      --security-stroke: #FCA5A5;
+      --messagebus-fill: rgba(245, 166, 35, 0.14);
+      --messagebus-stroke: #F8C471;
+      --external-fill: rgba(100, 116, 139, 0.24);
+      --external-stroke: #A3B5AC;
+      --arrow: #7B9E89;
+      --arrow-emphasis: #2DBE60;
+      --toolbar-bg: rgba(8, 26, 19, 0.9);
+      --toolbar-border: #27593E;
+      --toolbar-menu-bg: #0A1D16;
+    }
+
+    [data-preset="vetc"][data-theme="light"] {
+      --bg: #F7FBF8;
+      --grid: #DCEFE4;
+      --panel: rgba(255, 255, 255, 0.88);
+      --panel-border: #C4E4D3;
+      --lane-fill: rgba(232, 248, 238, 0.66);
+      --lane-stroke: #A9DCC0;
+      --text: #0F2A1C;
+      --text-muted: #4A6B58;
+      --text-dim: #8AA898;
+      --text-faint: #6B8C79;
+      --mask: #FFFFFF;
+      --frontend-fill: rgba(15, 118, 110, 0.09);
+      --frontend-stroke: #0F766E;
+      --backend-fill: rgba(30, 158, 79, 0.11);
+      --backend-stroke: #1E9E4F;
+      --database-fill: rgba(109, 74, 168, 0.09);
+      --database-stroke: #6D4AA8;
+      --cloud-fill: rgba(37, 99, 165, 0.08);
+      --cloud-stroke: #2563A5;
+      --security-fill: rgba(178, 58, 43, 0.08);
+      --security-stroke: #B23A2B;
+      --messagebus-fill: rgba(245, 166, 35, 0.14);
+      --messagebus-stroke: #C77C0C;
+      --external-fill: rgba(95, 115, 131, 0.1);
+      --external-stroke: #5F7383;
+      --arrow: #7D9689;
+      --arrow-emphasis: #2DBE60;
+      --toolbar-bg: rgba(255, 255, 255, 0.94);
+      --toolbar-border: #C4E4D3;
+      --toolbar-text: #234034;
+      --toolbar-hover: #E8F8EE;
+      --toolbar-menu-bg: #FFFFFF;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -382,6 +456,13 @@
       background-image:
         linear-gradient(90deg, transparent 0, transparent 5.4rem, color-mix(in srgb, var(--security-stroke) 18%, transparent) 5.4rem, color-mix(in srgb, var(--security-stroke) 18%, transparent) calc(5.4rem + 1px), transparent calc(5.4rem + 1px)),
         repeating-linear-gradient(0deg, transparent 0, transparent 31px, color-mix(in srgb, var(--grid) 36%, transparent) 31px, color-mix(in srgb, var(--grid) 36%, transparent) 32px);
+      background-attachment: fixed;
+    }
+
+    html[data-preset="vetc"] body {
+      background-image:
+        radial-gradient(circle at 12% -6%, rgba(45, 190, 96, 0.1), transparent 32rem),
+        radial-gradient(circle at 88% 12%, rgba(245, 166, 35, 0.06), transparent 28rem);
       background-attachment: fixed;
     }
 
@@ -621,7 +702,8 @@
 
     html[data-preset="signal-flow"] .header,
     html[data-preset="blueprint"] .header,
-    html[data-preset="editorial"] .header { padding-right: 29.5rem; }
+    html[data-preset="editorial"] .header,
+    html[data-preset="vetc"] .header { padding-right: 29.5rem; }
 
     .header-row {
       display: flex;
@@ -691,6 +773,44 @@
       font-size: 0.5625rem;
       font-weight: 700;
       letter-spacing: 0.14em;
+      white-space: nowrap;
+    }
+
+    /* Vietnamese copy needs precomposed glyphs (ố, ử, ệ...). Several common
+       monospace faces lack Latin Extended Additional and let the browser
+       synthesise them from combining marks, which reads as a floating accent.
+       Put Vietnamese-complete monospace families ahead of the generic
+       fallbacks; all keep a fixed advance so authored geometry is unchanged. */
+    html[data-preset="vetc"] body,
+    html[data-preset="vetc"] .diagram-container svg,
+    svg[data-preset="vetc"] {
+      font-family: 'JetBrains Mono', 'Cascadia Mono', 'Liberation Mono', 'Noto Sans Mono', Consolas, 'DejaVu Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    html[data-preset="vetc"] h1,
+    html[data-preset="vetc"] .card h3 {
+      font-family: 'Be Vietnam Pro', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      letter-spacing: -0.01em;
+    }
+    html[data-preset="vetc"] .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--arrow-emphasis);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--arrow-emphasis) 18%, transparent);
+      animation: none;
+    }
+    html[data-preset="vetc"] .header-row::after {
+      content: attr(data-preset-badge-vetc);
+      margin-left: auto;
+      padding: 0.28rem 0.62rem;
+      border: 1px solid var(--arrow-emphasis);
+      border-radius: 999px;
+      color: var(--arrow-emphasis);
+      font-family: 'Be Vietnam Pro', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      font-size: 0.5938rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       white-space: nowrap;
     }
 
@@ -3178,6 +3298,12 @@
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--arrow-emphasis) 14%, transparent);
       transform: rotate(45deg) scale(0.72);
     }
+    #btn-preset[data-preset-option="vetc"] .preset-control-mark {
+      border-color: var(--arrow-emphasis);
+      border-radius: 50%;
+      background: var(--arrow-emphasis);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--arrow-emphasis) 18%, transparent);
+    }
     .toolbar .preset-menu {
       position: absolute;
       top: calc(100% + 0.375rem);
@@ -3316,6 +3442,27 @@
       height: 0.38rem;
       background: #c9502d;
       transform: rotate(45deg);
+    }
+    .preset-option-swatch.vetc {
+      border-color: #2DBE60;
+      border-radius: 0.28rem;
+      background: linear-gradient(135deg, #E8F8EE 0 46%, #2DBE60 46% 100%);
+    }
+    .preset-option-swatch.vetc::before {
+      top: 0.2rem;
+      left: 0.22rem;
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+      background: #1E9E4F;
+    }
+    .preset-option-swatch.vetc::after {
+      right: 0.2rem;
+      bottom: 0.22rem;
+      width: 0.26rem;
+      height: 0.26rem;
+      border-radius: 50%;
+      background: #F5A623;
     }
     .preset-option-copy { min-width: 0; }
     .preset-option-copy strong,
@@ -4896,6 +5043,13 @@
         </button>
       </div>
     </div>
+        <button class="preset-option" data-preset-value="vetc" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
+          <span class="preset-option-swatch vetc" aria-hidden="true"></span>
+          <span class="preset-option-copy"><strong>{{i18n:viewer.preset.vetc}}</strong><small>{{i18n:viewer.preset.vetc.hint}}</small></span>
+          <span class="preset-option-check" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
     <button id="btn-motion" type="button" hidden
             title="{{i18n:viewer.motion.pause}}"
             aria-label="{{i18n:viewer.motion.pause}}"
@@ -4953,7 +5107,8 @@
       <div class="header-row"
            data-preset-badge-signal-flow="{{i18n:viewer.preset.badge.signalFlow}}"
            data-preset-badge-blueprint="{{i18n:viewer.preset.badge.blueprint}}"
-           data-preset-badge-editorial="{{i18n:viewer.preset.badge.editorial}}">
+           data-preset-badge-editorial="{{i18n:viewer.preset.badge.editorial}}"
+           data-preset-badge-vetc="{{i18n:viewer.preset.badge.vetc}}">
         <div class="pulse-dot"></div>
         <h1>[PROJECT NAME] Architecture</h1>
       </div>
@@ -5437,18 +5592,19 @@
     }
 
     /* ============================================================
-       Visual style try-on — one topology, four bundled presets.
+       Visual style try-on — one topology, five bundled presets.
        The reader's choice is intentionally session-only: it updates the
        live page and canonical SVG together, but never rewrites the source,
        URL, or a later diagram's authored default.
        ============================================================ */
     Archify.preset = (function () {
-      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'editorial'];
+      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'editorial', 'vetc'];
       var LABELS = {
         classic: viewerText('viewer.preset.classic.short'),
         'signal-flow': viewerText('viewer.preset.flow.short'),
         blueprint: viewerText('viewer.preset.blueprint'),
-        editorial: viewerText('viewer.preset.editorial')
+        editorial: viewerText('viewer.preset.editorial'),
+        vetc: viewerText('viewer.preset.vetc')
       };
       var html = document.documentElement;
       var svg = document.querySelector('.diagram-container svg');

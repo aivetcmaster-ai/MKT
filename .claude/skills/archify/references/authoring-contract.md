@@ -80,8 +80,12 @@ domain wording, and keep that authored override in the primary language.
 Omit `meta.visual_preset` by default. The renderer then opens the diagram in
 `classic` for both light and dark color modes. Color mode and visual preset are
 independent viewer state: switching Light / Dark must preserve the current
-preset. Author `signal-flow`, `blueprint`, or `editorial` only when the user
-explicitly requests that visual style.
+preset. Author `signal-flow`, `blueprint`, `editorial`, or `vetc` only when the
+user explicitly requests that visual style. `vetc` carries VETC (Tasco) brand
+colour, sets Be Vietnam Pro on the page chrome, and puts Vietnamese-complete
+monospace families ahead of the generic fallbacks so precomposed glyphs such as
+`ố` and `ử` render instead of a synthesised floating accent. Diagram text keeps a
+fixed advance, so authored geometry is unchanged.
 
 ## Engineering profile default
 
