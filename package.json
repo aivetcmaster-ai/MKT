@@ -1,0 +1,8 @@
+{
+  "name": "mkt-media-tools",
+  "private": true,
+  "description": "Bộ công cụ xử lý ảnh, font, video cho tài liệu và ấn phẩm VETC",
+  "dependencies": {
+    "sharp": "^0.35.4"
+  }
+}
