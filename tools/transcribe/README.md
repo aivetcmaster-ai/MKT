@@ -65,3 +65,7 @@ File `vetc-tu-dien.txt` chứa các thuật ngữ được mồi cho model để
 Bản bóc băng là bản nháp do máy tạo. Tên riêng, số liệu, mức phí, phát ngôn của lãnh đạo phải có người rà lại trước khi dùng cho nội dung đối ngoại hoặc báo cáo.
 
 Ghi âm có dữ liệu khách hàng như biển số, số điện thoại, số thẻ thì ẩn danh phần chữ trước khi đưa nội dung đi tiếp. Không đưa file ghi âm gốc chứa dữ liệu khách hàng ra ngoài hệ thống nội bộ.
+
+## Bản mẫu đầu ra
+
+Thư mục `vi-du/` chứa bốn file SRT, VTT, TXT, JSON của một video social dài 35 giây để xem trước hình dạng kết quả.

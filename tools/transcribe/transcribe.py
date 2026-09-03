@@ -53,17 +53,33 @@ def chon_thiet_bi(device, compute_type):
 
 
 def dinh_dang_gio(giay, dau_thap_phan=","):
-    gio, con_lai = divmod(max(giay, 0), 3600)
-    phut, giay_le = divmod(con_lai, 60)
-    return f"{int(gio):02d}:{int(phut):02d}:{int(giay_le):02d}{dau_thap_phan}{int((giay_le % 1) * 1000):03d}"
+    """Đổi giây thành HH:MM:SS,mmm. Quy tròn theo mili giây để tránh sai số số thực."""
+    tong_ms = round(max(giay, 0) * 1000)
+    gio, con_lai = divmod(tong_ms, 3_600_000)
+    phut, con_lai = divmod(con_lai, 60_000)
+    giay_le, ms = divmod(con_lai, 1000)
+    return f"{gio:02d}:{phut:02d}:{giay_le:02d}{dau_thap_phan}{ms:03d}"
 
 
 def ngat_dong(text, gioi_han):
-    """Ngắt phụ đề thành tối đa 2 dòng cho dễ đọc trên điện thoại."""
-    text = text.strip()
+    """Ngắt phụ đề cho dễ đọc trên điện thoại, ưu tiên hai dòng dài gần bằng nhau."""
+    text = " ".join(text.split())
     if gioi_han <= 0 or len(text) <= gioi_han:
         return text
-    tu, dong, hien_tai = text.split(), [], ""
+
+    tu = text.split()
+    can_nhat = None
+    for i in range(1, len(tu)):
+        dong_tren, dong_duoi = " ".join(tu[:i]), " ".join(tu[i:])
+        if len(dong_tren) <= gioi_han and len(dong_duoi) <= gioi_han:
+            lech = abs(len(dong_tren) - len(dong_duoi))
+            if can_nhat is None or lech < can_nhat[0]:
+                can_nhat = (lech, dong_tren, dong_duoi)
+    if can_nhat:
+        return f"{can_nhat[1]}\n{can_nhat[2]}"
+
+    # Đoạn quá dài cho hai dòng thì ngắt lần lượt theo giới hạn.
+    dong, hien_tai = [], ""
     for t in tu:
         if hien_tai and len(hien_tai) + 1 + len(t) > gioi_han:
             dong.append(hien_tai)
@@ -72,7 +88,7 @@ def ngat_dong(text, gioi_han):
             hien_tai = f"{hien_tai} {t}".strip()
     if hien_tai:
         dong.append(hien_tai)
-    return "\n".join(dong[:2]) if len(dong) <= 2 else "\n".join([" ".join(dong[:-1]), dong[-1]])
+    return "\n".join(dong)
 
 
 def viet_srt(doan, tep, gioi_han):
