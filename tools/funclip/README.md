@@ -98,6 +98,40 @@ Dòng lệnh, không cần giao diện:
     --output_file ./output/res.mp4
 ```
 
+## Gắn phụ đề tiếng Việt theo nhận diện VETC
+
+Vì FunClip không nhận dạng được tiếng Việt, thư mục này có thêm `burn_subs.py`: nhận một file SRT có sẵn (gõ tay, xuất từ công cụ ASR tiếng Việt khác, hoặc từ FunClip với nội dung tiếng Anh) rồi đốt phụ đề thẳng vào khung hình theo đúng màu và font thương hiệu, cắt đoạn nếu cần.
+
+```bash
+~/funclip/venv/bin/python tools/funclip/burn_subs.py \
+    --video raw.mp4 --srt raw.srt --out clip.mp4 \
+    --start 00:00:12,000 --end 00:00:30,000 \
+    --logo /duong-dan/vetc-wordmark-green.png --logo-color white
+```
+
+Các tuỳ chọn đáng nhớ:
+
+| Cờ | Công dụng |
+| --- | --- |
+| `--start`, `--end` | Cắt đoạn, phụ đề tự dời mốc thời gian theo |
+| `--style green` | Nền xanh VETC, chữ trắng. Mặc định, hợp với cảnh quay thật |
+| `--style white` | Nền trắng, chữ xanh VETC. Dùng khi khung hình đã là màu xanh thương hiệu |
+| `--logo`, `--logo-color` | Chèn logo góc trên bên trái, tô lại thành trắng khi đặt trên nền xanh hoặc ảnh tối |
+| `--font` | Chỉ định file `.ttf`. Không có thì script tự lùi về font hệ thống có dấu tiếng Việt |
+
+**Font thương hiệu.** VETC Sans trong bộ nhận diện chỉ có bản `.woff2`, Pillow không đọc được. Chuyển sang `.ttf` một lần rồi đặt vào `tools/funclip/fonts/`, script sẽ tự tìm thấy:
+
+```bash
+~/funclip/venv/bin/pip install fonttools brotli
+~/funclip/venv/bin/python -c "from fontTools.ttLib import TTFont; f=TTFont('VETCSans-Bold.woff2'); f.flavor=None; f.save('VETCSans-Bold.ttf')"
+```
+
+Font là tài sản có bản quyền của VETC nên không commit vào repo, mỗi người tự chuyển từ bộ nhận diện.
+
+Kết quả mẫu nằm ở `examples/vetc-demo-phu-de.mp4`, dựng từ `examples/demo-vetc.srt`. Nội dung câu chữ trong file mẫu chỉ để minh hoạ kỹ thuật, chưa qua duyệt nội dung.
+
+**Một lỗi thư viện cần biết.** MoviePy 1.0.3 gọi `Image.ANTIALIAS`, hằng số đã bị Pillow 10 bỏ đi, nên mọi lệnh `.resize()` của MoviePy đều lỗi. Script này tự thu nhỏ ảnh bằng Pillow để tránh, nhưng nếu tự viết thêm đoạn xử lý video thì đừng dùng `.resize()` của MoviePy.
+
 ## Quy tắc dữ liệu khi dùng trong VETC
 
 - Phần nhận dạng và cắt video chạy hoàn toàn cục bộ, video không rời khỏi máy. Đây là lý do chính nên dùng FunClip thay vì công cụ cắt clip online.
@@ -116,3 +150,5 @@ Môi trường chạy Claude Code trên web chặn `modelscope.cn` và `huggingf
 | `install.sh` | Cài đặt trên macOS và Linux |
 | `install.ps1` | Cài đặt trên Windows |
 | `download_models.py` | Tải trước bộ model ASR |
+| `burn_subs.py` | Cắt đoạn và gắn phụ đề tiếng Việt theo nhận diện VETC |
+| `examples/` | File SRT mẫu và clip kết quả để đối chiếu |
