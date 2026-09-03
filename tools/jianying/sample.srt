@@ -1,0 +1,11 @@
+1
+00:00:00,500 --> 00:00:03,000
+Gửi xe không cần rút ví, không cần chờ
+
+2
+00:00:03,200 --> 00:00:06,000
+Biển số vào đúng bãi, tiền trừ đúng tài khoản
+
+3
+00:00:06,200 --> 00:00:09,000
+VETC Parking, đi một mạch từ cổng vào tới chỗ đỗ
