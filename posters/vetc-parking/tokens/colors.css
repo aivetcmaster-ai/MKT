@@ -1,0 +1,53 @@
+/* VETC colour system — values transcribed from VETC Brand Guideline (Nov 2025), pp.35–39 */
+:root{
+/* Primary */
+--vetc-green:#0BB260;            /* Xanh VETC, RGB master, Pantone 6164C */
+--vetc-green-print:#00B15D;      /* CMYK 82/0/88/0 equivalent — print only */
+--vetc-black:#000000;
+--vetc-white:#FFFFFF;
+
+/* Supporting green scale (Bảng màu xanh bổ trợ, p.37) */
+--green-plus-2:#009647;
+--green-plus-1:#63BF7F;
+--green-minus-1:#98D09F;
+--green-minus-2:#D6EBD8;
+
+/* Neutrals — sampled from the guideline's own document surfaces */
+--neutral-000:#FFFFFF;
+--neutral-050:#FBFBFB;
+--neutral-100:#F5F5F7;
+--neutral-300:#CDCDCD;
+--neutral-500:#8A8A8E;
+--neutral-700:#4A4A4E;
+--neutral-900:#000000;
+
+/* Service palettes (Bảng màu đa sắc, p.38) — one hue per service line */
+--rescue-base:#F26531;    --rescue-accent-1:#FBB034;    --rescue-accent-2:#A7B239;
+--parking-base:#FFC20E;   --parking-accent-1:#FEE551;   --parking-accent-2:#BEC93B;
+--insurance-base:#34C3E0; --insurance-accent-1:#C8EAF5; --insurance-accent-2:#1F9DBA;
+--petro-base:#1D75BC;     --petro-accent-1:#26A2DC;     --petro-accent-2:#3992BA;
+
+/* Semantic aliases */
+--surface-page:var(--neutral-000);
+--surface-panel:var(--neutral-100);
+--surface-subtle:var(--neutral-050);
+--surface-brand:var(--vetc-green);
+--surface-inverse:var(--vetc-black);
+--text-primary:var(--vetc-black);
+--text-secondary:var(--neutral-700);
+--text-muted:var(--neutral-500);
+--text-brand:var(--vetc-green);
+--text-on-brand:var(--vetc-white);
+--text-on-inverse:var(--vetc-white);
+--border-subtle:var(--neutral-300);
+--border-brand:var(--vetc-green);
+--action-primary:var(--vetc-green);
+--action-primary-hover:var(--green-plus-2);
+--action-primary-active:#00803D;
+--action-disabled:var(--neutral-300);
+--focus-ring:var(--green-plus-1);
+--state-success:var(--vetc-green);
+--state-warning:var(--parking-base);
+--state-danger:var(--rescue-base);
+--state-info:var(--insurance-accent-2);
+}

@@ -1,0 +1,34 @@
+/* Type system — VETC Brand Guideline pp.41–53.
+   Rules encoded here: max 3 sizes per layout; digital sizes divisible by 4;
+   line-height 100% display / 110–120% subhead / 130–140% body;
+   tracking only on uppercase (+8%), never on lowercase. */
+:root{
+--font-weight-regular:400;
+--font-weight-medium:500;
+--font-weight-semibold:600;
+--font-weight-bold:700;
+--font-weight-extrabold:800;
+
+--text-display-1:96px;
+--text-display-2:72px;
+--text-display-3:56px;
+--text-heading-1:40px;
+--text-heading-2:32px;
+--text-heading-3:24px;
+--text-body-lg:20px;
+--text-body:16px;
+--text-body-sm:14px;
+--text-caption:12px;
+
+--leading-display:1;
+--leading-subhead:1.15;
+--leading-body:1.35;
+
+--tracking-display:0;
+--tracking-uppercase:0.08em;
+--tracking-body:0;
+
+/* Ratio guidance (p.48): subhead 50–60% of headline, body 10–30% */
+--type-ratio-subhead:0.55;
+--type-ratio-body:0.2;
+}

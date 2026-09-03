@@ -1,0 +1,15 @@
+/* VETC Sans — the proprietary brand face, self-hosted from the supplied files.
+   woff2 is served first, the TTF stays as a fallback for older tooling.
+   Weights: 400 Regular, 500 Medium, 600 SemiBold, 700 Bold, 800 ExtraBold, each with an italic.
+   Arial remains the substitute inside Microsoft Office documents (guideline p.53). */
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Regular.woff2") format("woff2"),url("../fonts/VETCSans-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Italic.woff2") format("woff2"),url("../fonts/VETCSans-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Medium.woff2") format("woff2"),url("../fonts/VETCSans-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-MediumItalic.woff2") format("woff2"),url("../fonts/VETCSans-MediumItalic.ttf") format("truetype");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-SemiBold.woff2") format("woff2"),url("../fonts/VETCSans-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-SemiBoldItalic.woff2") format("woff2"),url("../fonts/VETCSans-SemiBoldItalic.ttf") format("truetype");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Bold.woff2") format("woff2"),url("../fonts/VETCSans-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-BoldItalic.woff2") format("woff2"),url("../fonts/VETCSans-BoldItalic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-ExtraBold.woff2") format("woff2"),url("../fonts/VETCSans-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-ExtraBoldItalic.woff2") format("woff2"),url("../fonts/VETCSans-ExtraBoldItalic.ttf") format("truetype");font-weight:800;font-style:italic;font-display:swap}
+:root{--font-sans:"VETC Sans","Helvetica Neue",Arial,sans-serif;--font-office:Arial,Helvetica,sans-serif;--font-brand-true:"VETC Sans","Helvetica Neue",Arial,sans-serif}

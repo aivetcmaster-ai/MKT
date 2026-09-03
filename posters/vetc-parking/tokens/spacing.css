@@ -1,0 +1,14 @@
+/* 4px base grid — digital type and spacing must stay divisible by 4 (p.48) */
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;
+--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--space-20:80px;--space-24:96px;
+/* Logo clear space: 1/2 the cap height of the wordmark (p.28) / of the mark (p.29) */
+--logo-clearspace-ratio:0.5; /* @kind other */
+--logo-min-height-digital:16px;   /* wordmark, p.27 */
+--mark-min-height-digital:20px;   /* V mark, p.27 */
+--logo-min-height-print:5mm; /* @kind spacing */
+--mark-min-height-print:7mm; /* @kind spacing */
+/* Marketing layouts: margin ≥ 3% of the long edge, or 5mm print / 12px digital (p.90) */
+--layout-margin-ratio:0.03;
+--layout-margin-min:12px;
+}
