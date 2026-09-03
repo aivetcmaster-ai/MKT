@@ -1,0 +1,2 @@
+# Firecrawl pdf-inspector: phân loại PDF và trích xuất text/Markdown, không cần OCR
+pdf-inspector==1.17.0
