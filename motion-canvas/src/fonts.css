@@ -1,0 +1,6 @@
+/* VETC Sans, self-host từ public/fonts. Chỉ nạp các weight dùng trong scene. */
+@font-face{font-family:"VETC Sans";src:url("/fonts/VETCSans-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"VETC Sans";src:url("/fonts/VETCSans-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:"VETC Sans";src:url("/fonts/VETCSans-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:"VETC Sans";src:url("/fonts/VETCSans-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"VETC Sans";src:url("/fonts/VETCSans-ExtraBold.woff2") format("woff2");font-weight:800;font-style:normal;font-display:block}

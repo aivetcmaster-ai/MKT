@@ -4,7 +4,7 @@ import {all, createRef, easeOutCubic, waitFor} from '@motion-canvas/core';
 import {VETC} from '../brand';
 
 export default makeScene2D(function* (view) {
-  view.fill(VETC.greenPale);
+  view.fill(VETC.white);
 
   const badge = createRef<Circle>();
   const title = createRef<Txt>();
@@ -29,19 +29,19 @@ export default makeScene2D(function* (view) {
       <Txt
         ref={title}
         text={'Motion Canvas đã sẵn sàng'}
-        fill={VETC.ink}
+        fill={VETC.black}
         fontFamily={VETC.font}
-        fontWeight={700}
+        fontWeight={800}
         fontSize={64}
         opacity={0}
       />
 
-      <Rect ref={bar} width={0} height={8} radius={4} fill={VETC.amber} />
+      <Rect ref={bar} width={0} height={8} radius={4} fill={VETC.green} />
 
       <Txt
         ref={tagline}
         text={VETC.tagline}
-        fill={VETC.greenDark}
+        fill={VETC.neutral700}
         fontFamily={VETC.font}
         fontWeight={500}
         fontSize={40}
