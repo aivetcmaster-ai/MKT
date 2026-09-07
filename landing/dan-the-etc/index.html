@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dán thẻ VETC</title>
+<link rel="stylesheet" href="../../posters/vetc-parking/styles.css">
+<style>
+/* ------------------------------------------------------------------
+   Landing page VETC - khung mẫu
+   Dùng token dùng chung ở posters/vetc-parking/tokens.
+   Toàn bộ nội dung tĩnh, không JavaScript, không accordion.
+   Nền mang chữ nhỏ dùng --green-deep để đạt tương phản 4.5:1.
+   ------------------------------------------------------------------ */
+:root{
+  --green-deep:#00803D;          /* = --action-primary-active, nền cho chữ nhỏ màu trắng */
+  --page:1200px;
+  --gutter:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font-sans);color:var(--text-primary);
+  background:var(--surface-page);-webkit-font-smoothing:antialiased;
+  font-size:17px;line-height:1.6;
+}
+img{max-width:100%;display:block}
+a{color:var(--green-plus-2)}
+.wrap{max-width:var(--page);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.eyebrow{
+  font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green-plus-2);margin:0 0 14px;
+}
+.rule{height:1px;background:var(--border-subtle);border:0;margin:0}
+
+/* ---------- dải cảnh báo bản nháp ---------- */
+.draft{background:var(--vetc-black);color:#fff;font-size:13px;letter-spacing:.02em}
+.draft .wrap{padding-top:10px;padding-bottom:10px}
+
+/* ---------- header ---------- */
+.site-head{background:var(--green-deep);color:#fff}
+.site-head .wrap{display:flex;align-items:center;gap:32px;padding-top:20px;padding-bottom:20px}
+/* File logo trong repo là biến thể White_on_Black, nền đen đặc. Trên nền xanh
+   dùng blend screen để khử nền đen. Khi có file bản White nền trong suốt,
+   bỏ mix-blend-mode ở .brand img và .tag-top img. */
+.brand img{height:30px;width:auto;mix-blend-mode:screen}
+.nav{margin-left:auto;display:flex;gap:28px;flex-wrap:wrap}
+.nav a{color:#fff;text-decoration:none;font-size:15px;font-weight:500}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.head-cta{
+  background:#fff;color:var(--green-deep);text-decoration:none;
+  font-size:15px;font-weight:700;padding:11px 20px;border-radius:8px;white-space:nowrap;
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--green-minus-2);padding:clamp(48px,7vw,88px) 0 0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{
+  font-size:clamp(38px,5.4vw,68px);line-height:1.06;font-weight:800;
+  letter-spacing:-.02em;margin:0 0 22px;
+}
+.hero h1 em{font-style:normal;color:var(--green-plus-2)}
+.hero p.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55;margin:0 0 32px;max-width:36em}
+.actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;font-size:17px;
+  padding:15px 28px;border-radius:8px;border:2px solid transparent;
+}
+.btn-primary{background:var(--green-deep);color:#fff}
+.btn-primary:hover{background:var(--vetc-black)}
+.btn-ghost{background:transparent;color:var(--green-deep);border-color:var(--green-deep)}
+.btn-ghost:hover{background:#fff}
+.hero .hotline{margin:22px 0 0;font-size:15px;color:var(--text-secondary)}
+.hero-art{align-self:end;padding-bottom:clamp(32px,4vw,56px)}
+
+/* thẻ ETC dựng bằng CSS, dữ liệu trên thẻ là dữ liệu giả */
+.tag{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 18px 44px rgba(0,0,0,.10);max-width:430px;margin-left:auto;
+}
+.tag-top{
+  background:var(--green-deep);padding:18px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.tag-top img{height:24px;width:auto;mix-blend-mode:screen}
+.tag-body{padding:26px 28px 22px}
+.tag-chip{border:1px solid rgba(255,255,255,.55);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.1em}
+.tag-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin:0 0 6px;font-weight:700}
+.tag-plate{font-size:34px;font-weight:800;letter-spacing:.02em;margin:0 0 22px}
+.tag-foot{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--border-subtle);padding-top:16px;font-size:14px}
+.tag-foot span{color:var(--text-muted)}
+.tag-foot b{display:block;font-size:16px;color:var(--text-primary);font-weight:700}
+.smart{display:flex;flex-direction:column;gap:5px;margin-top:22px;max-width:430px;margin-left:auto}
+.smart i{height:13px;border-radius:2px;display:block}
+.s1{background:linear-gradient(90deg,var(--green-plus-2),var(--vetc-green))}
+.s2{background:linear-gradient(90deg,var(--vetc-green),var(--green-plus-1))}
+.s3{background:linear-gradient(90deg,var(--green-plus-1),var(--green-minus-2))}
+
+/* ---------- dải số liệu ---------- */
+.facts{background:#fff;border-bottom:1px solid var(--border-subtle)}
+.facts .wrap{padding-top:44px;padding-bottom:36px}
+.facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.fact{padding:0 28px;border-left:1px solid var(--border-subtle)}
+.fact:first-child{padding-left:0;border-left:0}
+.fact:last-child{padding-right:0}
+.fact .num{font-size:30px;font-weight:800;line-height:1.1;color:var(--green-plus-2);margin:0 0 8px}
+.fact .num.pending{color:var(--text-muted);font-size:22px;font-weight:700}
+.fact p{margin:0;font-size:15px;color:var(--text-secondary)}
+.facts-note{margin:28px 0 0;font-size:14px;color:var(--text-muted);max-width:60em}
+
+/* ---------- khối chung ---------- */
+section.block{padding:clamp(56px,7vw,96px) 0}
+.block h2{font-size:clamp(28px,3.4vw,42px);line-height:1.15;font-weight:800;letter-spacing:-.01em;margin:0 0 18px;max-width:20em}
+.block .intro{font-size:18px;color:var(--text-secondary);margin:0 0 44px;max-width:44em}
+
+/* ---------- lý do, dạng danh sách có hairline ---------- */
+.reasons{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(32px,5vw,80px)}
+.reason{padding:26px 0;border-top:1px solid var(--border-subtle)}
+.reason h3{margin:0 0 6px;font-size:19px;font-weight:700;padding-left:20px;position:relative}
+.reason h3::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:2px;background:var(--vetc-green)}
+.reason p{padding-left:20px}
+.reason p{margin:0;font-size:16px;color:var(--text-secondary)}
+
+/* ---------- ba bước ---------- */
+.steps{background:var(--surface-panel)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px)}
+.step{background:#fff;border-radius:16px;padding:32px 28px}
+.step img{width:52px;height:52px;margin-bottom:22px}
+.step .no{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-plus-2);margin:0 0 8px}
+.step h3{margin:0 0 10px;font-size:21px;font-weight:700}
+.step p{margin:0;font-size:16px;color:var(--text-secondary)}
+
+/* ---------- hệ sinh thái ---------- */
+.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,32px)}
+.eco{border-top:4px solid var(--vetc-green);padding-top:20px}
+.eco.parking{border-color:var(--parking-base)}
+.eco.rescue{border-color:var(--rescue-base)}
+.eco.insurance{border-color:var(--insurance-base)}
+.eco.petro{border-color:var(--petro-base)}
+.eco h3{margin:0 0 8px;font-size:19px;font-weight:700}
+.eco p{margin:0;font-size:16px;color:var(--text-secondary)}
+
+/* ---------- dải tuyên ngôn ---------- */
+.claim{background:var(--green-deep);color:#fff}
+.claim .wrap{padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,5vw,72px);align-items:center}
+.claim h2{font-size:clamp(30px,4vw,52px);line-height:1.12;font-weight:800;letter-spacing:-.015em;margin:0 0 16px;max-width:14em}
+.claim p{margin:0;font-size:18px;color:rgba(255,255,255,.92);max-width:34em}
+.claim .actions .btn-primary{background:#fff;color:var(--green-deep)}
+.claim .actions .btn-primary:hover{background:var(--green-minus-2)}
+.claim .actions .btn-ghost{color:#fff;border-color:rgba(255,255,255,.7)}
+.claim .actions .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+/* ---------- hỏi đáp, tĩnh hoàn toàn ---------- */
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:clamp(32px,5vw,80px)}
+.qa{padding:26px 0;border-top:1px solid var(--border-subtle)}
+.qa h3{margin:0 0 8px;font-size:18px;font-weight:700}
+.qa p{margin:0;font-size:16px;color:var(--text-secondary)}
+.pending-tag{
+  display:inline-block;background:var(--green-minus-2);color:var(--green-plus-2);
+  font-size:13px;font-weight:700;padding:2px 8px;border-radius:5px;
+}
+
+/* ---------- footer ---------- */
+.site-foot{background:var(--vetc-black);color:#fff}
+.site-foot .wrap{padding-top:56px;padding-bottom:44px}
+.foot-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:clamp(28px,4vw,64px)}
+.site-foot img{height:28px;width:auto;margin-bottom:20px}
+.site-foot p{margin:0 0 8px;font-size:15px;color:rgba(255,255,255,.78)}
+.site-foot h4{margin:0 0 14px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.site-foot a{color:#fff}
+.tagline{margin-top:26px;font-size:20px;font-weight:700;color:#fff}
+.foot-note{margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:rgba(255,255,255,.6)}
+
+@media (max-width:980px){
+  .hero .wrap,.claim .wrap{grid-template-columns:1fr}
+  .hero-art{padding-bottom:clamp(32px,6vw,56px)}
+  .tag,.smart{margin-left:0}
+  .facts-grid{grid-template-columns:repeat(2,1fr);row-gap:28px}
+  .fact{padding-left:24px}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  .steps-grid,.eco-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .site-head .wrap{flex-wrap:wrap;gap:16px}
+  .nav{width:100%;margin-left:0;gap:18px}
+  .reasons,.faq-grid,.steps-grid,.eco-grid,.foot-grid{grid-template-columns:1fr}
+  .facts-grid{grid-template-columns:1fr;row-gap:24px}
+  .fact{padding:0;border-left:0}
+}
+@media print{
+  .draft,.head-cta{display:none}
+  body{font-size:11pt}
+}
+</style>
+</head>
+<body>
+
+<div class="draft">
+  <div class="wrap">Bản dựng mẫu phục vụ nội bộ. Nội dung và số liệu chờ phòng nghiệp vụ đối chiếu và duyệt trước khi phát hành.</div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="../../posters/vetc-parking/assets/logo/vetc-wordmark-white.png" alt="VETC"></a>
+    <nav class="nav">
+      <a href="#ly-do">Vì sao chọn VETC</a>
+      <a href="#cach-dang-ky">Cách đăng ký</a>
+      <a href="#he-sinh-thai">Hệ sinh thái</a>
+      <a href="#hoi-dap">Hỏi đáp</a>
+    </nav>
+    <a class="head-cta" href="#cach-dang-ky">Đăng ký dán thẻ</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Thu phí không dừng ETC</p>
+        <h1>Dán thẻ một lần, <em>cả hành trình không phải dừng</em></h1>
+        <p class="lead">VETC đồng hành cùng bác tài trên các tuyến cao tốc và quốc lộ. Xe đi qua làn ETC, hệ thống tự nhận diện thẻ và trừ tiền trong tài khoản giao thông, không cần dừng lại trả tiền mặt.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#cach-dang-ky">Đăng ký dán thẻ</a>
+          <a class="btn btn-ghost" href="#hoi-dap">Tìm hiểu trước khi đăng ký</a>
+        </div>
+        <p class="hotline">Cần hỗ trợ trực tiếp, bác tài gọi hotline 1900 6010.</p>
+      </div>
+      <div class="hero-art">
+        <div class="tag">
+          <div class="tag-top">
+            <img src="../../posters/vetc-parking/assets/logo/vetc-wordmark-white.png" alt="">
+            <span class="tag-chip">THẺ ETC</span>
+          </div>
+          <div class="tag-body">
+          <p class="tag-label">Phương tiện</p>
+          <p class="tag-plate">29X-000.00</p>
+          <div class="tag-foot">
+            <div><span>Trạng thái thẻ</span><b>Đang hoạt động</b></div>
+            <div><span>Tài khoản giao thông</span><b>Đã liên kết</b></div>
+          </div>
+          </div>
+        </div>
+        <div class="smart" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="wrap">
+      <div class="facts-grid">
+        <div class="fact"><p class="num pending">[chờ điền]</p><p>Trạm thu phí có làn ETC do VETC vận hành</p></div>
+        <div class="fact"><p class="num pending">[chờ điền]</p><p>Phương tiện đã dán thẻ VETC</p></div>
+        <div class="fact"><p class="num pending">[chờ điền]</p><p>Điểm dán thẻ và điểm dịch vụ toàn quốc</p></div>
+        <div class="fact"><p class="num pending">[chờ điền]</p><p>Kênh nạp tiền liên kết</p></div>
+      </div>
+      <p class="facts-note">Ô số liệu để trống có chủ đích. Phòng nghiệp vụ điền theo nguồn nội bộ mới nhất, không lấy số từ tài liệu cũ hoặc từ báo chí.</p>
+    </div>
+  </section>
+
+  <section class="block" id="ly-do">
+    <div class="wrap">
+      <p class="eyebrow">Lý do</p>
+      <h2>Người đồng hành của bác tài trên mọi cung đường</h2>
+      <p class="intro">Bốn điều bác tài thấy rõ ngay từ chuyến đi đầu tiên sau khi dán thẻ.</p>
+      <div class="reasons">
+        <div class="reason"><h3>Qua trạm bằng làn ETC</h3><p>Không phải dừng xe, không phải chuẩn bị tiền lẻ, không xếp hàng vào giờ cao điểm.</p></div>
+        <div class="reason"><h3>Nạp tiền chủ động</h3><p>Nạp vào tài khoản giao thông ngay trên ứng dụng VETC và các kênh thanh toán liên kết.</p></div>
+        <div class="reason"><h3>Giao dịch minh bạch</h3><p>Lịch sử qua trạm và số dư hiển thị trên ứng dụng, tra cứu được bất cứ lúc nào.</p></div>
+        <div class="reason"><h3>Hỗ trợ khi cần</h3><p>Hotline 1900 6010 và hệ thống điểm dịch vụ VETC hỗ trợ xử lý vướng mắc.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block steps" id="cach-dang-ky">
+    <div class="wrap">
+      <p class="eyebrow">Cách đăng ký</p>
+      <h2>Ba bước, xong trong một lần ghé</h2>
+      <p class="intro">Bác tài chuẩn bị sẵn giấy đăng ký xe và giấy tờ tùy thân của chủ phương tiện.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <img src="../../posters/vetc-parking/assets/icons/phone.png" alt="">
+          <p class="no">Bước 01</p><h3>Đăng ký</h3>
+          <p>Gọi hotline 1900 6010 hoặc đăng ký trên ứng dụng VETC để được hướng dẫn điểm dán gần nhất.</p>
+        </div>
+        <div class="step">
+          <img src="../../posters/vetc-parking/assets/icons/check-circle.png" alt="">
+          <p class="no">Bước 02</p><h3>Dán thẻ và kích hoạt</h3>
+          <p>Nhân viên dán thẻ lên phương tiện, kiểm tra tín hiệu và kích hoạt tài khoản giao thông.</p>
+        </div>
+        <div class="step">
+          <img src="../../posters/vetc-parking/assets/icons/wallet.png" alt="">
+          <p class="no">Bước 03</p><h3>Nạp tiền và lăn bánh</h3>
+          <p>Nạp tiền vào tài khoản giao thông, giữ số dư đủ cho hành trình rồi đi thẳng vào làn ETC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="he-sinh-thai">
+    <div class="wrap">
+      <p class="eyebrow">Hệ sinh thái</p>
+      <h2>Một tài khoản, nhiều dịch vụ trên cùng hành trình</h2>
+      <p class="intro">Ngoài thu phí không dừng, VETC còn đồng hành với bác tài ở các nhu cầu phát sinh dọc đường.</p>
+      <div class="eco-grid">
+        <div class="eco parking"><h3>VETC Parking</h3><p>Ra vào bãi đỗ không dừng, thanh toán tự động.</p></div>
+        <div class="eco rescue"><h3>VETC Cứu hộ</h3><p>Hỗ trợ xe gặp sự cố trên đường, đặt qua ứng dụng.</p></div>
+        <div class="eco insurance"><h3>VETC Bảo hiểm</h3><p>Bảo hiểm xe cơ giới, mua và quản lý ngay trên ứng dụng.</p></div>
+        <div class="eco petro"><h3>VETC Petro</h3><p>Thanh toán xăng dầu tại các điểm chấp nhận liên kết.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="claim">
+    <div class="wrap">
+      <div>
+        <h2>Sống hiện đại, lái văn minh</h2>
+        <p>Mỗi lượt xe qua trạm không dừng là một lượt bớt kẹt xe, bớt khói bụi và bớt thời gian chờ cho tất cả mọi người trên đường.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#cach-dang-ky">Đăng ký dán thẻ</a>
+        <a class="btn btn-ghost" href="#hoi-dap">Xem hỏi đáp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="hoi-dap">
+    <div class="wrap">
+      <p class="eyebrow">Hỏi đáp</p>
+      <h2>Những câu bác tài hay hỏi trước khi dán thẻ</h2>
+      <p class="intro">Nội dung mẫu, phòng nghiệp vụ rà lại theo quy định hiện hành trước khi đăng.</p>
+      <div class="faq-grid">
+        <div class="qa"><h3>Dán thẻ VETC ở đâu?</h3><p>Tại các điểm dịch vụ của VETC và các trạm thu phí có hỗ trợ dán thẻ. Bác tài gọi hotline 1900 6010 để được hướng dẫn điểm gần nhất.</p></div>
+        <div class="qa"><h3>Một thẻ dùng được cho mấy xe?</h3><p>Mỗi thẻ gắn với một phương tiện và một biển số đã đăng ký. Đổi xe thì cần đăng ký lại thông tin phương tiện.</p></div>
+        <div class="qa"><h3>Nạp tiền vào tài khoản giao thông bằng cách nào?</h3><p>Qua ứng dụng VETC và các kênh thanh toán liên kết. <span class="pending-tag">Danh sách kênh: chờ điền</span></p></div>
+        <div class="qa"><h3>Thay kính lái hoặc thẻ bị hỏng thì làm sao?</h3><p>Bác tài liên hệ hotline 1900 6010 hoặc tới điểm dịch vụ VETC để được kiểm tra và hướng dẫn xử lý.</p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="../../posters/vetc-parking/assets/logo/vetc-wordmark-white.png" alt="VETC">
+        <p>Công ty Cổ phần VETC</p>
+        <p>Tầng 11 đến 14, Toà nhà Tasco, Lô HH2-2, Từ Liêm, Hà Nội</p>
+        <p class="tagline">Sống hiện đại - Lái văn minh</p>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>Hotline <a href="tel:19006010">1900 6010</a></p>
+        <p><a href="mailto:info@vetc.com.vn">info@vetc.com.vn</a></p>
+        <p><a href="https://vetc.com.vn">vetc.com.vn</a></p>
+      </div>
+      <div>
+        <h4>Dịch vụ</h4>
+        <p>Thu phí không dừng ETC</p>
+        <p>VETC Parking</p>
+        <p>VETC Cứu hộ</p>
+        <p>VETC Bảo hiểm</p>
+      </div>
+    </div>
+    <p class="foot-note">Bản dựng mẫu dùng cho nội bộ. Biển số, số liệu và mô tả dịch vụ trên trang là dữ liệu giả hoặc chờ điền, cần người có thẩm quyền duyệt trước khi phát hành ra ngoài.</p>
+  </div>
+</footer>
+
+</body>
+</html>
