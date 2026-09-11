@@ -9,27 +9,27 @@ type ShotDef = { dur: number; note: string; card: string };
 
 const defs = {
   nightOpen: {
-    dur: 155,
+    dur: 162,
     note: 'Đêm. Ba quầng sáng trôi hữu cơ. Chữ VETC hiện dần theo từng nét, chốt nét cuối thì nhịp sáng.',
     card: 'glow-flyline-moves/glow-orb-ambient + opening/stroke-segment-build',
   },
   titleNight: {
-    dur: 54,
+    dur: 76,
     note: 'Chữ nhịp thở: "2 giờ sáng. Xe không nổ máy." nhấn hổ phách.',
     card: 'typography/paper-title-card (bản trường tối)',
   },
   relay: {
-    dur: 156,
+    dur: 168,
     note: 'Cuộc gọi đi: bác tài -> tổng đài VETC -> đội cứu hộ gần nhất, quầng sáng cộng hưởng cùng khung.',
     card: 'effects/glow-flyline-moves/orb-flyline-relay',
   },
   timeline: {
-    dur: 150,
+    dur: 156,
     note: 'Du hành trục thời gian bốn mốc: tiếp nhận - định vị - điều đội - có mặt, phanh gấp rồi đẩy gần.',
     card: 'data/timeline-travel',
   },
   titleOnsite: {
-    dur: 54,
+    dur: 76,
     note: 'Chữ nhịp thở: "Xử lý ngay tại chỗ." nhấn hổ phách.',
     card: 'typography/paper-title-card (bản trường tối)',
   },
@@ -61,5 +61,5 @@ export const SHOTS = order.reduce((out, name) => {
   return out;
 }, {} as Record<ShotName, ShotDef & { from: number; to: number }>);
 
-export const TOTAL = acc; // 1060f = 35.33s
+export const TOTAL = acc; // 1129f = 37.6s
 export const SHOT_ORDER = order;

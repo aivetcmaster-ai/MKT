@@ -33,12 +33,16 @@ const CARD_W = 580;
 const CARD_H = 230;
 
 const STATIONS = [
-  { x: 150, y: 190, litAt: 8, title: 'BÁC TÀI GỌI', sub: '1900 6010 · nhánh 1', step: '01' },
+  { x: 150, y: 190, litAt: 8, title: 'BÁC TÀI GỌI', sub: 'Đêm, đường vắng', step: '01' },
   { x: 1190, y: 330, litAt: 42, title: 'TỔNG ĐÀI VETC', sub: 'Tiếp nhận · định vị xe', step: '02' },
   { x: 670, y: 720, litAt: 76, title: 'ĐỘI GẦN NHẤT', sub: 'Nhận lệnh · lên đường', step: '03' },
 ];
 
-const center = (s: { x: number; y: number }) => ({ x: s.x + CARD_W / 2, y: s.y + CARD_H / 2 });
+// Điểm rơi phải nằm trên MÉP thẻ. Demo gốc cắm vào tâm vì ô của nó là wireframe
+// không có chữ; thẻ ở đây có tiêu đề nên cắm vào tâm sẽ vẽ vạch sáng đè lên chữ.
+const edgeTop = (s: { x: number; y: number }) => ({ x: s.x + CARD_W * 0.4, y: s.y });
+const edgeRight = (s: { x: number; y: number }) => ({ x: s.x + CARD_W, y: s.y + CARD_H * 0.45 });
+const edgeBottom = (s: { x: number; y: number }) => ({ x: s.x + CARD_W * 0.55, y: s.y + CARD_H });
 
 const ORBS: Orb[] = [
   { size: 720, peak: 0.24, bx: 1480, by: 360, p1: 104, p2: 138, ax1: 130, ax2: 95, ay1: 120, ay2: 92, seed: 1, surgeAt: 42 },
@@ -134,7 +138,7 @@ const Station: React.FC<{
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const op = 0.55 + 0.45 * lit;
+  const op = 0.75 + 0.25 * lit;
   const pulse =
     frame < litAt
       ? 0
@@ -179,7 +183,7 @@ const Station: React.FC<{
           fontSize: T.aux - 2,
           fontWeight: 700,
           letterSpacing: '0.2em',
-          color: `rgba(${C.greenRGB},${(0.55 + 0.45 * lit).toFixed(2)})`,
+          color: C.green,
         }}
       >
         {step}
@@ -195,7 +199,9 @@ const Station: React.FC<{
       >
         {title}
       </div>
-      <div style={{ fontSize: T.aux, fontWeight: 500, color: C.textDim }}>{sub}</div>
+      <div style={{ fontSize: T.aux, fontWeight: 500, color: C.textDim, whiteSpace: 'nowrap' }}>
+        {sub}
+      </div>
     </div>
   );
 };
@@ -204,15 +210,24 @@ export const S3Relay: React.FC = () => {
   const frame = useCurrentFrame();
   const haloId = `relayHalo-${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
 
-  const cA = center(STATIONS[0]);
-  const cB = center(STATIONS[1]);
-  const cC = center(STATIONS[2]);
-  const L1 = { p0: cA, p1: { x: 800, y: 120 }, p2: { x: 1280, y: 180 }, p3: cB };
-  const L2 = { p0: cB, p1: { x: 1700, y: 800 }, p2: { x: 1320, y: 1010 }, p3: cC };
+  // Cả điểm đi lẫn điểm đến đều nằm trên MÉP thẻ, không đi qua ruột thẻ,
+  // nếu không vạch sáng sẽ kẻ ngang qua tiêu đề.
+  const L1 = {
+    p0: edgeRight(STATIONS[0]),
+    p1: { x: 900, y: 150 },
+    p2: { x: 1290, y: 150 },
+    p3: edgeTop(STATIONS[1]),
+  };
+  const L2 = {
+    p0: edgeBottom(STATIONS[1]),
+    p1: { x: 1720, y: 760 },
+    p2: { x: 1430, y: 980 },
+    p3: edgeRight(STATIONS[2]),
+  };
 
   // Lời dẫn: vào sớm, mờ đi trước khi cảnh đứng yên (C1: không để đoạn phim câm)
   const capIn = seg(frame, 4, 22, E.outCubic);
-  const capOut = 1 - seg(frame, 124, 140, E.outCubic);
+  const capOut = 1 - seg(frame, 116, 132, E.outCubic);
 
   return (
     <AbsoluteFill style={{ background: C.bgDeep, overflow: 'hidden' }}>

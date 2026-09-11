@@ -13,6 +13,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
 import { C, FONT, T } from '../brand';
 import { E, seg } from '../motion';
 import { AmbientOrbs, Orb } from '../AmbientOrbs';
+import { SHOTS } from '../shots';
 
 // e1/e2: nối dài hai đầu nét (px) tại chỗ một nét bị chẻ đôi — không nối dài thì
 // hai nửa chạm nhau đúng biên và để lại đường chỉ tối do khử răng cưa chồng lớp.
@@ -31,24 +32,24 @@ const o3 = ADV * 3;
 const SEGS: Seg[] = [
   // V — hai nét chéo, mỗi nét chẻ làm hai (0-3); hai nửa dưới nối dài qua đỉnh nhọn
   { x1: 20, y1: 22, x2: 60, y2: 160, e2: 6 },
-  { x1: 60, y1: 160, x2: 100, y2: 298, e1: 6, e2: 8, cap: 'round' },
-  { x1: 100, y1: 298, x2: 140, y2: 160, e1: 8, e2: 6, cap: 'round' },
+  { x1: 60, y1: 160, x2: 100, y2: 298, e1: 6, cap: 'round' },
+  { x1: 100, y1: 298, x2: 140, y2: 160, e2: 6, cap: 'round' },
   { x1: 140, y1: 160, x2: 180, y2: 22, e1: 6 },
   // E — cột dọc chẻ hai + ba gạch ngang (4-8)
   { x1: o1 + 22, y1: 22, x2: o1 + 22, y2: 160, e2: 6 },
   { x1: o1 + 22, y1: 160, x2: o1 + 22, y2: 298, e1: 6 },
-  { x1: o1 + 22, y1: 22, x2: o1 + 178, y2: 22 },
-  { x1: o1 + 22, y1: 152, x2: o1 + 150, y2: 152 }, // chìa khoá
-  { x1: o1 + 22, y1: 298, x2: o1 + 178, y2: 298 },
+  { x1: o1 + 0, y1: 22, x2: o1 + 178, y2: 22 },
+  { x1: o1 + 0, y1: 152, x2: o1 + 150, y2: 152 }, // chìa khoá
+  { x1: o1 + 0, y1: 298, x2: o1 + 178, y2: 298 },
   // T — gạch trên chẻ hai + cột dọc (9-11)
   { x1: o2 + 20, y1: 22, x2: o2 + 100, y2: 22, e2: 6 },
   { x1: o2 + 100, y1: 22, x2: o2 + 180, y2: 22, e1: 6 },
   { x1: o2 + 100, y1: 22, x2: o2 + 100, y2: 298 }, // chìa khoá
   // C — gạch trên, cột dọc chẻ hai, gạch dưới (12-15)
-  { x1: o3 + 22, y1: 22, x2: o3 + 178, y2: 22 },
+  { x1: o3 + 0, y1: 22, x2: o3 + 178, y2: 22 },
   { x1: o3 + 22, y1: 22, x2: o3 + 22, y2: 160, e2: 6 },
   { x1: o3 + 22, y1: 160, x2: o3 + 22, y2: 298, e1: 6 },
-  { x1: o3 + 22, y1: 298, x2: o3 + 178, y2: 298 },
+  { x1: o3 + 0, y1: 298, x2: o3 + 178, y2: 298 },
 ];
 
 const ORDER = [13, 5, 9, 15, 0, 6, 12, 8, 14, 4, 10, 1, 2, 7, 11, 3];
@@ -91,11 +92,17 @@ export const S1NightOpen: React.FC = () => {
   });
 
   // Dòng phụ vào sau khi chữ đã chốt, rồi giữ yên (R1: nhịp thở thuộc về thương hiệu)
-  const subT = seg(frame, LAST_LAND + 2, LAST_LAND + 20, E.outCubic);
+  const subT = seg(frame, LAST_LAND + 2, LAST_LAND + 12, E.outCubic);
+
+  // 8 khung cuối mờ dần để giao cảnh. Chữ thương hiệu vẫn đứng yên tuyệt đối
+  // 36 khung trước đó (f118-f153), đủ hơn 1 giây theo chuẩn R1; phần mờ này chỉ
+  // để tránh cú "chớp về đen" ở mối nối sang thẻ chữ.
+  const HANDOFF = 8;
+  const fadeOut = 1 - seg(frame, SHOTS.nightOpen.dur - HANDOFF, SHOTS.nightOpen.dur, E.outQuad);
 
   return (
-    <AbsoluteFill style={{ background: C.bgDeep, overflow: 'hidden' }}>
-      <AmbientOrbs frame={frame} orbs={ORBS} convergeFrom={95} convergeTo={125} carry={18} />
+    <AbsoluteFill style={{ background: C.bgDeep, overflow: 'hidden', opacity: fadeOut }}>
+      <AmbientOrbs frame={frame} orbs={ORBS} convergeFrom={90} convergeTo={116} carry={16} />
 
       <svg
         width={1920}

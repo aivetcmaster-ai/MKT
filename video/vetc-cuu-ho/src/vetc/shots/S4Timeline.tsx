@@ -20,17 +20,17 @@ const TICK_GAP = 1400;
 
 const TICKS = [
   { label: 'TIẾP NHẬN', x: 960, line1: 'Tổng đài', line2: 'nhận cuộc gọi' },
-  { label: 'ĐỊNH VỊ', x: 960 + TICK_GAP, line1: 'Xác định vị trí', line2: 'xe đang nằm' },
+  { label: 'ĐỊNH VỊ', x: 960 + TICK_GAP, line1: 'Xác định vị trí', line2: 'xe gặp sự cố' },
   { label: 'ĐIỀU ĐỘI', x: 960 + TICK_GAP * 2, line1: 'Gọi đội cứu hộ', line2: 'gần bác nhất' },
-  { label: 'CÓ MẶT', x: 960 + TICK_GAP * 3, line1: 'Kỹ thuật tới,', line2: 'xử lý tại chỗ' },
+  { label: 'CÓ MẶT', x: 960 + TICK_GAP * 3, line1: 'Kỹ thuật viên tới,', line2: 'xử lý tại chỗ' },
 ];
 const WORLD_W = 960 + TICK_GAP * 3 + 960;
 
 const TRAVEL_START = 12;
-const TRAVEL_END = 104;
-const ZOOM_END = 114;
+const TRAVEL_END = 98;
+const ZOOM_END = 108;
 
-const CARD_W = 600;
+const CARD_W = 640;
 const CARD_H = 280;
 
 const camXAt = (f: number): number => {

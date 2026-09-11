@@ -32,6 +32,8 @@ const OUTPUT_AUDIO_OFFSET_F = 1.28;
 /** Độ trễ đỉnh của từng file, đo bằng bao hình RMS cửa sổ 5ms (xem tools/peaks.py). */
 const PEAK_LAG: Record<string, number> = {
   'tech-hum-futuristic.mp3': 18.3,
+  'scifi-computer-ambience.mp3': 0, // tiếng nền, không có đỉnh tấn công
+
   'gear-lock-metallic.mp3': 6.75,
   'sparkle-poof-hit.mp3': 2.7,
   'riser-cine.mp3': 35.1,
@@ -58,17 +60,33 @@ type Cue = {
   volume: number;
   /** Bắt buộc với mẫu dài hơn 5s; cũng dùng để cắt tiếng nền theo cảnh. */
   durationInFrames?: number;
+  /** Tiếng nền: vào đúng khung ghi, không bù độ trễ đỉnh (nó không có đỉnh tấn công). */
+  bed?: true;
+  /** Bỏ qua bao nhiêu khung đầu của file nguồn. */
+  startFrom?: number;
   note: string;
 };
 
 const S = SHOTS;
 
 export const CUES: Cue[] = [
+  // ——— Tiếng nền đêm, rải liên tục cả phim ———
+  // Phim không có nhạc nền nên phải có lớp nền này, nếu không sẽ thủng thành
+  // những khoảng câm số tuyệt đối (vòng render trước có 4 lỗ, lỗ dài nhất 1,23
+  // giây rơi đúng lúc các con số đang quay trên màn hình).
+  // File nguồn dài 705 khung nhưng chỉ "sống" trong khoảng f20-f540: 19 khung đầu
+  // là im lặng số, và từ khoảng f540 trở đi tắt hẳn. Nên cắt lấy đúng đoạn sống
+  // (startFrom 20, dài 500) rồi lát ba lần cho kín 1129 khung.
+  { peakAt: 0, src: 'scifi-computer-ambience.mp3', volume: 0.07, durationInFrames: 500, startFrom: 20, bed: true,
+    note: 'tiếng nền đêm, lát 1' },
+  { peakAt: 495, src: 'scifi-computer-ambience.mp3', volume: 0.07, durationInFrames: 500, startFrom: 20, bed: true,
+    note: 'tiếng nền đêm, lát 2 (chồng 5 khung cho liền mạch)' },
+  { peakAt: 990, src: 'scifi-computer-ambience.mp3', volume: 0.07, durationInFrames: 145, startFrom: 20, bed: true,
+    note: 'tiếng nền đêm, lát 3' },
+
   // ——— S1 nightOpen ———
-  { peakAt: S.nightOpen.from + 18, src: 'tech-hum-futuristic.mp3', volume: 0.13, durationInFrames: 150,
-    note: 'tiếng nền đêm, rải suốt cảnh mở (mẫu 6s nên phải cắt)' },
-  { peakAt: S.nightOpen.from + 110, src: 'riser-cine.mp3', volume: 0.2, durationInFrames: 62,
-    note: 'bệ đỡ dâng lên dưới đoạn các nét chữ sáng dần, đỉnh rơi đúng khung nét cuối chốt' },
+  { peakAt: S.nightOpen.from + 104, src: 'riser-cine.mp3', volume: 0.14, durationInFrames: 62,
+    note: 'bệ đỡ dâng lên dưới đoạn các nét chữ sáng dần; đỉnh đặt ở f104 chứ không f110 để nhường chỗ cho tiếng khoá' },
   { peakAt: S.nightOpen.from + 110, src: 'gear-lock-metallic.mp3', volume: 0.4,
     note: 'nét cuối chốt — tiếng khoá cơ khí, dấu "đóng" của chữ VETC' },
   { peakAt: S.nightOpen.from + 116, src: 'sparkle-poof-hit.mp3', volume: 0.24,
@@ -80,8 +98,6 @@ export const CUES: Cue[] = [
 
   // ——— S3 relay ———
   { peakAt: S.relay.from, src: 'transition-soft.mp3', volume: 0.28, note: 'vào cảnh mới' },
-  { peakAt: S.relay.from + 18, src: 'tech-hum-futuristic.mp3', volume: 0.1, durationInFrames: 150,
-    note: 'tiếng nền đêm tiếp tục dưới cảnh tiếp sóng' },
   { peakAt: S.relay.from + 18, src: 'air-woosh-quick.mp3', volume: 0.3,
     note: 'tia sáng thứ nhất rời điểm bác tài' },
   { peakAt: S.relay.from + 42, src: 'sparkle-touch.mp3', volume: 0.34,
@@ -136,17 +152,19 @@ export const CUES: Cue[] = [
     note: 'dâng lên trong lúc vòng sáng thu về' },
   { peakAt: S.outro.from + 41, src: 'impact-deep-whoosh.mp3', volume: 0.55,
     note: 'dấu hiệu đáp xuống và phanh — ĐỈNH ÂM LƯỢNG của cả phim' },
-  { peakAt: S.outro.from + 66, src: 'shimmer-sparkle-sweep.mp3', volume: 0.28,
-    note: 'dư âm sau khi lockup đứng yên' },
+  { peakAt: S.outro.from + 73, src: 'shimmer-sparkle-sweep.mp3', volume: 0.3,
+    note: 'dư âm; lùi tới f73 để đuôi vang của cú đáp đã xuống, nếu không nghe không ra' },
 ];
 
 export const Sfx: React.FC = () => (
   <>
     {CUES.map((c, i) => {
-      const from = Math.max(0, Math.round(c.peakAt - (PEAK_LAG[c.src] ?? 0) - OUTPUT_AUDIO_OFFSET_F));
+      const from = c.bed
+        ? Math.max(0, Math.round(c.peakAt))
+        : Math.max(0, Math.round(c.peakAt - (PEAK_LAG[c.src] ?? 0) - OUTPUT_AUDIO_OFFSET_F));
       return (
         <Sequence key={i} from={from} durationInFrames={c.durationInFrames ?? 90} name={`sfx ${c.src}`}>
-          <Audio src={staticFile(`audio/sfx/${c.src}`)} volume={c.volume} />
+          <Audio src={staticFile(`audio/sfx/${c.src}`)} volume={c.volume} startFrom={c.startFrom} />
         </Sequence>
       );
     })}

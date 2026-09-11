@@ -23,9 +23,9 @@ import { DesignStage, E, lerp, seg } from '../motion';
 export const OUTRO_ANIM_FRAMES = 132;
 
 const WORDMARK = 'VETC';
-const ICON = 30;
-const SHIFT = -62;
-const BLOCK_NUDGE = 11; // bù cho lockup cân giữa khi chữ chính còn 4 ký tự
+const ICON = 42;
+const SHIFT = -87;
+const BLOCK_NUDGE = 22; // bù cho lockup cân giữa khi chữ chính còn 4 ký tự
 
 const arcPath = (cx: number, cy: number, r: number, a0: number, a1: number) => {
   const p = (a: number) => [cx + r * Math.cos((a * Math.PI) / 180), cy + r * Math.sin((a * Math.PI) / 180)];
@@ -107,7 +107,7 @@ export const S8Outro: React.FC = () => {
           <div
             style={{
               position: 'absolute',
-              left: 'calc(50% - 33px)',
+              left: 'calc(50% - 46px)',
               top: '50%',
               height: ICON,
               marginTop: -ICON / 2,
@@ -125,9 +125,9 @@ export const S8Outro: React.FC = () => {
                     color: C.pale,
                     fontFamily: FONT,
                     fontWeight: 800,
-                    fontSize: 27,
+                    fontSize: 38,
                     lineHeight: 1,
-                    letterSpacing: 2,
+                    letterSpacing: 3,
                     opacity: lk,
                     transform: `translateX(${lerp(lk, 8, 0)}px)`,
                   }}
@@ -144,15 +144,15 @@ export const S8Outro: React.FC = () => {
             position: 'absolute',
             left: 0,
             right: 0,
-            top: 'calc(50% + 34px)',
+            top: 'calc(50% + 46px)',
             textAlign: 'center',
             color: C.green,
             fontFamily: FONT,
             fontWeight: 600,
-            fontSize: 13,
+            fontSize: 14,
             lineHeight: 1,
-            letterSpacing: 2.5,
-            opacity: seg(t, 0.72, 0.84, E.outQuad),
+            letterSpacing: 1.8,
+            opacity: seg(t, 0.70, 0.80, E.outQuad),
           }}
         >
           SỐNG HIỆN ĐẠI - LÁI VĂN MINH
@@ -162,18 +162,38 @@ export const S8Outro: React.FC = () => {
             position: 'absolute',
             left: 0,
             right: 0,
-            top: 'calc(50% + 56px)',
+            top: 'calc(50% + 68px)',
             textAlign: 'center',
             color: C.textDim,
             fontFamily: FONT,
             fontWeight: 500,
-            fontSize: 11,
+            fontSize: 12,
             lineHeight: 1,
             letterSpacing: 0.4,
-            opacity: seg(t, 0.86, 0.95, E.outQuad),
+            opacity: seg(t, 0.80, 0.88, E.outQuad),
           }}
         >
           Người Đồng Hành của tài xế Việt Nam
+        </div>
+        {/* Lời kêu gọi hành động: khung cuối phải còn số gọi, nếu không thì
+            5,8 giây cuối phim không cho người xem chỗ nào để hành động. */}
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 'calc(50% + 92px)',
+            textAlign: 'center',
+            color: C.green,
+            fontFamily: FONT,
+            fontWeight: 700,
+            fontSize: 14,
+            lineHeight: 1,
+            letterSpacing: 1.2,
+            opacity: seg(t, 0.88, 0.96, E.outQuad),
+          }}
+        >
+          Cứu hộ 24/7 · 1900 6010
         </div>
       </div>
     </DesignStage>

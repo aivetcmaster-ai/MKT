@@ -15,9 +15,9 @@ VIDEO = sys.argv[1] if len(sys.argv) > 1 else 'out/vetc-cuu-ho-24-7.mp4'
 
 # (tên file nguồn, khung đỉnh THIẾT KẾ trong phim)
 PROBES = [
-    ('public/audio/sfx/bass-hit-short.mp3', 469),   # phanh gấp cuối trục thời gian
-    ('public/audio/sfx/lock-quick.mp3', 787),       # con số đầu tiên khoá lại
-    ('public/audio/sfx/impact-deep-whoosh.mp3', 926),  # dấu hiệu đáp xuống ở outro
+    ('public/audio/sfx/bass-hit-short.mp3', 504),   # phanh gấp cuối trục thời gian
+    ('public/audio/sfx/lock-quick.mp3', 856),       # con số đầu tiên khoá lại
+    ('public/audio/sfx/impact-deep-whoosh.mp3', 995),  # dấu hiệu đáp xuống ở outro
 ]
 
 
