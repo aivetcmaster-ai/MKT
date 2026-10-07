@@ -1,0 +1,8 @@
+/* VETC Sans, phông chính của thương hiệu. Bản woff2 lấy từ posters/vetc-parking/fonts,
+   chỉ giữ bốn định lượng dùng cho web: Regular, Medium, SemiBold, Bold.
+   Tự host, không nạp phông từ CDN của bên thứ ba.
+   Khi không có VETC Sans thì rơi về Inter rồi Arial, đúng quy chuẩn nhận diện 2026. */
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"VETC Sans";src:url("../fonts/VETCSans-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khung starter VETC | Trang có hiệu ứng</title>
+  <meta name="description" content="Khung dựng trang web VETC có hiệu ứng, đúng bộ nhận diện 2026. Nội dung trong trang là nội dung mẫu, cần thay trước khi dùng thật." />
+  <!-- Favicon tạm, ô vuông xanh VETC. Thay bằng favicon thật khi lên môi trường chạy. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230BB260'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/vetc-tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <script>document.documentElement.className = 'js';</script>
+</head>
+
+<body>
+  <main>
+    <!-- Khối xanh chiếm hơn một nửa chiều cao màn hình đầu, giữ tỉ lệ màu chủ đạo 50 đến 60%. -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">Nội dung mẫu, cần thay</p>
+        <h1 class="hero__title">Tiêu đề chính của chiến dịch, một dòng hoặc hai dòng</h1>
+        <p class="hero__lead">
+          Câu dẫn nhập ngắn, nói rõ một lợi ích cho bác tài. Giữ dưới hai dòng trên màn hình điện thoại.
+        </p>
+        <div class="hero__actions">
+          <a class="vetc-btn" href="#cach-dung">Nút chính</a>
+          <a class="vetc-btn vetc-btn-secondary" href="#cach-dung">Nút phụ</a>
+        </div>
+        <!-- Smartlines: tối thiểu 2 dải, số dải đậm không nhiều hơn dải nhạt. -->
+        <div class="hero__smartlines vetc-smartlines" aria-hidden="true">
+          <span class="vetc-smartline vetc-smartline--deep"></span>
+          <span class="vetc-smartline vetc-smartline--light"></span>
+          <span class="vetc-smartline vetc-smartline--pale"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cach-dung">
+      <div class="wrap">
+        <h2 class="section__title reveal">Ba bước, mỗi khối một ý</h2>
+        <div class="grid-3">
+          <div class="vetc-card reveal">
+            <p class="step__no">01</p>
+            <p class="step__body">Mô tả bước một, một câu. Không đưa mức phí hay số liệu chưa đối chiếu.</p>
+          </div>
+          <div class="vetc-card reveal">
+            <p class="step__no">02</p>
+            <p class="step__body">Mô tả bước hai. Tên tính năng trong ứng dụng cần phòng sản phẩm xác nhận.</p>
+          </div>
+          <div class="vetc-card reveal">
+            <p class="step__no">03</p>
+            <p class="step__body">Mô tả bước ba. Giữ ba khối cùng độ dài để bố cục không lệch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="wrap">
+        <h2 class="section__title reveal">Khối nền nhạt, dùng để đổi nhịp</h2>
+        <div class="vetc-card vetc-card-soft reveal">
+          <p class="step__body">
+            Mỗi trang chỉ dùng ba cỡ chữ. Không viết hoa đầu mỗi từ trong tiêu đề tiếng Việt.
+            Không dùng gạch nối dài. Toàn bộ nội dung để tĩnh, không giấu sau accordion,
+            để trang mở và chia sẻ được ngoài môi trường nội bộ.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section site-footer">
+      <div class="wrap">
+        <ul class="contact">
+          <li>Công ty Cổ phần VETC</li>
+          <li>Hotline 1900 6010</li>
+          <li>vetc.com.vn</li>
+          <li>info@vetc.com.vn</li>
+        </ul>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Media của demo Codrops tải lại bằng tools/restore-assets.mjs.
+# Repo chỉ lưu code, lý do ghi trong NOTICE.md.
+demos/**/*.jpg
+demos/**/*.jpeg
+demos/**/*.png
+demos/**/*.webp
+demos/**/*.avif
+demos/**/*.gif
+demos/**/*.mp4
+demos/**/*.webm
+demos/**/*.mov
+demos/**/*.woff
+demos/**/*.woff2
+demos/**/*.ttf
+demos/**/*.otf
+demos/**/*.eot
+demos/**/*.glb
+demos/**/*.gltf
+demos/**/*.hdr
+demos/**/*.mp3
+demos/**/*.wav
+
+node_modules/
+.DS_Store

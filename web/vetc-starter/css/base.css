@@ -1,0 +1,118 @@
+/* Khung starter VETC cho trang web và landing page có hiệu ứng.
+   Chỉ dùng biến trong vetc-tokens.css, không hard-code mã màu.
+   Quy tắc chuyển động theo guideline: chỉ trượt và mờ dần, 400ms,
+   nhịp cubic-bezier(.2,0,0,1), không nảy, không phóng to. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: min(1120px, 100% - 2 * var(--vetc-space-4));
+  margin-inline: auto;
+}
+
+/* Màu chủ đạo phải chiếm 50 đến 60% bố cục, nên khối hero dùng nền xanh đặc. */
+.hero {
+  background: var(--vetc-green);
+  color: var(--vetc-text-on-green);
+  padding: var(--vetc-space-6) 0;
+}
+
+.hero__eyebrow {
+  margin: 0 0 var(--vetc-space-3);
+  font-size: var(--vetc-fs-small);
+  font-weight: var(--vetc-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero__title {
+  margin: 0 0 var(--vetc-space-3);
+  max-width: 18em;
+  font-size: var(--vetc-fs-display);
+  font-weight: var(--vetc-weight-bold);
+}
+
+.hero__lead {
+  margin: 0 0 var(--vetc-space-5);
+  max-width: 44ch;
+  font-size: var(--vetc-fs-h3);
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--vetc-space-3); }
+
+/* Nút trên nền xanh: đảo sang nền trắng để giữ tương phản. */
+.hero .vetc-btn { background: var(--vetc-white); color: var(--vetc-green-p2); }
+.hero .vetc-btn:hover { background: var(--vetc-green-m2); }
+.hero .vetc-btn-secondary {
+  background: transparent;
+  color: var(--vetc-text-on-green);
+  border-color: var(--vetc-white);
+}
+.hero .vetc-btn-secondary:hover { background: rgba(255, 255, 255, 0.14); }
+
+.section { padding: var(--vetc-space-6) 0; }
+.section--soft { background: var(--vetc-surface-soft); }
+
+.section__title {
+  margin: 0 0 var(--vetc-space-4);
+  font-size: var(--vetc-fs-h2);
+}
+
+.grid-3 {
+  display: grid;
+  gap: var(--vetc-space-3);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.step__no {
+  margin: 0 0 var(--vetc-space-2);
+  font-size: var(--vetc-fs-h3);
+  font-weight: var(--vetc-weight-bold);
+  color: var(--vetc-green-p2);
+}
+
+.step__body { margin: 0; color: var(--vetc-text-muted); }
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vetc-space-2) var(--vetc-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--vetc-fs-small);
+  color: var(--vetc-text-muted);
+}
+
+.site-footer { padding: var(--vetc-space-5) 0 var(--vetc-space-6); }
+
+/* Smartlines neo đáy khối xanh, chiếm dưới 40% bố cục. */
+.hero__smartlines { margin-top: var(--vetc-space-5); max-width: 420px; }
+
+/* Trạng thái đầu của hiệu ứng vào khung nhìn.
+   Đặt trong .js để trang vẫn đọc được đủ nội dung khi tắt JavaScript. */
+.js .reveal { opacity: 0; transform: translateY(24px); }
+
+/* Người dùng bật giảm chuyển động thì bỏ hiệu ứng, hiện nội dung ngay. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 640px) {
+  :root { --vetc-fs-display: 36px; --vetc-fs-h2: 24px; --vetc-fs-h3: 18px; }
+}
+
+/* Nút dựng bằng thẻ a: bỏ gạch chân mặc định, căn chữ vào giữa. */
+a.vetc-btn, a.vetc-btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}

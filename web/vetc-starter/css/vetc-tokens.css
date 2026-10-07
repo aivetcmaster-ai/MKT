@@ -1,0 +1,121 @@
+/* VETC design tokens
+   Nguồn: Quy chuẩn nhận diện đồ họa VETC 2026.
+   Dùng cho đầu ra digital, hệ màu RGB. Với file in ấn, chuyển sang mã CMYK
+   ghi trong references/mau-sac-typography.md, không dùng file này. */
+
+:root {
+  /* Màu chủ đạo */
+  --vetc-green: #0BB260;          /* xanh VETC, hệ RGB */
+  --vetc-black: #000000;
+  --vetc-white: #FFFFFF;
+
+  /* Bảng xanh bổ trợ */
+  --vetc-green-p2: #009647;       /* Xanh +2, dùng cho chữ trên nền sáng */
+  --vetc-green-p1: #63BF7F;       /* Xanh +1 */
+  --vetc-green-m1: #98D09F;       /* Xanh -1 */
+  --vetc-green-m2: #D6EBD8;       /* Xanh -2, nền khối */
+
+  /* Màu ngữ nghĩa gợi ý, suy ra từ bảng trên */
+  --vetc-surface: #FFFFFF;
+  --vetc-surface-soft: #D6EBD8;
+  --vetc-text: #000000;
+  --vetc-text-muted: #4A4A4A;
+  --vetc-text-on-green: #FFFFFF;
+  --vetc-border: #D6EBD8;
+  --vetc-link: #009647;
+
+  /* Phông chữ */
+  --vetc-font: "VETC Sans", Inter, Arial, "Helvetica Neue", sans-serif;
+  --vetc-weight-regular: 400;
+  --vetc-weight-medium: 500;
+  --vetc-weight-semibold: 600;
+  --vetc-weight-bold: 700;
+
+  /* Thang cỡ chữ, px */
+  --vetc-fs-display: 56px;
+  --vetc-fs-h1: 40px;
+  --vetc-fs-h2: 28px;
+  --vetc-fs-h3: 20px;
+  --vetc-fs-body: 16px;
+  --vetc-fs-small: 13px;
+
+  --vetc-lh-heading: 1.25;
+  --vetc-lh-body: 1.55;   /* tối thiểu 1.4 để không cắt dấu tiếng Việt */
+
+  /* Khoảng cách, bo góc */
+  --vetc-space-1: 4px;
+  --vetc-space-2: 8px;
+  --vetc-space-3: 16px;
+  --vetc-space-4: 24px;
+  --vetc-space-5: 40px;
+  --vetc-space-6: 64px;
+  --vetc-radius-sm: 8px;
+  --vetc-radius-md: 16px;
+  --vetc-radius-lg: 24px;
+}
+
+body {
+  font-family: var(--vetc-font);
+  font-size: var(--vetc-fs-body);
+  line-height: var(--vetc-lh-body);
+  color: var(--vetc-text);
+  background: var(--vetc-surface);
+}
+
+h1, h2, h3 {
+  line-height: var(--vetc-lh-heading);
+  font-weight: var(--vetc-weight-bold);
+}
+
+/* Nút chính. Chữ trắng trên xanh VETC chỉ đạt khoảng 2.6:1,
+   nên nút dùng cỡ chữ từ 16px trở lên và định lượng SemiBold.
+   Với chữ nhỏ trên nền xanh, đổi nền sang --vetc-green-p2. */
+.vetc-btn {
+  background: var(--vetc-green);
+  color: var(--vetc-text-on-green);
+  font-weight: var(--vetc-weight-semibold);
+  font-size: var(--vetc-fs-body);
+  padding: 12px 24px;
+  border: 0;
+  border-radius: var(--vetc-radius-sm);
+  cursor: pointer;
+}
+
+.vetc-btn:hover { background: var(--vetc-green-p2); }
+
+.vetc-btn-secondary {
+  background: transparent;
+  color: var(--vetc-green-p2);
+  border: 1.5px solid var(--vetc-green);
+}
+
+.vetc-card {
+  background: var(--vetc-surface);
+  border: 1px solid var(--vetc-border);
+  border-radius: var(--vetc-radius-md);
+  padding: var(--vetc-space-4);
+}
+
+.vetc-card-soft {
+  background: var(--vetc-surface-soft);
+  border: 0;
+}
+
+/* Smartlines: các dải ngang chuyển màu song song.
+   Tối thiểu 2 dải, tổng không quá 40% diện tích thiết kế,
+   số dải đậm không nhiều hơn số dải nhạt. */
+.vetc-smartlines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vetc-smartline {
+  height: 14px;
+  border-radius: 2px;
+}
+
+.vetc-smartline--deep  { background: linear-gradient(90deg, var(--vetc-green-p2) 0%, var(--vetc-green) 100%); }
+.vetc-smartline--mid   { background: linear-gradient(90deg, var(--vetc-green) 0%, var(--vetc-green-p1) 100%); }
+.vetc-smartline--light { background: linear-gradient(90deg, var(--vetc-green-p1) 0%, var(--vetc-green-m2) 100%); }
+.vetc-smartline--pale  { background: linear-gradient(90deg, var(--vetc-green-m1) 0%, #FFFFFF 100%); }

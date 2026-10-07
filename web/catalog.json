@@ -1,0 +1,3627 @@
+{
+  "source": "https://github.com/codrops",
+  "snapshotDate": "2026-10-07",
+  "total": 345,
+  "note": "Ảnh chụp danh sách repo công khai của Codrops. Mô tả dịch gọn hoặc giữ nguyên tiếng Anh theo repo gốc.",
+  "demos": [
+    {
+      "name": "RotatingOnScrollAnimations",
+      "language": "HTML",
+      "description": "Some ideas for animating images in 3D while scrolling.",
+      "tags": [
+        "scroll",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/RotatingOnScrollAnimations",
+      "vendored": true
+    },
+    {
+      "name": "CodropsTemplate",
+      "language": "CSS",
+      "description": "Khung demo chuẩn của Codrops, kèm wiki hướng dẫn viết bài.",
+      "tags": [],
+      "url": "https://github.com/codrops/CodropsTemplate",
+      "vendored": false
+    },
+    {
+      "name": "EaseReverseClipMenu",
+      "language": "JavaScript",
+      "description": "A playful menu demo exploring GSAP's easeReverse",
+      "tags": [
+        "menu",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/EaseReverseClipMenu",
+      "vendored": false
+    },
+    {
+      "name": "CodropsBranding",
+      "language": null,
+      "description": "Codrops logos",
+      "tags": [],
+      "url": "https://github.com/codrops/CodropsBranding",
+      "vendored": false
+    },
+    {
+      "name": "ScrollTextMotion",
+      "language": "HTML",
+      "description": "On-scroll animations for typographic elements with GSAP",
+      "tags": [
+        "scroll",
+        "typography",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/ScrollTextMotion",
+      "vendored": true
+    },
+    {
+      "name": "BalloonButton",
+      "language": "TypeScript",
+      "description": null,
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/BalloonButton",
+      "vendored": false
+    },
+    {
+      "name": "ElasticGridScroll",
+      "language": "HTML",
+      "description": "A scroll effect where each column of a grid moves at a slightly different speed.",
+      "tags": [
+        "scroll",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ElasticGridScroll",
+      "vendored": true
+    },
+    {
+      "name": "KineticTypePageTransition",
+      "language": "JavaScript",
+      "description": "A concept for a kinetic typography based page transition.",
+      "tags": [
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/KineticTypePageTransition",
+      "vendored": true
+    },
+    {
+      "name": "coding-challenge-planner",
+      "language": null,
+      "description": "Frontend coding challenge planner created with Bolt.new",
+      "tags": [],
+      "url": "https://github.com/codrops/coding-challenge-planner",
+      "vendored": false
+    },
+    {
+      "name": "3DCarousel",
+      "language": "HTML",
+      "description": "An on-scroll 3D carousel",
+      "tags": [
+        "scroll",
+        "slideshow",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/3DCarousel",
+      "vendored": true
+    },
+    {
+      "name": "RepeatingImageTransition",
+      "language": "HTML",
+      "description": null,
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/RepeatingImageTransition",
+      "vendored": true
+    },
+    {
+      "name": "SlideshowAnimations",
+      "language": "JavaScript",
+      "description": "A collection of ideas for slideshow animations.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/SlideshowAnimations",
+      "vendored": true
+    },
+    {
+      "name": "OneElementScroll",
+      "language": "JavaScript",
+      "description": "Animating single elements across waypoints using GSAP tools",
+      "tags": [
+        "scroll",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/OneElementScroll",
+      "vendored": false
+    },
+    {
+      "name": "Staggered3DGridAnimations",
+      "language": "HTML",
+      "description": "A playful concept where we use scroll-based animations to create 3D grid effects.",
+      "tags": [
+        "scroll",
+        "grid",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/Staggered3DGridAnimations",
+      "vendored": false
+    },
+    {
+      "name": "ContextAwareLogoAnimationScroll",
+      "language": "JavaScript",
+      "description": "Fixed elements that hide or reveal based on scroll interactions",
+      "tags": [
+        "scroll",
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ContextAwareLogoAnimationScroll",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollLayoutFormations",
+      "language": "HTML",
+      "description": "Layout formations triggered by scrolling using GSAP",
+      "tags": [
+        "scroll",
+        "form",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/OnScrollLayoutFormations",
+      "vendored": true
+    },
+    {
+      "name": "OnScrollSVGFilterText",
+      "language": "JavaScript",
+      "description": "A small set of scroll-based SVG filter animations on HTML text.",
+      "tags": [
+        "scroll",
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/OnScrollSVGFilterText",
+      "vendored": true
+    },
+    {
+      "name": "GooeyTextHoverEffect",
+      "language": "HTML",
+      "description": "A gooey text hover effect using SVG filters",
+      "tags": [
+        "typography",
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/GooeyTextHoverEffect",
+      "vendored": true
+    },
+    {
+      "name": "ParticleEffectsButtons",
+      "language": "JavaScript",
+      "description": "Library for bursting particle effects on interactive elements",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/ParticleEffectsButtons",
+      "vendored": true
+    },
+    {
+      "name": "Animocons",
+      "language": "JavaScript",
+      "description": "Animated icons powered by the motion graphics library mo.js by Oleg Solomka.",
+      "tags": [],
+      "url": "https://github.com/codrops/Animocons",
+      "vendored": false
+    },
+    {
+      "name": "SidebarTransitions",
+      "language": "CSS",
+      "description": "Some inspiration for transition effects for off-canvas navigations.",
+      "tags": [
+        "transition",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/SidebarTransitions",
+      "vendored": true
+    },
+    {
+      "name": "PageTransitions",
+      "language": "CSS",
+      "description": "A showcase collection of various page transition effects using CSS animations.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PageTransitions",
+      "vendored": true
+    },
+    {
+      "name": "LineTextHoverAnimations",
+      "language": "HTML",
+      "description": "Some hover animations for a terminal-like look",
+      "tags": [
+        "typography",
+        "hover"
+      ],
+      "url": "https://github.com/codrops/LineTextHoverAnimations",
+      "vendored": true
+    },
+    {
+      "name": "PushGridItems",
+      "language": "JavaScript",
+      "description": "Animations for grid items based on a concept by Rémi Clauss.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/PushGridItems",
+      "vendored": true
+    },
+    {
+      "name": "IntroGridMotionTransition",
+      "language": "JavaScript",
+      "description": "A little hover motion effect on a grid and an intro animation.",
+      "tags": [
+        "hover",
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/IntroGridMotionTransition",
+      "vendored": true
+    },
+    {
+      "name": "OnScrollTextHighlight",
+      "language": "JavaScript",
+      "description": "Some scroll-based effects for text highlights",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/OnScrollTextHighlight",
+      "vendored": true
+    },
+    {
+      "name": "ScrollBlurTypography",
+      "language": "JavaScript",
+      "description": "Animations for revealing blurry text on scroll.",
+      "tags": [
+        "scroll",
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ScrollBlurTypography",
+      "vendored": true
+    },
+    {
+      "name": "ReflectionScroll",
+      "language": "HTML",
+      "description": "A decorative reflection effect where we simulate a reflected page.",
+      "tags": [
+        "scroll",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ReflectionScroll",
+      "vendored": false
+    },
+    {
+      "name": "ImageExpansionTypography",
+      "language": "JavaScript",
+      "description": "An expanding image animation inside of a typographic block.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/ImageExpansionTypography",
+      "vendored": true
+    },
+    {
+      "name": "HoverGrid",
+      "language": "CSS",
+      "description": "A grid item reveal animation on hover inspired by Metalab",
+      "tags": [
+        "hover",
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/HoverGrid",
+      "vendored": true
+    },
+    {
+      "name": "3DStackMotion",
+      "language": "HTML",
+      "description": "An experimental 3D card stack animation on scroll.",
+      "tags": [
+        "scroll",
+        "slideshow",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/3DStackMotion",
+      "vendored": false
+    },
+    {
+      "name": "astro-shop-view-transitions",
+      "language": "Astro",
+      "description": "Minimalist shop with the browser View Transitions API and Astro for smoother navigation.",
+      "tags": [
+        "transition",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/astro-shop-view-transitions",
+      "vendored": false
+    },
+    {
+      "name": "codrops-sketches",
+      "language": "JavaScript",
+      "description": "A collection of demo variations, ideas, concepts and experiments.",
+      "tags": [],
+      "url": "https://github.com/codrops/codrops-sketches",
+      "vendored": false
+    },
+    {
+      "name": "StickySections",
+      "language": "HTML",
+      "description": "Some ideas of how sticky sections can be animated while exiting the viewport.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/StickySections",
+      "vendored": false
+    },
+    {
+      "name": "ConnectedGrid",
+      "language": "HTML",
+      "description": "Some ideas for simple on-scroll animations for connected grid items.",
+      "tags": [
+        "scroll",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ConnectedGrid",
+      "vendored": false
+    },
+    {
+      "name": "TextClipScroll",
+      "language": "HTML",
+      "description": "Experimental on-scroll typography effects using SVG clip-paths.",
+      "tags": [
+        "scroll",
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/TextClipScroll",
+      "vendored": false
+    },
+    {
+      "name": "SlicedTextEffect",
+      "language": "JavaScript",
+      "description": "A scroll-based sliced text animation",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/SlicedTextEffect",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollTypographyAnimations",
+      "language": "JavaScript",
+      "description": "Inspiration and ideas for on-scroll typography animations.",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/OnScrollTypographyAnimations",
+      "vendored": false
+    },
+    {
+      "name": "ContentLayoutTransition",
+      "language": "HTML",
+      "description": "An experimental layout transition where a stack of images animates to a gallery view.",
+      "tags": [
+        "grid",
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ContentLayoutTransition",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollShapeMorph",
+      "language": "JavaScript",
+      "description": "Morphing shape animations on scroll",
+      "tags": [
+        "scroll",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/OnScrollShapeMorph",
+      "vendored": false
+    },
+    {
+      "name": "PixelGooeyTooltip",
+      "language": "JavaScript",
+      "description": "A dynamic tooltip animation with various reveal effects.",
+      "tags": [
+        "transition",
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/PixelGooeyTooltip",
+      "vendored": false
+    },
+    {
+      "name": "LineTypeEffect",
+      "language": "CSS",
+      "description": null,
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/LineTypeEffect",
+      "vendored": false
+    },
+    {
+      "name": "LayersAnimation",
+      "language": "JavaScript",
+      "description": "Some ideas for speedy page transition animations with layered images using clip-path.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/LayersAnimation",
+      "vendored": false
+    },
+    {
+      "name": "CoverPageTransition",
+      "language": "JavaScript",
+      "description": "A cover page transition based on Vitalii Burhonskyi's Dribbble shot.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/CoverPageTransition",
+      "vendored": false
+    },
+    {
+      "name": "Arctext",
+      "language": "JavaScript",
+      "description": "A jQuery plugin that arranges each letter along a curved path.",
+      "tags": [
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/Arctext",
+      "vendored": false
+    },
+    {
+      "name": "MotionTrailAnimations",
+      "language": "JavaScript",
+      "description": "Some ideas for mouse or touch responsive image animations.",
+      "tags": [],
+      "url": "https://github.com/codrops/MotionTrailAnimations",
+      "vendored": false
+    },
+    {
+      "name": "HoverEffectIdeas",
+      "language": "CSS",
+      "description": "Some inspiration and modern ideas for subtle hover effects.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/HoverEffectIdeas",
+      "vendored": false
+    },
+    {
+      "name": "LoopScrolling",
+      "language": "HTML",
+      "description": "Infinite loop scrolling based on the animation seen on Bureau DAM.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/LoopScrolling",
+      "vendored": false
+    },
+    {
+      "name": "GridItemHoverEffect",
+      "language": "JavaScript",
+      "description": "Some hover effects based on the grid design by Alena Orlova.",
+      "tags": [
+        "hover",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridItemHoverEffect",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollColumnsRows",
+      "language": "HTML",
+      "description": "Scroll-driven animations for columns and rows powered by GSAP.",
+      "tags": [
+        "scroll",
+        "grid",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/OnScrollColumnsRows",
+      "vendored": false
+    },
+    {
+      "name": "Scroll3DGrid",
+      "language": "HTML",
+      "description": "On-scroll animations for perspective image grids with different layouts.",
+      "tags": [
+        "scroll",
+        "grid",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/Scroll3DGrid",
+      "vendored": false
+    },
+    {
+      "name": "GridFlowEffect",
+      "language": "JavaScript",
+      "description": "A loading and navigation animation where thumbnails flow into a grid.",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/GridFlowEffect",
+      "vendored": false
+    },
+    {
+      "name": "ScrollBasedLayoutAnimations",
+      "language": "HTML",
+      "description": "Different scroll based layout switch animations using GSAP ScrollTrigger and Flip.",
+      "tags": [
+        "scroll",
+        "transition",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/ScrollBasedLayoutAnimations",
+      "vendored": false
+    },
+    {
+      "name": "TextBlockTransitions",
+      "language": "HTML",
+      "description": "Some inspiration for transitioning text blocks with different word animations.",
+      "tags": [
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/TextBlockTransitions",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollFilter",
+      "language": "HTML",
+      "description": "Combining GSAP ScrollTrigger and Flip with an SVG filter.",
+      "tags": [
+        "scroll",
+        "transition",
+        "svg",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/OnScrollFilter",
+      "vendored": false
+    },
+    {
+      "name": "ZoomSlideshow",
+      "language": "JavaScript",
+      "description": null,
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ZoomSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "ClipHoverEffect",
+      "language": "JavaScript",
+      "description": "A hover animation similar to the one on the Quai Network website.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/ClipHoverEffect",
+      "vendored": false
+    },
+    {
+      "name": "DoubleSlideshow",
+      "language": "JavaScript",
+      "description": null,
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/DoubleSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollTypoAnimations",
+      "language": "HTML",
+      "description": null,
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/OnScrollTypoAnimations",
+      "vendored": false
+    },
+    {
+      "name": "GooeyCursor",
+      "language": "HTML",
+      "description": "A gooey cursor background effect with SVG filters and CSS blend modes.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/GooeyCursor",
+      "vendored": false
+    },
+    {
+      "name": "ImagePixelLoading",
+      "language": "HTML",
+      "description": "On-scroll pixelated image loading effect, after Felicity Ingram's website.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/ImagePixelLoading",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedCodeBackground",
+      "language": "HTML",
+      "description": "A recreation of the hover effect on the Evervault customer grid.",
+      "tags": [
+        "hover",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/AnimatedCodeBackground",
+      "vendored": false
+    },
+    {
+      "name": "GridToSlider",
+      "language": "JavaScript",
+      "description": "Some ideas for grid to slideshow switch animations using GSAP Flip.",
+      "tags": [
+        "grid",
+        "transition",
+        "slideshow",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/GridToSlider",
+      "vendored": false
+    },
+    {
+      "name": "ImageTilesMenu",
+      "language": "CSS",
+      "description": "Image tiles that transform into a full image when a menu item is clicked.",
+      "tags": [
+        "grid",
+        "menu",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ImageTilesMenu",
+      "vendored": false
+    },
+    {
+      "name": "GridViewSwitch",
+      "language": "HTML",
+      "description": "A proof-of-concept for a view switch animation from grid to slideshow.",
+      "tags": [
+        "grid",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/GridViewSwitch",
+      "vendored": false
+    },
+    {
+      "name": "PixelTransition",
+      "language": "HTML",
+      "description": "Ideas for pixel page transitions based on an animation by Niccolò Miranda.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PixelTransition",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenClipEffect",
+      "language": "JavaScript",
+      "description": "Clip-path animations where a fullscreen image moves into smaller images.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/FullscreenClipEffect",
+      "vendored": false
+    },
+    {
+      "name": "RapidImageHoverMenu",
+      "language": "JavaScript",
+      "description": "A hover effect for a menu where images appear with an animation for each item.",
+      "tags": [
+        "hover",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/RapidImageHoverMenu",
+      "vendored": false
+    },
+    {
+      "name": "DoubleImageHoverEffects",
+      "language": "JavaScript",
+      "description": "Hover effects that use clip-path animations for revealing the same image again.",
+      "tags": [
+        "hover",
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/DoubleImageHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "UnrevealEffects",
+      "language": "HTML",
+      "description": "Page transitions using covering elements and CSS clip-paths.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/UnrevealEffects",
+      "vendored": false
+    },
+    {
+      "name": "ButtonHoverStyles",
+      "language": "CSS",
+      "description": "Some ideas for CSS-only button hover styles and animations",
+      "tags": [
+        "hover",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ButtonHoverStyles",
+      "vendored": false
+    },
+    {
+      "name": "TypeShuffleAnimation",
+      "language": "JavaScript",
+      "description": "A shuffling type animation based on the effect seen on LCD 1.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/TypeShuffleAnimation",
+      "vendored": false
+    },
+    {
+      "name": "DraggableMenu",
+      "language": "JavaScript",
+      "description": "A draggable menu that shows a thumbnail preview of an image grid",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/DraggableMenu",
+      "vendored": false
+    },
+    {
+      "name": "TooltipTransition",
+      "language": "JavaScript",
+      "description": "Page transitions where a tooltip image animates to a gallery layout.",
+      "tags": [
+        "grid",
+        "transition",
+        "form"
+      ],
+      "url": "https://github.com/codrops/TooltipTransition",
+      "vendored": false
+    },
+    {
+      "name": "InlineLayoutSwitch",
+      "language": "HTML",
+      "description": "Animating images from an inline layout to a column and grid-based one.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/InlineLayoutSwitch",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedResponsiveImageGrid",
+      "language": "HTML",
+      "description": "A jQuery plugin for a responsive image grid with switching animations.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/AnimatedResponsiveImageGrid",
+      "vendored": false
+    },
+    {
+      "name": "ScrollPanels",
+      "language": "HTML",
+      "description": "Smooth panel scroll effects based on Margot Priolet's website.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/ScrollPanels",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollViewSwitch",
+      "language": "JavaScript",
+      "description": "A layout with scroll animations and a view switch to a grid.",
+      "tags": [
+        "scroll",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/OnScrollViewSwitch",
+      "vendored": false
+    },
+    {
+      "name": "3DGridContentPreview",
+      "language": "JavaScript",
+      "description": "A grid layout with a magnetic hover effect and a content preview animation.",
+      "tags": [
+        "hover",
+        "grid",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/3DGridContentPreview",
+      "vendored": false
+    },
+    {
+      "name": "MenuToGrid",
+      "language": "HTML",
+      "description": "A layout animation where thumbnails animate into a content preview grid.",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MenuToGrid",
+      "vendored": false
+    },
+    {
+      "name": "RainEffect",
+      "language": "JavaScript",
+      "description": "Experimental rain and water drop effects using WebGL, by Lucas Bebber.",
+      "tags": [
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/RainEffect",
+      "vendored": false
+    },
+    {
+      "name": "GlitchPerspective",
+      "language": "HTML",
+      "description": "A hover effect showing a pixelated image with a glitch animation.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/GlitchPerspective",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenScroll",
+      "language": "JavaScript",
+      "description": "A fullscreen scroll-based slideshow powered by the GSAP Observer plugin.",
+      "tags": [
+        "scroll",
+        "slideshow",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/FullscreenScroll",
+      "vendored": false
+    },
+    {
+      "name": "ImageToContent",
+      "language": "HTML",
+      "description": "A simple scroll effect and page transition after a Dribbble shot.",
+      "tags": [
+        "scroll",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ImageToContent",
+      "vendored": false
+    },
+    {
+      "name": "ScrollAnimationsGrid",
+      "language": "HTML",
+      "description": "Various effects for images when scrolling a page with a grid.",
+      "tags": [
+        "scroll",
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ScrollAnimationsGrid",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollPathAnimations",
+      "language": "HTML",
+      "description": "Animating SVG paths on smooth scroll.",
+      "tags": [
+        "scroll",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/OnScrollPathAnimations",
+      "vendored": false
+    },
+    {
+      "name": "MakeWayGridEffect",
+      "language": "HTML",
+      "description": "A grid interaction effect where adjoining items make way to a selected one.",
+      "tags": [
+        "grid",
+        "form"
+      ],
+      "url": "https://github.com/codrops/MakeWayGridEffect",
+      "vendored": false
+    },
+    {
+      "name": "ImageToGridTransition",
+      "language": "JavaScript",
+      "description": "A simple transition where a large image animates to its place in a grid.",
+      "tags": [
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ImageToGridTransition",
+      "vendored": false
+    },
+    {
+      "name": "GridLayoutAnimation",
+      "language": "CSS",
+      "description": "A layout transition where a small grid animates to a larger view, using GSAP Flip.",
+      "tags": [
+        "grid",
+        "transition",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/GridLayoutAnimation",
+      "vendored": false
+    },
+    {
+      "name": "Interactive3DMallMap",
+      "language": "HTML",
+      "description": "An interactive 3D mall map with a sidebar search and pin indicators per level.",
+      "tags": [
+        "menu",
+        "webgl",
+        "form"
+      ],
+      "url": "https://github.com/codrops/Interactive3DMallMap",
+      "vendored": false
+    },
+    {
+      "name": "IntroTrailEffect",
+      "language": "JavaScript",
+      "description": "An intro animation with several layout changes and various effects.",
+      "tags": [],
+      "url": "https://github.com/codrops/IntroTrailEffect",
+      "vendored": false
+    },
+    {
+      "name": "TextRepetitionEffect",
+      "language": "HTML",
+      "description": "An on-scroll animation showing repeated fragments of a big text.",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/TextRepetitionEffect",
+      "vendored": false
+    },
+    {
+      "name": "LinesToLayout",
+      "language": "JavaScript",
+      "description": "A layout switch from a typography row view to a large image preview.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/LinesToLayout",
+      "vendored": false
+    },
+    {
+      "name": "LetterShuffleMenu",
+      "language": "JavaScript",
+      "description": "Letters of a word shuffle to become the first letter of each menu item.",
+      "tags": [
+        "typography",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/LetterShuffleMenu",
+      "vendored": false
+    },
+    {
+      "name": "ExpandingRoundedMenu",
+      "language": "CSS",
+      "description": "An expanding menu animation with a cover unreveal effect in the background.",
+      "tags": [
+        "transition",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ExpandingRoundedMenu",
+      "vendored": false
+    },
+    {
+      "name": "HoverPreviewMiniMap",
+      "language": "JavaScript",
+      "description": "A hover effect where a content preview is shown with a cursor mini map.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/HoverPreviewMiniMap",
+      "vendored": false
+    },
+    {
+      "name": "RepetitionHoverEffect",
+      "language": "HTML",
+      "description": "A hover effect with repeated image layers that get scaled up and down.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/RepetitionHoverEffect",
+      "vendored": false
+    },
+    {
+      "name": "BackgroundShift",
+      "language": "HTML",
+      "description": "A background colour shift effect using a CSS blend mode and layered animation.",
+      "tags": [],
+      "url": "https://github.com/codrops/BackgroundShift",
+      "vendored": false
+    },
+    {
+      "name": "ColumnScroll",
+      "language": "JavaScript",
+      "description": "A grid layout with columns that scroll in opposite directions.",
+      "tags": [
+        "scroll",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ColumnScroll",
+      "vendored": false
+    },
+    {
+      "name": "GridZoom",
+      "language": "JavaScript",
+      "description": "A small grid image zooms to become larger while a content view opens.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridZoom",
+      "vendored": false
+    },
+    {
+      "name": "ParanoiaSlideshow",
+      "language": "JavaScript",
+      "description": "A slideshow layout with a filter enhanced navigation effect on the images.",
+      "tags": [
+        "slideshow",
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ParanoiaSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "Theodore",
+      "language": "CSS",
+      "description": "A menu effect with an SVG overlay and an infinite background CSS animation.",
+      "tags": [
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/Theodore",
+      "vendored": false
+    },
+    {
+      "name": "RepetitiveTypography",
+      "language": "JavaScript",
+      "description": "An experimental typography animation where words get duplicated several times.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/RepetitiveTypography",
+      "vendored": false
+    },
+    {
+      "name": "SuperfluidLayout",
+      "language": "HTML",
+      "description": "Experimental reveal animations on typographic elements",
+      "tags": [
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SuperfluidLayout",
+      "vendored": false
+    },
+    {
+      "name": "MenuThumbStackAnimation",
+      "language": "JavaScript",
+      "description": "A vertical image stack for a menu that expands onto a horizontal line.",
+      "tags": [
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MenuThumbStackAnimation",
+      "vendored": false
+    },
+    {
+      "name": "ImageGridMotionEffect",
+      "language": "JavaScript",
+      "description": "A motion hover effect for a background grid of images.",
+      "tags": [
+        "hover",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ImageGridMotionEffect",
+      "vendored": false
+    },
+    {
+      "name": "3DLettersMenuHover",
+      "language": "JavaScript",
+      "description": "A hover animation for a menu with 3D letters and image effect.",
+      "tags": [
+        "typography",
+        "hover",
+        "menu",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/3DLettersMenuHover",
+      "vendored": false
+    },
+    {
+      "name": "MarqueeMenu",
+      "language": "HTML",
+      "description": "A recreation of the marquee menu hover effect seen on the K72 website.",
+      "tags": [
+        "typography",
+        "hover",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MarqueeMenu",
+      "vendored": false
+    },
+    {
+      "name": "InlineToMenuLink",
+      "language": "JavaScript",
+      "description": "An inline-to-menu-link animation based on a concept by Matthew Hall.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/InlineToMenuLink",
+      "vendored": false
+    },
+    {
+      "name": "ThumbHoverSVGFilter",
+      "language": "HTML",
+      "description": "A simple hover effect for images using different SVG filters.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ThumbHoverSVGFilter",
+      "vendored": false
+    },
+    {
+      "name": "CrosshairDistortion",
+      "language": "JavaScript",
+      "description": "A fullscreen SVG crosshair cursor with a distortion effect on hover.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/CrosshairDistortion",
+      "vendored": false
+    },
+    {
+      "name": "PreviewContentTransition",
+      "language": "HTML",
+      "description": "A page transition for magazines and blogs where an excerpt opens full page.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PreviewContentTransition",
+      "vendored": false
+    },
+    {
+      "name": "LettersAnimationLayout",
+      "language": "JavaScript",
+      "description": "A distributed letters animation in a triple panel layout with hover effect.",
+      "tags": [
+        "typography",
+        "hover"
+      ],
+      "url": "https://github.com/codrops/LettersAnimationLayout",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedCustomCursor",
+      "language": "JavaScript",
+      "description": "Some ideas for interactive custom cursor animations using SVG filters.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedCustomCursor",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollLetterAnimations",
+      "language": "HTML",
+      "description": "Some examples of how to animate letters on scroll.",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/OnScrollLetterAnimations",
+      "vendored": false
+    },
+    {
+      "name": "ShapesSlideshow",
+      "language": "JavaScript",
+      "description": "A slideshow using clip-path to create shape transitions between slides.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ShapesSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "CircularTextEffect",
+      "language": "JavaScript",
+      "description": "An experimental circular SVG text animation",
+      "tags": [
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/CircularTextEffect",
+      "vendored": false
+    },
+    {
+      "name": "MagneticButtons",
+      "language": "JavaScript",
+      "description": "A set of buttons with a magnetic interaction and a hover effect.",
+      "tags": [
+        "hover",
+        "form"
+      ],
+      "url": "https://github.com/codrops/MagneticButtons",
+      "vendored": false
+    },
+    {
+      "name": "LineHoverStyles",
+      "language": "CSS",
+      "description": "Simple and subtle line hover animations for links using CSS only.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/LineHoverStyles",
+      "vendored": false
+    },
+    {
+      "name": "MusicalInteractions",
+      "language": "JavaScript",
+      "description": "Experimental ideas for playful musical interactions powered by MIDI.js.",
+      "tags": [],
+      "url": "https://github.com/codrops/MusicalInteractions",
+      "vendored": false
+    },
+    {
+      "name": "WebGLBlobs",
+      "language": "HTML",
+      "description": "Demos for the tutorial on how to deform and colour spheres in Three.js.",
+      "tags": [
+        "webgl",
+        "form"
+      ],
+      "url": "https://github.com/codrops/WebGLBlobs",
+      "vendored": false
+    },
+    {
+      "name": "DecorativeLetterAnimations",
+      "language": "HTML",
+      "description": "Decorative shape and letter animations after the \"Us By Night\" Dribbble shot.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/DecorativeLetterAnimations",
+      "vendored": false
+    },
+    {
+      "name": "codrops2020",
+      "language": "HTML",
+      "description": "A roundup of Codrops resources from 2020.",
+      "tags": [],
+      "url": "https://github.com/codrops/codrops2020",
+      "vendored": false
+    },
+    {
+      "name": "HorizontalSmoothScrollLayout",
+      "language": "HTML",
+      "description": "Horizontal smooth scroll layouts and animations using Locomotive Scroll",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/HorizontalSmoothScrollLayout",
+      "vendored": false
+    },
+    {
+      "name": "ImageStackGrid",
+      "language": "JavaScript",
+      "description": "A simple intro animation where an image stack moves to become a grid.",
+      "tags": [
+        "grid",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ImageStackGrid",
+      "vendored": false
+    },
+    {
+      "name": "InlineMenuLayout",
+      "language": "HTML",
+      "description": "An inline menu layout with a hover animation and a gallery preview panel.",
+      "tags": [
+        "hover",
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/InlineMenuLayout",
+      "vendored": false
+    },
+    {
+      "name": "TypographyMotion",
+      "language": "JavaScript",
+      "description": "Recreation of Thibaud Allie's letter stagger animation.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/TypographyMotion",
+      "vendored": false
+    },
+    {
+      "name": "MenuFullGrid",
+      "language": "JavaScript",
+      "description": "A menu and background image grid that animates to an inner content page.",
+      "tags": [
+        "grid",
+        "transition",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MenuFullGrid",
+      "vendored": false
+    },
+    {
+      "name": "ThumbFullTransition",
+      "language": "JavaScript",
+      "description": "An image goes from thumbnail to full width for a classy entry to an article.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ThumbFullTransition",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedGridLayout",
+      "language": "HTML",
+      "description": "A magazine-like layout with a grid item animation when opening the content",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/AnimatedGridLayout",
+      "vendored": false
+    },
+    {
+      "name": "TileScroll",
+      "language": "HTML",
+      "description": "Scroll animations for image grids using Locomotive Scroll",
+      "tags": [
+        "scroll",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/TileScroll",
+      "vendored": false
+    },
+    {
+      "name": "CSSProgress",
+      "language": "CSS",
+      "description": "Shaded CSS-only progress bars with Sass. By Rafael González.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/CSSProgress",
+      "vendored": false
+    },
+    {
+      "name": "IconHoverEffects",
+      "language": "CSS",
+      "description": "A set of simple round icon hover effects with CSS transitions and animations.",
+      "tags": [
+        "hover",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/IconHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "PhotographyWebsiteConcept",
+      "language": "HTML",
+      "description": "A photography layout with an expanding stack slider and background tilt effect.",
+      "tags": [
+        "hover",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/PhotographyWebsiteConcept",
+      "vendored": false
+    },
+    {
+      "name": "GoogleNexusWebsiteMenu",
+      "language": "JavaScript",
+      "description": "How to recreate the slide out sidebar menu from the Google Nexus 7 website.",
+      "tags": [
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/GoogleNexusWebsiteMenu",
+      "vendored": false
+    },
+    {
+      "name": "CreativeButtons",
+      "language": "CSS",
+      "description": "Some creative and modern button styles and effects for your inspiration.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/CreativeButtons",
+      "vendored": false
+    },
+    {
+      "name": "BlockRevealers",
+      "language": "HTML",
+      "description": "Ideas for revealing content in a schematic box look.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/BlockRevealers",
+      "vendored": false
+    },
+    {
+      "name": "TriplePanelImageSlider",
+      "language": "CSS",
+      "description": "A triple panel jQuery image slider with a 3D look and swipe-like transitions.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/TriplePanelImageSlider",
+      "vendored": false
+    },
+    {
+      "name": "MenuHoverEffects",
+      "language": "HTML",
+      "description": "Some inspiration for menu hover effects.",
+      "tags": [
+        "hover",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MenuHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "ShapeHoverEffectSVG",
+      "language": "CSS",
+      "description": "A hover effect using SVG for the shape and Snap.svg for the animations.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ShapeHoverEffectSVG",
+      "vendored": false
+    },
+    {
+      "name": "OutdoorsTemplate",
+      "language": "JavaScript",
+      "description": "An implementation of Gil Huybrecht's \"Outdoors\" design, powered by layered CSS grids.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/OutdoorsTemplate",
+      "vendored": false
+    },
+    {
+      "name": "DiagonalThumbnails",
+      "language": "HTML",
+      "description": "A slideshow with tilted thumbnails and large animating titles.",
+      "tags": [
+        "hover",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/DiagonalThumbnails",
+      "vendored": false
+    },
+    {
+      "name": "RapidImageHoverMenuEffects",
+      "language": "JavaScript",
+      "description": "A set of hover effects on menu items with images.",
+      "tags": [
+        "hover",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/RapidImageHoverMenuEffects",
+      "vendored": false
+    },
+    {
+      "name": "GlitchyGrid",
+      "language": "JavaScript",
+      "description": "A grid layout slideshow with stack-like navigation and glitch effect.",
+      "tags": [
+        "grid",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/GlitchyGrid",
+      "vendored": false
+    },
+    {
+      "name": "AnimateSVGTextPath",
+      "language": "HTML",
+      "description": "Animating SVG text on a path on scroll using the Intersection Observer API.",
+      "tags": [
+        "scroll",
+        "typography",
+        "svg",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/AnimateSVGTextPath",
+      "vendored": false
+    },
+    {
+      "name": "ScrollLoopMenu",
+      "language": "JavaScript",
+      "description": "An infinitely scrollable menu based on the looping scroll illusion of cloned items.",
+      "tags": [
+        "scroll",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ScrollLoopMenu",
+      "vendored": false
+    },
+    {
+      "name": "Slicebox",
+      "language": "JavaScript",
+      "description": "A jQuery 3D image slider plugin using CSS 3D transforms.",
+      "tags": [
+        "slideshow",
+        "webgl",
+        "form"
+      ],
+      "url": "https://github.com/codrops/Slicebox",
+      "vendored": false
+    },
+    {
+      "name": "CrossroadsSlideshow",
+      "language": "JavaScript",
+      "description": "A slideshow with an inclined look, three slide previews and a content view.",
+      "tags": [
+        "slideshow",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/CrossroadsSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "RapidLayersAnimation",
+      "language": "JavaScript",
+      "description": "A rapid layers animation of images as a splash intro or page transition.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/RapidLayersAnimation",
+      "vendored": false
+    },
+    {
+      "name": "CSSMarqueeMenu",
+      "language": "CSS",
+      "description": "A simple CSS based marquee effect for a menu.",
+      "tags": [
+        "typography",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/CSSMarqueeMenu",
+      "vendored": false
+    },
+    {
+      "name": "DistortedMenuLinkEffects",
+      "language": "HTML",
+      "description": "Menu styles and decorative link distortion effects using SVG filters.",
+      "tags": [
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/DistortedMenuLinkEffects",
+      "vendored": false
+    },
+    {
+      "name": "DistortedLinkEffects",
+      "language": "JavaScript",
+      "description": "Some ideas for decorative link distortion effects using SVG filters.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/DistortedLinkEffects",
+      "vendored": false
+    },
+    {
+      "name": "BackgroundScaleHoverEffect",
+      "language": "HTML",
+      "description": "A background scale hover effect using CSS clip paths, after DDD Hotel.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/BackgroundScaleHoverEffect",
+      "vendored": false
+    },
+    {
+      "name": "RotatedRevealers",
+      "language": "JavaScript",
+      "description": "Animated rotated overlays or reveal elements for page transition effects.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/RotatedRevealers",
+      "vendored": false
+    },
+    {
+      "name": "ImageDraggingEffects",
+      "language": "JavaScript",
+      "description": "A set of playful dragging effects for images using various techniques.",
+      "tags": [],
+      "url": "https://github.com/codrops/ImageDraggingEffects",
+      "vendored": false
+    },
+    {
+      "name": "SmoothScrollingImageEffects",
+      "language": "JavaScript",
+      "description": "Animating images and other elements while smooth scrolling a page.",
+      "tags": [
+        "scroll",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SmoothScrollingImageEffects",
+      "vendored": false
+    },
+    {
+      "name": "SamsungGrid",
+      "language": "JavaScript",
+      "description": "Recreating the grid loading effect from the Samsung Corporate Design Center.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/SamsungGrid",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedHeader",
+      "language": "HTML",
+      "description": "A fixed header that animates its size on scroll, inner elements included.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/AnimatedHeader",
+      "vendored": false
+    },
+    {
+      "name": "SmoothScrollAnimations",
+      "language": "JavaScript",
+      "description": "Smooth page scrolling with an inner image animation",
+      "tags": [
+        "scroll",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SmoothScrollAnimations",
+      "vendored": false
+    },
+    {
+      "name": "SlitSlider",
+      "language": "CSS",
+      "description": "A responsive slideshow that slices open the current slide when navigating.",
+      "tags": [
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/SlitSlider",
+      "vendored": false
+    },
+    {
+      "name": "ImageTrailEffects",
+      "language": "JavaScript",
+      "description": "Mouse-following image trails that show a random series of images.",
+      "tags": [],
+      "url": "https://github.com/codrops/ImageTrailEffects",
+      "vendored": false
+    },
+    {
+      "name": "DraggableImageStrip",
+      "language": "HTML",
+      "description": "A draggable image strip layout with a content preview.",
+      "tags": [],
+      "url": "https://github.com/codrops/DraggableImageStrip",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedGridPreviews",
+      "language": "JavaScript",
+      "description": "Switch between little image previews scattered around the page.",
+      "tags": [
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/AnimatedGridPreviews",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedImageColumns",
+      "language": "JavaScript",
+      "description": "Image columns that get animated when a menu item is clicked.",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/AnimatedImageColumns",
+      "vendored": false
+    },
+    {
+      "name": "ImageRevealHover",
+      "language": "JavaScript",
+      "description": "A set of link hover effects that reveal a thumbnail in creative ways.",
+      "tags": [
+        "hover",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/ImageRevealHover",
+      "vendored": false
+    },
+    {
+      "name": "SVGImageHover",
+      "language": "JavaScript",
+      "description": "SVG filter distortion effects shown on images when hovering a link.",
+      "tags": [
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/SVGImageHover",
+      "vendored": false
+    },
+    {
+      "name": "TextTrailEffect",
+      "language": "JavaScript",
+      "description": "A text trail effect for a slideshow, after the \"Abstract is hiring\" shot.",
+      "tags": [
+        "typography",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/TextTrailEffect",
+      "vendored": false
+    },
+    {
+      "name": "GridRevealEffects",
+      "language": "HTML",
+      "description": "Experiments with the staggering system of Anime.js",
+      "tags": [
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/GridRevealEffects",
+      "vendored": false
+    },
+    {
+      "name": "TextDistortionEffects",
+      "language": "JavaScript",
+      "description": "Text distortion experiments using the Blotter.js library.",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/TextDistortionEffects",
+      "vendored": false
+    },
+    {
+      "name": "LayerMotionSlideshow",
+      "language": "JavaScript",
+      "description": "A CSS Grid slideshow with a layer motion effect on the main image and title.",
+      "tags": [
+        "grid",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/LayerMotionSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "PerspectivePageViewNavigation",
+      "language": "CSS",
+      "description": "A perspective page view navigation where the page gets pushed away in 3D.",
+      "tags": [
+        "transition",
+        "menu",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/PerspectivePageViewNavigation",
+      "vendored": false
+    },
+    {
+      "name": "MotionTransitionEffect",
+      "language": "JavaScript",
+      "description": "A speedy motion transition effect for an image slideshow.",
+      "tags": [
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/MotionTransitionEffect",
+      "vendored": false
+    },
+    {
+      "name": "PageFlipLayout",
+      "language": "JavaScript",
+      "description": "A magazine-like layout with a flat page flip animation",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PageFlipLayout",
+      "vendored": false
+    },
+    {
+      "name": "GridLayoutSlideshow",
+      "language": "HTML",
+      "description": "A slideshow where each slide has its own CSS grid layout and reveal effect.",
+      "tags": [
+        "grid",
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/GridLayoutSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenHoverLoop",
+      "language": "JavaScript",
+      "description": "A fullscreen loop effect previewing images when hovering a menu item.",
+      "tags": [
+        "hover",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/FullscreenHoverLoop",
+      "vendored": false
+    },
+    {
+      "name": "ImageTiltEffect",
+      "language": "HTML",
+      "description": "A subtle tilt effect for images using semi-transparent copies.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/ImageTiltEffect",
+      "vendored": false
+    },
+    {
+      "name": "MultiboxMenu",
+      "language": "CSS",
+      "description": "A grid-powered multibox menu that shows with a reveal animation.",
+      "tags": [
+        "grid",
+        "transition",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MultiboxMenu",
+      "vendored": false
+    },
+    {
+      "name": "GridLayoutScrollableContent",
+      "language": "HTML",
+      "description": "A Masonry grid with a motion hover effect and a scrollable content view",
+      "tags": [
+        "scroll",
+        "hover",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridLayoutScrollableContent",
+      "vendored": false
+    },
+    {
+      "name": "DiagonalSlideshow",
+      "language": "JavaScript",
+      "description": "A slideshow with a diagonal look and a content preview",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/DiagonalSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "ElastiStack",
+      "language": "JavaScript",
+      "description": "Navigate a stack of items by dragging away the first one.",
+      "tags": [
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ElastiStack",
+      "vendored": false
+    },
+    {
+      "name": "SlideOutBoxMenu",
+      "language": "JavaScript",
+      "description": "A details menu with boxes that slide out in an irregular grid",
+      "tags": [
+        "grid",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/SlideOutBoxMenu",
+      "vendored": false
+    },
+    {
+      "name": "MotionRevealSlideshow",
+      "language": "HTML",
+      "description": "A simple image slideshow with a motion reveal effect and fullscreen details.",
+      "tags": [
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/MotionRevealSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "ThumbnailGridExpandingPreview",
+      "language": "JavaScript",
+      "description": "A thumbnail grid with an expanding image preview similar to Google Images.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ThumbnailGridExpandingPreview",
+      "vendored": false
+    },
+    {
+      "name": "RevealSlideshow",
+      "language": "JavaScript",
+      "description": "A fullscreen slideshow with lateral image previews and a reveal animation.",
+      "tags": [
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/RevealSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "FullImageReveal",
+      "language": "JavaScript",
+      "description": "A full image reveal effect with fancy thumbnail sliding.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/FullImageReveal",
+      "vendored": false
+    },
+    {
+      "name": "CollapsingLogo",
+      "language": "CSS",
+      "description": "A recreation of the collapsing logo effect seen on PracticalVR.",
+      "tags": [],
+      "url": "https://github.com/codrops/CollapsingLogo",
+      "vendored": false
+    },
+    {
+      "name": "GridLayoutMotion",
+      "language": "HTML",
+      "description": "A retro-style grid layout with a playful motion hover effect.",
+      "tags": [
+        "hover",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridLayoutMotion",
+      "vendored": false
+    },
+    {
+      "name": "ProximityFeedback",
+      "language": "HTML",
+      "description": "Some ideas for proximity feedback through progressive hover effects.",
+      "tags": [
+        "hover",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ProximityFeedback",
+      "vendored": false
+    },
+    {
+      "name": "PasswordStrengthVisualization",
+      "language": "HTML",
+      "description": "Visual feedback for password strength on an image, after Colibro's sign up form.",
+      "tags": [
+        "typography",
+        "form"
+      ],
+      "url": "https://github.com/codrops/PasswordStrengthVisualization",
+      "vendored": false
+    },
+    {
+      "name": "GridMenu",
+      "language": "HTML",
+      "description": "A CSS Grid powered menu with a box look and a sliding animation.",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/GridMenu",
+      "vendored": false
+    },
+    {
+      "name": "LineMenuStyles",
+      "language": "CSS",
+      "description": "A collection of menu styles that use the line as creative design element.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/LineMenuStyles",
+      "vendored": false
+    },
+    {
+      "name": "GlitchSlideshow",
+      "language": "CSS",
+      "description": "A slideshow that uses a CSS glitch effect for slide transitions.",
+      "tags": [
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/GlitchSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "AudioVisualizers",
+      "language": "HTML",
+      "description": "Modern line-style sound visualisation powered by p5.js and p5.sound.",
+      "tags": [],
+      "url": "https://github.com/codrops/AudioVisualizers",
+      "vendored": false
+    },
+    {
+      "name": "NotificationStyles",
+      "language": "CSS",
+      "description": "Various simple ideas and effects for unobtrusive notifications.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/NotificationStyles",
+      "vendored": false
+    },
+    {
+      "name": "ScrollingLettersAnimation",
+      "language": "HTML",
+      "description": "A switching title effect where a fixed element changes with scroll position.",
+      "tags": [
+        "scroll",
+        "typography"
+      ],
+      "url": "https://github.com/codrops/ScrollingLettersAnimation",
+      "vendored": false
+    },
+    {
+      "name": "SliceRevealer",
+      "language": "JavaScript",
+      "description": "A reveal effect where animated slices cover and uncover an image",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SliceRevealer",
+      "vendored": false
+    },
+    {
+      "name": "GradientTopographyAnimation",
+      "language": "HTML",
+      "description": "Shape layers animation based on Polar Vector's \"Gradient Topography\".",
+      "tags": [],
+      "url": "https://github.com/codrops/GradientTopographyAnimation",
+      "vendored": false
+    },
+    {
+      "name": "Calendario",
+      "language": "CSS",
+      "description": "A jQuery calendar plugin for creating flexible calendars.",
+      "tags": [],
+      "url": "https://github.com/codrops/Calendario",
+      "vendored": false
+    },
+    {
+      "name": "IsometricGrids",
+      "language": "HTML",
+      "description": "Experimental decorative and interactive isometric and 3D grids.",
+      "tags": [
+        "grid",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/IsometricGrids",
+      "vendored": false
+    },
+    {
+      "name": "CSSGlitchEffect",
+      "language": "CSS",
+      "description": "A glitch effect powered by CSS animations and the clip-path property.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/CSSGlitchEffect",
+      "vendored": false
+    },
+    {
+      "name": "ExpandingGridItemAnimation",
+      "language": "JavaScript",
+      "description": "Grid item animation based on the \"Surf Project\" Dribbble shot.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ExpandingGridItemAnimation",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedFrameSlideshow",
+      "language": "JavaScript",
+      "description": "A slideshow showing an animated SVG frame when transitioning between slides.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedFrameSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "CircularProgressButton",
+      "language": "CSS",
+      "description": "Implementation of Colin Garvin's submit button concept",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/CircularProgressButton",
+      "vendored": false
+    },
+    {
+      "name": "LiquidDistortion",
+      "language": "JavaScript",
+      "description": "A slideshow with liquid distortion effects in WebGL powered by PixiJS and GSAP",
+      "tags": [
+        "slideshow",
+        "webgl",
+        "gsap"
+      ],
+      "url": "https://github.com/codrops/LiquidDistortion",
+      "vendored": false
+    },
+    {
+      "name": "SlicedDualImageLayout",
+      "language": "HTML",
+      "description": "Layouts with sliced background images, slideshow and glitch effect.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/SlicedDualImageLayout",
+      "vendored": false
+    },
+    {
+      "name": "ShapeMorphIdeas",
+      "language": "HTML",
+      "description": "A small set of ideas for organic shape effects with SVG.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ShapeMorphIdeas",
+      "vendored": false
+    },
+    {
+      "name": "SelectInspiration",
+      "language": "CSS",
+      "description": "Creative styles and ideas for custom select elements.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/SelectInspiration",
+      "vendored": false
+    },
+    {
+      "name": "MorphingPageTransition",
+      "language": "HTML",
+      "description": "A morphing page transition where an SVG path morphs while the page moves up.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/MorphingPageTransition",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedImagePieces",
+      "language": "HTML",
+      "description": "An animated image pieces effect where an image shatters into fragments.",
+      "tags": [],
+      "url": "https://github.com/codrops/AnimatedImagePieces",
+      "vendored": false
+    },
+    {
+      "name": "DialogEffects",
+      "language": "HTML",
+      "description": "A collection of dialog effects using CSS and SVG animations.",
+      "tags": [
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/DialogEffects",
+      "vendored": false
+    },
+    {
+      "name": "LetterInteractions",
+      "language": "HTML",
+      "description": "Playful typographical effects and hover interactions on letters.",
+      "tags": [
+        "typography",
+        "hover"
+      ],
+      "url": "https://github.com/codrops/LetterInteractions",
+      "vendored": false
+    },
+    {
+      "name": "OrganicShapeAnimations",
+      "language": "HTML",
+      "description": "Shape morphing hover effects on images using SVG clipPath.",
+      "tags": [
+        "hover",
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/OrganicShapeAnimations",
+      "vendored": false
+    },
+    {
+      "name": "ResponsiveMultiLevelMenu",
+      "language": "HTML",
+      "description": "A responsive multi-level menu that shows submenus in their own context.",
+      "tags": [
+        "typography",
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ResponsiveMultiLevelMenu",
+      "vendored": false
+    },
+    {
+      "name": "TooltipAnimations",
+      "language": "JavaScript",
+      "description": "Bouncy and playful tooltip shapes and animations with SVG and anime.js.",
+      "tags": [
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/TooltipAnimations",
+      "vendored": false
+    },
+    {
+      "name": "BookBlock",
+      "language": "HTML",
+      "description": "A jQuery plugin creating a booklet-like component with page flipping.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/BookBlock",
+      "vendored": false
+    },
+    {
+      "name": "MorphingBackgroundShapes",
+      "language": "HTML",
+      "description": "A background effect where SVG shapes morph and transform on scroll.",
+      "tags": [
+        "scroll",
+        "transition",
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/MorphingBackgroundShapes",
+      "vendored": false
+    },
+    {
+      "name": "FolderPreviewIdeas",
+      "language": "HTML",
+      "description": "Some ideas for interacting with or previewing folders on hover",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/FolderPreviewIdeas",
+      "vendored": false
+    },
+    {
+      "name": "InfiniteTubes",
+      "language": "JavaScript",
+      "description": "A tunnel experiment in WebGL inspired by the Fornasetti website.",
+      "tags": [
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/InfiniteTubes",
+      "vendored": false
+    },
+    {
+      "name": "MultiLevelPushMenu",
+      "language": "JavaScript",
+      "description": "An experimental push menu allowing endless nesting of navigation elements.",
+      "tags": [
+        "grid",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/MultiLevelPushMenu",
+      "vendored": false
+    },
+    {
+      "name": "ScrollSpiral",
+      "language": "HTML",
+      "description": "A WebGL scroll spiral",
+      "tags": [
+        "scroll",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/ScrollSpiral",
+      "vendored": false
+    },
+    {
+      "name": "FilterableProductGrid",
+      "language": "HTML",
+      "description": "A responsive product grid with Flickity galleries and Isotope filtering.",
+      "tags": [
+        "grid",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/FilterableProductGrid",
+      "vendored": false
+    },
+    {
+      "name": "ZoomSlider",
+      "language": "JavaScript",
+      "description": "A content slider with depth-like zoom for a predefined area in each slide.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ZoomSlider",
+      "vendored": false
+    },
+    {
+      "name": "DirectionAwareHoverEffect",
+      "language": "HTML",
+      "description": "A direction-aware hover effect that slides in an overlay from the mouse direction.",
+      "tags": [
+        "hover",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/DirectionAwareHoverEffect",
+      "vendored": false
+    },
+    {
+      "name": "DeveloperDesignerPageLayout",
+      "language": "JavaScript",
+      "description": "An experimental page layout with a developer or designer theme.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/DeveloperDesignerPageLayout",
+      "vendored": false
+    },
+    {
+      "name": "GridLoadingAnimations",
+      "language": "HTML",
+      "description": "Some inspiration for loading effects on grid items.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridLoadingAnimations",
+      "vendored": false
+    },
+    {
+      "name": "Baraja",
+      "language": "JavaScript",
+      "description": "A jQuery plugin that spreads elements like a deck of cards on a table.",
+      "tags": [],
+      "url": "https://github.com/codrops/Baraja",
+      "vendored": false
+    },
+    {
+      "name": "SegmentEffect",
+      "language": "HTML",
+      "description": "A background image segment effect, after Filippo Bello's portfolio.",
+      "tags": [],
+      "url": "https://github.com/codrops/SegmentEffect",
+      "vendored": false
+    },
+    {
+      "name": "Exhibition",
+      "language": "JavaScript",
+      "description": "An experimental 3D room layout for a gallery with exhibition details.",
+      "tags": [
+        "grid",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/Exhibition",
+      "vendored": false
+    },
+    {
+      "name": "ExpandingBarMenus",
+      "language": "JavaScript",
+      "description": "A tab-like navigation that expands a content area when clicked.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ExpandingBarMenus",
+      "vendored": false
+    },
+    {
+      "name": "TextInputEffects",
+      "language": "CSS",
+      "description": "Simple styles and effects for enhancing text input interactions.",
+      "tags": [
+        "typography",
+        "form"
+      ],
+      "url": "https://github.com/codrops/TextInputEffects",
+      "vendored": false
+    },
+    {
+      "name": "MultiLevelMenu",
+      "language": "JavaScript",
+      "description": "A menu with multiple levels, optional breadcrumb navigation and back button.",
+      "tags": [
+        "grid",
+        "menu",
+        "form"
+      ],
+      "url": "https://github.com/codrops/MultiLevelMenu",
+      "vendored": false
+    },
+    {
+      "name": "FullWidthTabs",
+      "language": "CSS",
+      "description": "Full width tabbed content with example media queries for smaller screens.",
+      "tags": [],
+      "url": "https://github.com/codrops/FullWidthTabs",
+      "vendored": false
+    },
+    {
+      "name": "TiltHoverEffects",
+      "language": "HTML",
+      "description": "Hover effects with a fancy tilt effect, inspired by Kikk 2015.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/TiltHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "StackMotionHoverEffects",
+      "language": "HTML",
+      "description": "Hover effects revealing a stack of coloured cards behind the hovered item.",
+      "tags": [
+        "hover",
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/StackMotionHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "GeekyGlasses",
+      "language": "HTML",
+      "description": "A \"try-on\" experiment showing a first person view through coloured lenses.",
+      "tags": [],
+      "url": "https://github.com/codrops/GeekyGlasses",
+      "vendored": false
+    },
+    {
+      "name": "SearchUIEffects",
+      "language": "HTML",
+      "description": "Proof-of-concepts for showing a search interface using CSS animations.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/SearchUIEffects",
+      "vendored": false
+    },
+    {
+      "name": "PageStackNavigation",
+      "language": "CSS",
+      "description": "A template for a simple page stack navigation.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/PageStackNavigation",
+      "vendored": false
+    },
+    {
+      "name": "LittleFragments",
+      "language": "JavaScript",
+      "description": "A simple image poster effect with little image fragments.",
+      "tags": [],
+      "url": "https://github.com/codrops/LittleFragments",
+      "vendored": false
+    },
+    {
+      "name": "MirrorEffect",
+      "language": "HTML",
+      "description": "A mirror effect as seen on Corentin Fardeau's and Method's websites.",
+      "tags": [],
+      "url": "https://github.com/codrops/MirrorEffect",
+      "vendored": false
+    },
+    {
+      "name": "ScatteredPolaroidsGallery",
+      "language": "HTML",
+      "description": "A flat-style Polaroid gallery with items scattered randomly in a container.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ScatteredPolaroidsGallery",
+      "vendored": false
+    },
+    {
+      "name": "FancyLetterAnimation",
+      "language": "HTML",
+      "description": "An SVG letter animation after the \"Shading Letters in Illustrator\" shot.",
+      "tags": [
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/FancyLetterAnimation",
+      "vendored": false
+    },
+    {
+      "name": "SurfReport",
+      "language": "JavaScript",
+      "description": "A weekly surf report template with an animated SVG graph and sliding panel.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/SurfReport",
+      "vendored": false
+    },
+    {
+      "name": "CubesAdventCalendar",
+      "language": "JavaScript",
+      "description": "A 3D advent calendar with hover effects and background colour animations",
+      "tags": [
+        "hover",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/CubesAdventCalendar",
+      "vendored": false
+    },
+    {
+      "name": "MediaPopUpEffect",
+      "language": "JavaScript",
+      "description": "Experimental pop up hover and touch effects for little media items.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/MediaPopUpEffect",
+      "vendored": false
+    },
+    {
+      "name": "ExpandingSearchBar",
+      "language": "JavaScript",
+      "description": "A mobile-friendly and responsive expanding search bar.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/ExpandingSearchBar",
+      "vendored": false
+    },
+    {
+      "name": "LetterEffects",
+      "language": "HTML",
+      "description": "Inspirational letter animations for display typography, powered by anime.js",
+      "tags": [
+        "typography"
+      ],
+      "url": "https://github.com/codrops/LetterEffects",
+      "vendored": false
+    },
+    {
+      "name": "LineMaker",
+      "language": "HTML",
+      "description": "A plugin for creating and animating decorative lines on websites.",
+      "tags": [],
+      "url": "https://github.com/codrops/LineMaker",
+      "vendored": false
+    },
+    {
+      "name": "DistortedButtonEffects",
+      "language": "CSS",
+      "description": "Experimental distortion effects for buttons using SVG filters.",
+      "tags": [
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/DistortedButtonEffects",
+      "vendored": false
+    },
+    {
+      "name": "ItemRevealer",
+      "language": "HTML",
+      "description": "Grid items revealed with animated morphing SVG paths using anime.js.",
+      "tags": [
+        "grid",
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ItemRevealer",
+      "vendored": false
+    },
+    {
+      "name": "NavigationIndicators",
+      "language": "CSS",
+      "description": "Navigation style ideas for slideshows, pages and other components.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/NavigationIndicators",
+      "vendored": false
+    },
+    {
+      "name": "MultiLayoutSlideshow",
+      "language": "HTML",
+      "description": "A decorative slideshow with individual slide layouts, powered by anime.js.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/MultiLayoutSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "Windy",
+      "language": "JavaScript",
+      "description": "A jQuery plugin for swift content navigation",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/Windy",
+      "vendored": false
+    },
+    {
+      "name": "AboveBeneath",
+      "language": "CSS",
+      "description": "A landing page template with a featured content section and background sounds.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/AboveBeneath",
+      "vendored": false
+    },
+    {
+      "name": "InteractivePoints",
+      "language": "HTML",
+      "description": "A transparency background effect making images visible on point hover.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/InteractivePoints",
+      "vendored": false
+    },
+    {
+      "name": "RecordPlayer",
+      "language": "HTML",
+      "description": "An interactive old school record player powered by the Web Audio API.",
+      "tags": [],
+      "url": "https://github.com/codrops/RecordPlayer",
+      "vendored": false
+    },
+    {
+      "name": "PageRevealEffects",
+      "language": "CSS",
+      "description": "Ideas for modern multi-layer page transitions using CSS animations.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PageRevealEffects",
+      "vendored": false
+    },
+    {
+      "name": "GammaGallery",
+      "language": "JavaScript",
+      "description": "An experimental responsive image gallery with an adjustable images approach.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GammaGallery",
+      "vendored": false
+    },
+    {
+      "name": "MotionBlurEffect",
+      "language": "HTML",
+      "description": "A motion blur effect on HTML elements using JavaScript and an SVG filter.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/MotionBlurEffect",
+      "vendored": false
+    },
+    {
+      "name": "SimpleDropDownEffects",
+      "language": "HTML",
+      "description": "A jQuery plugin turning select inputs into drop-down lists with effects.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/SimpleDropDownEffects",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenForm",
+      "language": "CSS",
+      "description": "A fullscreen form concept with distraction-free filling and animations.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/FullscreenForm",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedAnimals",
+      "language": "CSS",
+      "description": "How to animate two SVG animals using only CSS and SCSS",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedAnimals",
+      "vendored": false
+    },
+    {
+      "name": "NaturalLanguageForm",
+      "language": "CSS",
+      "description": "An experimental form using natural language instead of the usual layout.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/NaturalLanguageForm",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedLetters",
+      "language": "JavaScript",
+      "description": "A plugin animating an artistic font using Segment, the SVG strokes library.",
+      "tags": [
+        "typography",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedLetters",
+      "vendored": false
+    },
+    {
+      "name": "ElasticCircleSlideshow",
+      "language": "JavaScript",
+      "description": "A content slideshow with circular slides and an elastic navigation effect.",
+      "tags": [
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/ElasticCircleSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "PolaroidStackGrid",
+      "language": "JavaScript",
+      "description": "An intro animation where a decorative Polaroid stack becomes a grid.",
+      "tags": [
+        "grid",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/PolaroidStackGrid",
+      "vendored": false
+    },
+    {
+      "name": "SeatPreview",
+      "language": "HTML",
+      "description": "A 3D perspective preview for a selected seat in a cinema room.",
+      "tags": [
+        "webgl",
+        "form"
+      ],
+      "url": "https://github.com/codrops/SeatPreview",
+      "vendored": false
+    },
+    {
+      "name": "GridLoadingEffects",
+      "language": "HTML",
+      "description": "Some inspiration for loading effects of grid items using CSS animations.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridLoadingEffects",
+      "vendored": false
+    },
+    {
+      "name": "ElasticProgress",
+      "language": "JavaScript",
+      "description": "A button that turns into a progress bar with an elastic effect.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/ElasticProgress",
+      "vendored": false
+    },
+    {
+      "name": "ButtonComponentMorph",
+      "language": "HTML",
+      "description": "Inspiration for revealing content by morphing the action element.",
+      "tags": [
+        "transition",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ButtonComponentMorph",
+      "vendored": false
+    },
+    {
+      "name": "ShazamButtonEffect",
+      "language": "JavaScript",
+      "description": "A Shazam-like button that morphs into a music player using Snap.svg.",
+      "tags": [
+        "transition",
+        "svg",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ShazamButtonEffect",
+      "vendored": false
+    },
+    {
+      "name": "DragDropInteractions",
+      "language": "HTML",
+      "description": "Some inspiration for drag and drop interactions for the modern UI.",
+      "tags": [],
+      "url": "https://github.com/codrops/DragDropInteractions",
+      "vendored": false
+    },
+    {
+      "name": "PricingTablesInspiration",
+      "language": "HTML",
+      "description": "Styles and inspiration for responsive flexbox-based HTML pricing tables.",
+      "tags": [],
+      "url": "https://github.com/codrops/PricingTablesInspiration",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedMenuIcon",
+      "language": "CSS",
+      "description": "How to animate an SVG menu icon, implemented with Segment. By Luis Manuel.",
+      "tags": [
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedMenuIcon",
+      "vendored": false
+    },
+    {
+      "name": "RoomDisplay",
+      "language": "CSS",
+      "description": "An interactive room slideshow based on the \"Spaces\" Dribbble shot.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/RoomDisplay",
+      "vendored": false
+    },
+    {
+      "name": "MinimalForm",
+      "language": "JavaScript",
+      "description": "A simplistic form with inputs shown one at a time.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/MinimalForm",
+      "vendored": false
+    },
+    {
+      "name": "CardStackEffects",
+      "language": "CSS",
+      "description": "Effect inspiration for card stacks with accept or reject feedback.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/CardStackEffects",
+      "vendored": false
+    },
+    {
+      "name": "PullToShare",
+      "language": "JavaScript",
+      "description": "A mobile pull to share interaction using the pull to refresh movement.",
+      "tags": [],
+      "url": "https://github.com/codrops/PullToShare",
+      "vendored": false
+    },
+    {
+      "name": "ImageGridEffects",
+      "language": "HTML",
+      "description": "Inspiration for effects on image grids and the resulting view.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ImageGridEffects",
+      "vendored": false
+    },
+    {
+      "name": "VideoOpeningAnimation",
+      "language": "CSS",
+      "description": "How to recreate the fullscreen video opening effect from momentsapp.com.",
+      "tags": [],
+      "url": "https://github.com/codrops/VideoOpeningAnimation",
+      "vendored": false
+    },
+    {
+      "name": "Elastislide",
+      "language": "JavaScript",
+      "description": "A responsive image carousel that adapts fluidly in a layout.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/Elastislide",
+      "vendored": false
+    },
+    {
+      "name": "DraggableElementsInteraction",
+      "language": "JavaScript",
+      "description": "A playful interaction idea inspired by a Rally Interactive Dribbble shot.",
+      "tags": [],
+      "url": "https://github.com/codrops/DraggableElementsInteraction",
+      "vendored": false
+    },
+    {
+      "name": "FourBoxes",
+      "language": "CSS",
+      "description": "How to recreate a four panel background image slideshow.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/FourBoxes",
+      "vendored": false
+    },
+    {
+      "name": "DraggableDualViewSlideshow",
+      "language": "JavaScript",
+      "description": "A draggable slideshow with fullscreen and small carousel views.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/DraggableDualViewSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "ColorExtraction",
+      "language": "CSS",
+      "description": "Creating a colour palette from images using CSS filters and Vibrant.js",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ColorExtraction",
+      "vendored": false
+    },
+    {
+      "name": "GridGallery",
+      "language": "HTML",
+      "description": "A responsive grid gallery based on the Google Chromebook guide gallery.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/GridGallery",
+      "vendored": false
+    },
+    {
+      "name": "ProductComparison",
+      "language": "CSS",
+      "description": "A responsive product grid with comparison functionality and slide-in effect.",
+      "tags": [
+        "grid",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ProductComparison",
+      "vendored": false
+    },
+    {
+      "name": "TextStylesHoverEffects",
+      "language": "CSS",
+      "description": "Creative text styles and hover effects, some using SVG masking and Canvas.",
+      "tags": [
+        "typography",
+        "hover",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/TextStylesHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "OffCanvasMenuEffects",
+      "language": "CSS",
+      "description": "Off-canvas menu effects using CSS transitions and SVG path animations.",
+      "tags": [
+        "transition",
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/OffCanvasMenuEffects",
+      "vendored": false
+    },
+    {
+      "name": "StackSlider",
+      "language": "JavaScript",
+      "description": "An image slider that flips through images in 3D using two stacks.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/StackSlider",
+      "vendored": false
+    },
+    {
+      "name": "InteractiveColoringConcept",
+      "language": "HTML",
+      "description": "A colouring concept where a colour droplet is dragged onto a website mockup.",
+      "tags": [],
+      "url": "https://github.com/codrops/InteractiveColoringConcept",
+      "vendored": false
+    },
+    {
+      "name": "CreativeGooeyEffects",
+      "language": "HTML",
+      "description": "Practical examples of how to apply the gooey effect by Lucas Bebber",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/CreativeGooeyEffects",
+      "vendored": false
+    },
+    {
+      "name": "PlayfulTrampolineEffect",
+      "language": "HTML",
+      "description": "A content navigation effect animating a background shape like a trampoline.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/PlayfulTrampolineEffect",
+      "vendored": false
+    },
+    {
+      "name": "ButtonStylesInspiration",
+      "language": "CSS",
+      "description": "Some ideas for modern and subtle button styles and effects",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/ButtonStylesInspiration",
+      "vendored": false
+    },
+    {
+      "name": "ClickEffects",
+      "language": "CSS",
+      "description": "Subtle effects for click or touch interactions, after mobile app showcases.",
+      "tags": [],
+      "url": "https://github.com/codrops/ClickEffects",
+      "vendored": false
+    },
+    {
+      "name": "css-reference-issues",
+      "language": null,
+      "description": "A repo for collecting issues and suggestions for the Codrops CSS Reference",
+      "tags": [],
+      "url": "https://github.com/codrops/css-reference-issues",
+      "vendored": false
+    },
+    {
+      "name": "CheckoutConcepts",
+      "language": "CSS",
+      "description": "Some simple ideas for enhancing the checkout process.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/CheckoutConcepts",
+      "vendored": false
+    },
+    {
+      "name": "SlidingHeaderLayout",
+      "language": "CSS",
+      "description": "A fullscreen header that slides up to reveal a content area with an image grid.",
+      "tags": [
+        "grid",
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/SlidingHeaderLayout",
+      "vendored": false
+    },
+    {
+      "name": "ElasticSVGElements",
+      "language": "CSS",
+      "description": "Adding elasticity with SVG shape animations for enhanced UI interactions.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ElasticSVGElements",
+      "vendored": false
+    },
+    {
+      "name": "MorphingSearch",
+      "language": "CSS",
+      "description": "A search input that morphs into a fullscreen overlay.",
+      "tags": [
+        "transition",
+        "form"
+      ],
+      "url": "https://github.com/codrops/MorphingSearch",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-FullWidthImageSlider",
+      "language": "JavaScript",
+      "description": "A full width slider that scales down to mobile.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/Blueprint-FullWidthImageSlider",
+      "vendored": false
+    },
+    {
+      "name": "WobblySlideshowEffect",
+      "language": "JavaScript",
+      "description": "Slides that wobble as they move, using Snap.svg and morphing SVG paths.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/WobblySlideshowEffect",
+      "vendored": false
+    },
+    {
+      "name": "TooltipStylesInspiration",
+      "language": "CSS",
+      "description": "Various hover tooltip styles, shapes and effects for your inspiration.",
+      "tags": [
+        "hover",
+        "form"
+      ],
+      "url": "https://github.com/codrops/TooltipStylesInspiration",
+      "vendored": false
+    },
+    {
+      "name": "PagePreloadingEffect",
+      "language": "CSS",
+      "description": "A page preloading animation based on the effect seen on Fontface Ninja.",
+      "tags": [
+        "typography",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PagePreloadingEffect",
+      "vendored": false
+    },
+    {
+      "name": "PFold",
+      "language": "JavaScript",
+      "description": "A jQuery plugin that unfolds elements to reveal more content.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/PFold",
+      "vendored": false
+    },
+    {
+      "name": "InlineAnchorStyles",
+      "language": "CSS",
+      "description": "Creative and modern inline anchor styles and effects.",
+      "tags": [],
+      "url": "https://github.com/codrops/InlineAnchorStyles",
+      "vendored": false
+    },
+    {
+      "name": "ArrowNavigationStyles",
+      "language": "CSS",
+      "description": "Arrow navigation styles and hover effects using SVG icons.",
+      "tags": [
+        "hover",
+        "menu",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/ArrowNavigationStyles",
+      "vendored": false
+    },
+    {
+      "name": "CreativeLinkEffects",
+      "language": "CSS",
+      "description": "A collection of experimental link effects, mostly using transitions.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/CreativeLinkEffects",
+      "vendored": false
+    },
+    {
+      "name": "ItemSlider",
+      "language": "CSS",
+      "description": "A simple category slider with a minimal design.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/ItemSlider",
+      "vendored": false
+    },
+    {
+      "name": "BookPreview",
+      "language": "CSS",
+      "description": "A \"look inside\" book preview concept for book showcases or online stores.",
+      "tags": [],
+      "url": "https://github.com/codrops/BookPreview",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-SlidePushMenus",
+      "language": "CSS",
+      "description": "Fixed menus that slide out from the sides of the page.",
+      "tags": [
+        "transition",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/Blueprint-SlidePushMenus",
+      "vendored": false
+    },
+    {
+      "name": "PageLoadingEffects",
+      "language": "CSS",
+      "description": "Modern ways of revealing new content using SVG animations.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/PageLoadingEffects",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-VerticalTimeline",
+      "language": "CSS",
+      "description": "A responsive vertical timeline layout with icons and example media queries.",
+      "tags": [],
+      "url": "https://github.com/codrops/Blueprint-VerticalTimeline",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenOverlayStyles",
+      "language": "CSS",
+      "description": "Simple and creative overlay styles and effects using SVG morphing shapes.",
+      "tags": [
+        "transition",
+        "svg"
+      ],
+      "url": "https://github.com/codrops/FullscreenOverlayStyles",
+      "vendored": false
+    },
+    {
+      "name": "DotNavigationStyles",
+      "language": "CSS",
+      "description": "A set of subtle effects and styles for simple dot navigation.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/DotNavigationStyles",
+      "vendored": false
+    },
+    {
+      "name": "SwatchBook",
+      "language": "CSS",
+      "description": "A swatch book component that opens and rotates swatches revealing details.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SwatchBook",
+      "vendored": false
+    },
+    {
+      "name": "ProgressButtonStyles",
+      "language": "CSS",
+      "description": "A set of flat and 3D progress button styles serving as progress indicators.",
+      "tags": [
+        "webgl",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ProgressButtonStyles",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedSVGIcons",
+      "language": "JavaScript",
+      "description": "SVG animations using libraries like Snap.svg.",
+      "tags": [
+        "svg"
+      ],
+      "url": "https://github.com/codrops/AnimatedSVGIcons",
+      "vendored": false
+    },
+    {
+      "name": "MultiElementSelection",
+      "language": "JavaScript",
+      "description": "A user-friendly approach to selecting multiple elements beyond checkboxes.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/MultiElementSelection",
+      "vendored": false
+    },
+    {
+      "name": "SplitLayout",
+      "language": "CSS",
+      "description": "A template for a split layout with two sides that transition when clicked.",
+      "tags": [
+        "transition"
+      ],
+      "url": "https://github.com/codrops/SplitLayout",
+      "vendored": false
+    },
+    {
+      "name": "AnimatedBorderMenus",
+      "language": "CSS",
+      "description": "An off-canvas icon navigation with an animated border effect.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/AnimatedBorderMenus",
+      "vendored": false
+    },
+    {
+      "name": "OnScrollEffectLayout",
+      "language": "JavaScript",
+      "description": "An on-scroll effect template animating the sides of sections in the viewport.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/OnScrollEffectLayout",
+      "vendored": false
+    },
+    {
+      "name": "ModalWindowEffects",
+      "language": "JavaScript",
+      "description": "A set of experimental modal window appearance effects with CSS transitions.",
+      "tags": [
+        "transition",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ModalWindowEffects",
+      "vendored": false
+    },
+    {
+      "name": "ResponsiveIconGrid",
+      "language": null,
+      "description": "A responsive grid of anchors with icons and text.",
+      "tags": [
+        "typography",
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ResponsiveIconGrid",
+      "vendored": false
+    },
+    {
+      "name": "ViewModeSwitch",
+      "language": "JavaScript",
+      "description": "A view mode switch with two example layouts, a grid and a list.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ViewModeSwitch",
+      "vendored": false
+    },
+    {
+      "name": "DynamicGrid",
+      "language": "JavaScript",
+      "description": "A dynamic grid layout letting you choose how many rows and columns to display.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/DynamicGrid",
+      "vendored": false
+    },
+    {
+      "name": "CaptionHoverEffects",
+      "language": "JavaScript",
+      "description": "Some subtle and modern caption hover effects.",
+      "tags": [
+        "hover"
+      ],
+      "url": "https://github.com/codrops/CaptionHoverEffects",
+      "vendored": false
+    },
+    {
+      "name": "ResponsiveMultiColumnForm",
+      "language": null,
+      "description": "A responsive multi-column form with example media queries.",
+      "tags": [
+        "grid",
+        "form"
+      ],
+      "url": "https://github.com/codrops/ResponsiveMultiColumnForm",
+      "vendored": false
+    },
+    {
+      "name": "TooltipMenu",
+      "language": "JavaScript",
+      "description": "A tooltip menu showing a submenu when hovering over items.",
+      "tags": [
+        "hover",
+        "menu",
+        "form"
+      ],
+      "url": "https://github.com/codrops/TooltipMenu",
+      "vendored": false
+    },
+    {
+      "name": "HorizontalSlideOutMenu",
+      "language": "JavaScript",
+      "description": "A horizontal slide out menu with a grid-like thumbnail submenu.",
+      "tags": [
+        "grid",
+        "slideshow",
+        "menu"
+      ],
+      "url": "https://github.com/codrops/HorizontalSlideOutMenu",
+      "vendored": false
+    },
+    {
+      "name": "ProductGridLayout",
+      "language": "JavaScript",
+      "description": "A responsive product grid layout with some UI details for inspiration.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/ProductGridLayout",
+      "vendored": false
+    },
+    {
+      "name": "MorphingDevices",
+      "language": "JavaScript",
+      "description": "A morphing device slideshow for showcasing responsive design screenshots.",
+      "tags": [
+        "transition",
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/MorphingDevices",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-FixedBackgroundScrollingLayout",
+      "language": "JavaScript",
+      "description": "A fixed background image scrolling layout with full height panels.",
+      "tags": [
+        "scroll"
+      ],
+      "url": "https://github.com/codrops/Blueprint-FixedBackgroundScrollingLayout",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-BackgroundSlideshow",
+      "language": "JavaScript",
+      "description": "A fullscreen background slideshow with autoplay functionality.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/Blueprint-BackgroundSlideshow",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-ResponsiveFullWidthGrid",
+      "language": null,
+      "description": "A responsive grid layout for multiple items filling the available width.",
+      "tags": [
+        "grid"
+      ],
+      "url": "https://github.com/codrops/Blueprint-ResponsiveFullWidthGrid",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-QuotesRotator",
+      "language": "JavaScript",
+      "description": "An automatic quotes rotator with progress bar and example media query.",
+      "tags": [
+        "form"
+      ],
+      "url": "https://github.com/codrops/Blueprint-QuotesRotator",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-NestedAccordion",
+      "language": "JavaScript",
+      "description": "A simple nestable accordion with examples of nesting levels and a media query.",
+      "tags": [],
+      "url": "https://github.com/codrops/Blueprint-NestedAccordion",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-VerticalIconMenu",
+      "language": null,
+      "description": "A fixed vertical icon menu that adjusts its size for smaller screens.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/Blueprint-VerticalIconMenu",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-HorizontalDropDownMenu",
+      "language": "JavaScript",
+      "description": "A responsive horizontal drop-down menu inspired by the Microsoft.com menu.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/Blueprint-HorizontalDropDownMenu",
+      "vendored": false
+    },
+    {
+      "name": "Blueprint-ElasticContentSlider",
+      "language": "JavaScript",
+      "description": "A fluid content slider adjusting to the size of its parent.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/Blueprint-ElasticContentSlider",
+      "vendored": false
+    },
+    {
+      "name": "YouTubeLeftSideMenu",
+      "language": "JavaScript",
+      "description": "How to recreate the effect of YouTube's little left side menu.",
+      "tags": [
+        "menu"
+      ],
+      "url": "https://github.com/codrops/YouTubeLeftSideMenu",
+      "vendored": false
+    },
+    {
+      "name": "FullscreenLayoutPageTransitions",
+      "language": "JavaScript",
+      "description": "A responsive layout based on a grid of four boxes that resize to fullscreen.",
+      "tags": [
+        "grid",
+        "transition"
+      ],
+      "url": "https://github.com/codrops/FullscreenLayoutPageTransitions",
+      "vendored": false
+    },
+    {
+      "name": "Stapel",
+      "language": "JavaScript",
+      "description": "A jQuery plugin grouping thumbnails by a shared data-attribute into a pile.",
+      "tags": [],
+      "url": "https://github.com/codrops/Stapel",
+      "vendored": false
+    },
+    {
+      "name": "SliderPagination",
+      "language": "JavaScript",
+      "description": "A slider pagination using the jQuery UI slider.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/SliderPagination",
+      "vendored": false
+    },
+    {
+      "name": "VerticalShowcaseSlider",
+      "language": "JavaScript",
+      "description": "A responsive vertical fullscreen slider moving sections in opposite directions.",
+      "tags": [
+        "slideshow"
+      ],
+      "url": "https://github.com/codrops/VerticalShowcaseSlider",
+      "vendored": false
+    },
+    {
+      "name": "3DRestaurantMenu",
+      "language": "JavaScript",
+      "description": "A 3D menu concept for a restaurant website, shown as a folded flyer.",
+      "tags": [
+        "menu",
+        "webgl"
+      ],
+      "url": "https://github.com/codrops/3DRestaurantMenu",
+      "vendored": false
+    }
+  ]
+}
