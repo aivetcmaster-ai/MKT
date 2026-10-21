@@ -1,0 +1,409 @@
+<title>Mô hình 3D Km5</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;700&display=swap">
+<style>
+/* Bố cục: thanh công cụ chọn khu vực, khung 3D lớn, dải mô tả khu vực đang xem, rồi bảng hạng mục tĩnh của từng khu */
+:root{
+  --bg:#F4F7F5; --surface:#FFFFFF; --ink:#15241C; --muted:#56665D; --line:#D7E1DA;
+  --sign:#0E7A4A; --green:#2DBE60; --pale:#E8F8EE; --amber:#F5A623; --navy:#1E3A5F;
+  --btn:#FFFFFF; --btn-ink:#15241C; --btn-on:#0E7A4A; --btn-on-ink:#FFFFFF;
+  --f-body:"Be Vietnam Pro", Arial, sans-serif; --f-mono:"Roboto Mono", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1714; --surface:#16211C; --ink:#E5EEE8; --muted:#9DAEA4; --line:#2A3832;
+  --sign:#2FA36B; --green:#45CF75; --pale:#1A3325; --navy:#9EBBE0;
+  --btn:#1C2A23; --btn-ink:#E5EEE8; --btn-on:#2FA36B; --btn-on-ink:#0F1714; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1714; --surface:#16211C; --ink:#E5EEE8; --muted:#9DAEA4; --line:#2A3832;
+  --sign:#2FA36B; --green:#45CF75; --pale:#1A3325; --navy:#9EBBE0;
+  --btn:#1C2A23; --btn-ink:#E5EEE8; --btn-on:#2FA36B; --btn-on-ink:#0F1714; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{margin:0;line-height:1.25;text-wrap:balance}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1.02rem;font-weight:700}
+p{margin:0;max-width:72ch}
+.eyebrow{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sign);font-weight:700}
+.muted{color:var(--muted)}
+.head{display:flex;flex-direction:column;gap:8px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar button{font:600 .9rem var(--f-body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--btn);color:var(--btn-ink);cursor:pointer}
+.toolbar button[aria-pressed="true"]{background:var(--btn-on);color:var(--btn-on-ink);border-color:var(--btn-on)}
+.toolbar button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.toolbar .sep{flex:1}
+#decorBtn{border-color:var(--amber)}
+.viewer{position:relative;height:clamp(420px,68vh,760px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#E2E8E4}
+.viewer canvas{display:block;width:100%;height:100%;touch-action:none}
+.hint{position:absolute;left:12px;bottom:12px;background:rgba(21,36,28,.78);color:#fff;font-size:.8rem;padding:6px 10px;border-radius:6px;pointer-events:none}
+.badge{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.92);color:#15241C;font:700 .8rem var(--f-mono);padding:6px 10px;border-radius:6px;pointer-events:none}
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#15241C;font-weight:600}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.panel .km{font-family:var(--f-mono);color:var(--sign);font-weight:700;font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.grid>div{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.grid .km{font-family:var(--f-mono);color:var(--sign);font-weight:700;font-size:.8rem}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:.93rem}
+.note{background:var(--pale);border-radius:10px;padding:14px 16px;font-size:.92rem;display:flex;flex-direction:column;gap:4px}
+.foot{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:700px){.grid{grid-template-columns:1fr}.toolbar .sep{display:none}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Km5 · Chung một làn · Mô hình 3D ý tưởng</span>
+    <h1>Mô hình 3D tầng 5 văn phòng liên danh</h1>
+    <p class="muted">Tầng 5, số 5 Tôn Thất Thuyết. Bốn phòng làm việc, sảnh thang máy, hành lang và góc nghỉ. Chọn khu vực để bay tới, kéo chuột để xoay, cuộn để phóng to. Bấm "Tắt decor" để thấy hiện trạng chỉ có bàn ghế, máy tính.</p>
+  </div>
+
+  <div class="toolbar" role="toolbar" aria-label="Chọn khu vực">
+    <button type="button" id="b-overview" data-view="overview" aria-pressed="true">Toàn cảnh</button>
+    <button type="button" id="b-lobby" data-view="lobby" aria-pressed="false">Sảnh Km5</button>
+    <button type="button" id="b-corridor" data-view="corridor" aria-pressed="false">Hành lang</button>
+    <button type="button" id="b-noc" data-view="noc" aria-pressed="false">NOC 24/7</button>
+    <button type="button" id="b-r2" data-view="r2" aria-pressed="false">Đối soát</button>
+    <button type="button" id="b-r3" data-view="r3" aria-pressed="false">Vận hành</button>
+    <button type="button" id="b-r4" data-view="r4" aria-pressed="false">Dữ liệu</button>
+    <button type="button" id="b-rest" data-view="rest" aria-pressed="false">Trạm dừng nghỉ</button>
+    <span class="sep"></span>
+    <button type="button" id="decorBtn" aria-pressed="true">Tắt decor</button>
+  </div>
+
+  <div class="viewer" id="viewer">
+    <div class="loading" id="loading">Đang dựng mô hình...</div>
+    <div class="badge" id="badge">Có decor</div>
+    <div class="hint">Kéo để xoay · Cuộn hoặc chụm hai ngón để phóng to · Chuột phải để dịch</div>
+  </div>
+
+  <div class="panel" aria-live="polite">
+    <span class="km" id="p-km">Tầng 5</span>
+    <h2 id="p-title">Toàn cảnh tầng 5</h2>
+    <p id="p-text">Hành lang chạy giữa, hai phòng mỗi bên. Sảnh thang máy ở đầu phía đông với tường chào "Km5", góc Trạm dừng nghỉ ở đầu phía tây. Decor dùng chung một hệ màu trung tính của liên danh, không phòng nào mang màu riêng của một đơn vị.</p>
+  </div>
+
+  <div class="note">
+    <b>Giả định của mô hình</b>
+    <span>Kích thước tầng giả định khoảng 44 x 20 m, trần 3 m, bố trí phòng minh họa. Số bàn: NOC 14 vị trí mỗi ca, đối soát 36, vận hành 30, dữ liệu 24 cộng khu máy chủ. Cần đo hiện trạng để dựng lại đúng tỉ lệ trước khi thi công.</span>
+  </div>
+
+  <h2>Những gì có trong mô hình</h2>
+  <div class="grid">
+    <div><span class="km">Sảnh thang máy</span><h3>Tường chào Km5</h3><ul>
+      <li>Họa tiết bốn làn hợp thành một trục, decal cán mờ</li>
+      <li>Chữ "Km5" và khẩu hiệu "Chung một làn, cùng một đích"</li>
+      <li>Hàng bốn ô logo ngang hàng, thứ tự theo văn bản liên danh</li>
+      <li>Nhìn thấy từ suốt chiều dài hành lang</li></ul></div>
+    <div><span class="km">Hành lang</span><h3>Bản đồ hành trình và bốn giá trị</h3><ul>
+      <li>Tường "Hành trình Km5" với các mốc dán bổ sung được</li>
+      <li>Tường đối diện: Chính xác, Liên tục, Minh bạch, Đồng lòng</li>
+      <li>Vạch kẻ làn vàng đứt quãng trên sàn dẫn từ sảnh vào</li>
+      <li>Biển tên phòng kiểu biển chỉ dẫn cao tốc cạnh mỗi cửa</li></ul></div>
+    <div><span class="km">Km5+01 · NOC 24/7</span><h3>Trung tâm kiểm soát</h3><ul>
+      <li>Dải tiêu đề xanh than trên video wall</li>
+      <li>Tấm tiêu âm bọc vải sọc hợp làn hai bên video wall</li>
+      <li>Đồng hồ 24 giờ và bảng ca trực trên tường bên</li>
+      <li>Hai dãy bàn điều hành, dãy sau kê bục cao</li></ul></div>
+    <div><span class="km">Km5+02 · Đối soát</span><h3>Phòng đối soát, giao dịch</h3><ul>
+      <li>Tường "Một lượt xe, năm mắt xích" đối diện cửa</li>
+      <li>Vách nỉ xanh nhạt giữa các cụm bàn sáu chỗ</li>
+      <li>Cây xanh đồng bộ một mẫu ở các góc phòng</li></ul></div>
+    <div><span class="km">Km5+03 · Vận hành</span><h3>Vận hành, xử lý giao dịch bất thường</h3><ul>
+      <li>Tường bảng viết bốn cột: tiếp nhận, đang xử lý, chờ phối hợp, đã thông</li>
+      <li>Dải tiêu đề "Gỡ nút, thông làn"</li>
+      <li>Bàn họp đứng cạnh cửa sổ, tấm "Ba câu trước khi đóng"</li></ul></div>
+    <div><span class="km">Km5+04 · Dữ liệu</span><h3>Trung tâm cơ sở dữ liệu tập trung</h3><ul>
+      <li>Vách kính ngăn khu máy chủ, dải decal mờ "luồng dữ liệu"</li>
+      <li>Bảng an toàn dữ liệu cạnh cửa</li>
+      <li>Khẩu hiệu "Dữ liệu đúng, quyết định trúng" bằng chữ alu</li>
+      <li>Không decor bên trong khu máy chủ</li></ul></div>
+    <div><span class="km">Trạm dừng nghỉ Km5</span><h3>Góc nghỉ chung</h3><ul>
+      <li>Biển "Trạm dừng nghỉ Km5" kiểu biển cao tốc</li>
+      <li>Tường đồng hành: ảnh tập thể chụp lẫn các đơn vị</li>
+      <li>Bảng chào bạn mới, sinh nhật tháng; quầy trà nước, bàn tròn</li></ul></div>
+    <div><span class="km">Khi tắt decor</span><h3>Hiện trạng để so sánh</h3><ul>
+      <li>Chỉ còn tường trắng, bàn, ghế, màn hình, tủ máy</li>
+      <li>Dùng để trình bày trước và sau với ban điều hành</li></ul></div>
+  </div>
+
+  <p class="foot">Mô hình ý tưởng do AI hỗ trợ dựng, dùng tham khảo nội bộ. Không phải bản vẽ thi công. Logo, khẩu hiệu và nội dung decor cần ban điều hành liên danh và Cục Đường bộ duyệt trước khi sản xuất.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const F='"Be Vietnam Pro", Arial, sans-serif', M='"Roboto Mono", "Courier New", monospace';
+const fnt=(w,s,fam)=>`${w} ${s}px ${fam||F}`;
+const viewer=document.getElementById('viewer');
+
+const AREAS={
+  overview:{km:'Tầng 5',title:'Toàn cảnh tầng 5',text:'Hành lang chạy giữa, hai phòng mỗi bên. Sảnh thang máy ở đầu phía đông với tường chào "Km5", góc Trạm dừng nghỉ ở đầu phía tây. Decor dùng chung một hệ màu trung tính của liên danh, không phòng nào mang màu riêng của một đơn vị.',
+    pos:[2,30,27],tgt:[1,0,0]},
+  lobby:{km:'Sảnh thang máy',title:'Tường chào Km5',text:'Bước ra thang máy là thấy họa tiết bốn làn nhập thành một trục, chữ "Km5" và hàng logo ngang hàng của các bên. Đây là nơi duy nhất trên tầng đặt logo.',
+    pos:[18.3,1.8,0],tgt:[22,1.55,0]},
+  corridor:{km:'Hành lang',title:'Bản đồ hành trình Km5',text:'Tường hành lang kể các cột mốc của dự án và tập thể, mốc mới dán thêm được. Vạch kẻ làn vàng trên sàn dẫn từ sảnh vào các phòng. Biển tên phòng kiểu biển chỉ dẫn cao tốc cạnh mỗi cửa.',
+    pos:[1.5,1.9,1.1],tgt:[12,1.5,-1.5]},
+  noc:{km:'Km5+01',title:'NOC, trung tâm kiểm soát 24/7',text:'Decor dồn về hai bên và phía trên video wall: dải tiêu đề, tấm tiêu âm sọc hợp làn, đồng hồ 24 giờ, bảng ca trực. Không dán gì lên màn hình, ánh sáng gián tiếp để không chói.',
+    pos:[-9,6.2,0.6],tgt:[-9,1.4,-10]},
+  r2:{km:'Km5+02',title:'Phòng đối soát, giao dịch',text:'Tường "Một lượt xe, năm mắt xích" giúp ai mới vào cũng biết mình là mắt xích nào. Cụm bàn sáu chỗ có vách nỉ xanh nhạt giảm ồn.',
+    pos:[9,6.2,0.6],tgt:[9,1.4,-10]},
+  r3:{km:'Km5+03',title:'Vận hành, xử lý giao dịch bất thường',text:'Một mặt tường thành bảng viết bốn cột để theo dõi sự việc. Bàn họp đứng cạnh cửa sổ cho cuộc họp năm phút đầu ca giữa các bên.',
+    pos:[-9,6.2,-0.6],tgt:[-9,1.4,10]},
+  r4:{km:'Km5+04',title:'Trung tâm cơ sở dữ liệu tập trung',text:'Vách kính ngăn khu máy chủ có dải decal mờ "luồng dữ liệu". Bảng an toàn dữ liệu cạnh cửa, khẩu hiệu chữ alu trên tường. Bên trong khu máy không decor.',
+    pos:[5,6.2,-0.6],tgt:[8,1.4,10]},
+  rest:{km:'Trạm dừng nghỉ Km5',title:'Góc nghỉ chung',text:'Biển "Trạm dừng nghỉ Km5", tường ảnh đồng hành, bảng chào bạn mới và sinh nhật tháng, quầy trà nước. Nơi đáng đầu tư nhất cho ca đêm NOC.',
+    pos:[-13.5,2.4,0.8],tgt:[-22,1.5,0]}
+};
+
+function start(){
+  const loading=document.getElementById('loading');
+  if(!window.THREE){loading.textContent='Không tải được thư viện 3D. Kiểm tra kết nối mạng và mở lại trang.';return;}
+  loading.remove();
+
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  viewer.prepend(renderer.domElement);
+
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(0xE2E8E4);
+  const camera=new THREE.PerspectiveCamera(50,1,0.1,300);
+  camera.position.set(...AREAS.overview.pos);
+  const controls=new THREE.OrbitControls(camera,renderer.domElement);
+  controls.target.set(...AREAS.overview.tgt);
+  controls.enableDamping=true; controls.maxPolarAngle=Math.PI*0.495; controls.minDistance=1.5; controls.maxDistance=80;
+
+  scene.add(new THREE.HemisphereLight(0xffffff,0xaab4ae,0.85));
+  const sun=new THREE.DirectionalLight(0xffffff,0.65);
+  sun.position.set(14,30,12); sun.castShadow=true;
+  sun.shadow.mapSize.set(2048,2048);
+  Object.assign(sun.shadow.camera,{left:-30,right:30,top:20,bottom:-20,near:1,far:80});
+  sun.shadow.bias=-0.0005;
+  scene.add(sun);
+
+  const base=new THREE.Group(), decor=new THREE.Group(), labels=new THREE.Group();
+  scene.add(base,decor,labels);
+
+  const gCache={}, mCache={};
+  const geo=(w,h,d)=>gCache[w+','+h+','+d]||(gCache[w+','+h+','+d]=new THREE.BoxGeometry(w,h,d));
+  const mat=(c,o)=>{const k=c+JSON.stringify(o||{});return mCache[k]||(mCache[k]=new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.82,metalness:0},o||{})));};
+  function box(w,h,d,c,x,y,z,parent,o,noShadow){
+    const m=new THREE.Mesh(geo(w,h,d),mat(c,o)); m.position.set(x,y,z);
+    m.castShadow=!noShadow; m.receiveShadow=true; (parent||base).add(m); return m;}
+
+  // texture helpers
+  function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+  function tex(w,h,draw){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');draw(ctx,w,h);
+    const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=renderer.capabilities.getMaxAnisotropy();return t;}
+  function decal(t,w,h,x,y,z,rotY,parent,transparent){
+    const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshStandardMaterial({map:t,roughness:.9,transparent:!!transparent}));
+    m.position.set(x,y,z); m.rotation.y=rotY||0; m.receiveShadow=true; (parent||decor).add(m); return m;}
+  function seeded(s){return ()=>{s=(s*9301+49297)%233280;return s/233280;};}
+
+  // ---------- floors ----------
+  const H=3, T=0.15, WALL=0xF1F3F1;
+  box(36,0.1,20,0xC9CFCB,0,-0.05,0,base,null,true);
+  box(4,0.1,7,0xD9DDD8,20,-0.05,0,base,null,true);
+  box(4,0.1,7,0xD9DDD8,-20,-0.05,0,base,null,true);
+  box(36,0.012,3,0xD9DDD8,0,0.006,0,base,null,true);
+  [[-9,-5.75],[9,-5.75],[-9,5.75],[9,5.75]].forEach(([x,z])=>box(17.8,0.01,8.4,0xB7C0BB,x,0.005,z,base,null,true));
+  box(6,0.012,8.4,0xA9B2AD,15,0.008,5.75,base,null,true);
+
+  // ---------- walls ----------
+  function wall(x1,z1,x2,z2,h){h=h||H;
+    if(z1===z2) box(Math.abs(x2-x1),h,T,WALL,(x1+x2)/2,h/2,z1,base,null,true);
+    else box(T,h,Math.abs(z2-z1),WALL,x1,h/2,(z1+z2)/2,base,null,true);}
+  wall(-18,-10,18,-10); wall(-18,10,18,10);
+  wall(-18,-10,-18,-3.5); wall(-18,3.5,-18,10); wall(18,-10,18,-3.5); wall(18,3.5,18,10);
+  wall(-22,-3.5,-18,-3.5); wall(-22,3.5,-18,3.5); wall(-22,-3.5,-22,3.5);
+  wall(18,-3.5,22,-3.5); wall(18,3.5,22,3.5); wall(22,-3.5,22,3.5);
+  [-1.5,1.5].forEach(z=>{wall(-18,z,-4,z);wall(-2.8,z,2.8,z);wall(4,z,18,z);});
+  wall(0,-10,0,-1.5); wall(0,1.5,0,10);
+  // windows on outer walls
+  for(let x=-16;x<=16;x+=4){ if(Math.abs(x)<1) continue;
+    box(2.4,1.5,0.04,0x9FC3D6,x,1.75,-10.09,base,{roughness:.15,metalness:.2,transparent:true,opacity:.65},true);
+    box(2.4,1.5,0.04,0x9FC3D6,x,1.75,10.09,base,{roughness:.15,metalness:.2,transparent:true,opacity:.65},true);}
+  // glass partition for server room
+  box(0.05,H,8.5,0xBFD9E6,12,H/2,5.75,base,{roughness:.1,metalness:.1,transparent:true,opacity:.28},true);
+
+  // ---------- furniture ----------
+  function desk(x,z,rot,y0,monitors,parent){
+    const g=new THREE.Group(); g.position.set(x,y0||0,z); g.rotation.y=rot||0; (parent||base).add(g);
+    box(1.4,0.04,0.75,0xF7F7F5,0,0.74,0,g); box(0.04,0.72,0.7,0xD0D4D2,-0.68,0.36,0,g); box(0.04,0.72,0.7,0xD0D4D2,0.68,0.36,0,g);
+    const n=monitors||1;
+    for(let i=0;i<n;i++){const off=(i-(n-1)/2)*0.58; box(0.54,0.33,0.03,0x1B2229,off,1.05,-0.22,g); box(0.06,0.18,0.06,0x2B3138,off,0.85,-0.24,g);}
+    box(0.5,0.08,0.5,0x2E3539,0,0.46,0.62,g); box(0.5,0.5,0.06,0x2E3539,0,0.76,0.87,g); box(0.08,0.42,0.08,0x55595C,0,0.22,0.62,g);
+    return g;}
+  function cluster(cx,cz){
+    for(let i=0;i<3;i++){const x=cx+(i-1)*1.4; desk(x,cz-0.375,Math.PI); desk(x,cz+0.375,0);}
+    box(4.2,0.38,0.03,0xA7D9B8,cx,0.95,cz,decor);}
+  function plant(x,z,s){s=s||1;
+    const c=new THREE.Mesh(new THREE.CylinderGeometry(0.2*s,0.16*s,0.45*s,16),mat(0xE9E4DA)); c.position.set(x,0.225*s,z); c.castShadow=true; decor.add(c);
+    const l=new THREE.Mesh(new THREE.SphereGeometry(0.38*s,14,12),mat(0x3E8E5A)); l.position.set(x,0.8*s,z); l.scale.set(1,1.35,1); l.castShadow=true; decor.add(l);}
+  function person(x,z,shirt){
+    const b=new THREE.Mesh(new THREE.CylinderGeometry(0.17,0.2,1.35,12),mat(shirt)); b.position.set(x,0.675,z); b.castShadow=true; base.add(b);
+    const h=new THREE.Mesh(new THREE.SphereGeometry(0.13,14,12),mat(0xD9B38C)); h.position.set(x,1.5,z); h.castShadow=true; base.add(h);}
+
+  // NOC
+  box(9.8,0.2,2.2,0xB0B8B4,-9,0.1,-4.1);
+  for(let i=0;i<7;i++){desk(-13.2+i*1.4,-6.6,0,0,3); desk(-13.2+i*1.4,-4.3,0,0.2,3);}
+  // video wall (equipment)
+  const vwTex=tex(1200,440,(c,w,h)=>{c.fillStyle='#0E171E';c.fillRect(0,0,w,h);const r=seeded(7);
+    for(let i=0;i<3;i++)for(let j=0;j<3;j++){const x=i*400+6,y=j*146+5,pw=388,ph=136;c.fillStyle='#16242E';c.fillRect(x,y,pw,ph);
+      if((i+j)%2===0){c.strokeStyle='#3FAE6A';c.lineWidth=3;c.beginPath();c.moveTo(x+14,y+ph-20);for(let k=1;k<9;k++)c.lineTo(x+14+k*44,y+20+r()*(ph-40));c.stroke();}
+      else{for(let k=0;k<8;k++){const bh=20+r()*(ph-50);c.fillStyle=k%3?'#2E6B8F':'#F5A623';c.fillRect(x+20+k*44,y+ph-14-bh,26,bh);}}}});
+  const vw=new THREE.Mesh(new THREE.PlaneGeometry(6,2.2),new THREE.MeshBasicMaterial({map:vwTex})); vw.position.set(-9,1.6,-9.9); base.add(vw);
+  box(6.2,2.35,0.1,0x111111,-9,1.6,-9.97,base,null,true);
+
+  // R2, R3, R4 desks
+  [3.8,9,14.2].forEach(x=>{cluster(x,-7.0);cluster(x,-4.0);});
+  [-14.5,-9.5,-4.5].forEach(x=>cluster(x,4.0)); [-14.5,-9.5].forEach(x=>cluster(x,6.8));
+  [3,8.2].forEach(x=>{cluster(x,4.0);cluster(x,6.8);});
+  // server racks
+  for(let i=0;i<11;i++){[13.6,16.2].forEach(x=>{box(1.0,2.0,0.6,0x2A3036,x,1.0,2.6+i*0.66,base,{roughness:.5,metalness:.3});
+    box(0.02,1.6,0.04,0x2DBE60,x-0.51,1.05,2.6+i*0.66,base,{emissive:0x2DBE60,emissiveIntensity:.6},true);});}
+  // lobby elevators
+  [19.2,20.8].forEach(x=>{box(1.3,2.4,0.06,0x8E989D,x,1.2,-3.42,base,{metalness:.6,roughness:.35},true); box(0.02,2.2,0.07,0x6C767B,x,1.15,-3.4,base,null,true);});
+  // rest furniture
+  box(3.2,0.9,0.6,0xC9A77C,-20.2,0.45,-3.12); box(3.2,0.04,0.62,0xF2EFE8,-20.2,0.92,-3.12);
+  const tbl=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.5,0.04,24),mat(0xF2EFE8)); tbl.position.set(-19.7,0.74,1.0); tbl.castShadow=true; base.add(tbl);
+  box(0.08,0.72,0.08,0x55595C,-19.7,0.36,1.0);
+  [[-19.7,0.2],[-18.9,1.4],[-20.5,1.4]].forEach(([x,z])=>box(0.42,0.45,0.42,0x9DB8A6,x,0.225,z));
+  // standing table R3
+  box(1.6,0.05,0.8,0xC9A77C,-2.2,1.05,8.6,decor); box(0.1,1.02,0.1,0x8B7355,-2.2,0.51,8.6,decor);
+
+  // people (shirts kept neutral, not by company)
+  [[-10,-5.4,0xF4F6F8],[-7.2,-3.0,0xBFD3E6],[7,-2.6,0x2E4A6B],[-2.6,8.1,0xF4F6F8],[-1.8,9.1,0xBFD3E6],[-2.9,9.1,0x2E4A6B],[-1.6,8.0,0xE7E1D3],[16,0.2,0xF4F6F8],[-19.2,2.0,0xBFD3E6],[5.5,8.7,0xF4F6F8]].forEach(p=>person(...p));
+
+  // ---------- decor: lobby ----------
+  const lobbyTex=tex(1650,650,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);
+    const cols=['rgba(45,190,96,.45)','rgba(45,190,96,.65)','rgba(45,190,96,.88)','#1E3A5F'];
+    c.lineCap='round';c.lineWidth=34;
+    cols.forEach((col,i)=>{const y0=110+i*90,y1=282+i*14;c.strokeStyle=col;c.beginPath();c.moveTo(40,y0);c.bezierCurveTo(470,y0,520,y1,930,y1);c.stroke();});
+    c.fillStyle='#0E7A4A';c.fillRect(920,262,700,84);
+    c.strokeStyle='#fff';c.lineWidth=6;c.setLineDash([46,30]);c.beginPath();c.moveTo(940,304);c.lineTo(1610,304);c.stroke();c.setLineDash([]);
+    c.fillStyle='#1E3A5F';c.font=fnt(800,190);c.fillText('Km5',935,240);
+    c.fillStyle='#15241C';c.font=fnt(800,62);c.fillText('Chung một làn',940,432);
+    c.font=fnt(600,46);c.fillText('Cùng một đích',940,494);
+    c.fillStyle='#55635B';c.font=fnt(500,24);c.fillText('Văn phòng liên danh dự án [tên dự án]',940,566);c.fillText('Chủ đầu tư: Cục Đường bộ Việt Nam',940,600);
+    ['Logo chủ đầu tư','Logo thành viên 1','Logo thành viên 2','Logo thành viên 3'].forEach((t,i)=>{const x=40+i*205;c.fillStyle='#fff';rr(c,x,540,180,72,8);c.fill();c.strokeStyle='#A8B2AC';c.lineWidth=2;c.stroke();
+      c.fillStyle='#7A8780';c.font=fnt(500,20);c.textAlign='center';c.fillText(t,x+90,583);c.textAlign='left';});});
+  decal(lobbyTex,6.6,2.6,21.91,1.5,0,-Math.PI/2);
+  plant(21.4,3.0,1.1); plant(18.6,-3.0,0.9);
+
+  // ---------- decor: room signs ----------
+  function signTex(km,name,sub){return tex(480,300,(c,w,h)=>{c.fillStyle='#0E7A4A';rr(c,4,4,w-8,h-8,26);c.fill();c.strokeStyle='#fff';c.lineWidth=7;rr(c,18,18,w-36,h-36,16);c.stroke();
+    c.fillStyle='#fff';c.font=fnt(700,30,M);c.fillText(km,44,76);c.font=fnt(800,name.length>4?58:68);c.fillText(name,44,160);c.font=fnt(500,26);c.fillText(sub,44,208);
+    c.setLineDash([34,20]);c.lineWidth=6;c.beginPath();c.moveTo(44,248);c.lineTo(w-44,248);c.stroke();});}
+  decal(signTex('Km5+01','NOC','Trung tâm điều hành 24/7'),0.64,0.4,-4.6,1.55,-1.41,0);
+  decal(signTex('Km5+02','Đối soát','Đối soát và giao dịch'),0.64,0.4,4.6,1.55,-1.41,0);
+  decal(signTex('Km5+03','Vận hành','Xử lý giao dịch bất thường'),0.64,0.4,-4.6,1.55,1.41,Math.PI);
+  decal(signTex('Km5+04','Dữ liệu','Trung tâm dữ liệu tập trung'),0.64,0.4,4.6,1.55,1.41,Math.PI);
+
+  // ---------- decor: corridor ----------
+  for(let x=-17;x<17.5;x+=2){box(1.2,0.01,0.12,0xF5A623,x,0.018,0,decor,null,true);}
+  const journeyTex=tex(1500,180,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);
+    c.fillStyle='#15241C';c.font=fnt(800,34);c.fillText('Hành trình Km5',20,44);c.fillStyle='#55635B';c.font=fnt(500,20);c.fillText('Các cột mốc của dự án và tập thể',290,42);
+    c.fillStyle='#2F3A36';c.fillRect(20,78,1440,26);c.strokeStyle='#F5A623';c.lineWidth=4;c.setLineDash([26,16]);c.beginPath();c.moveTo(30,91);c.lineTo(1450,91);c.stroke();c.setLineDash([]);
+    c.fillStyle='#0E7A4A';c.beginPath();c.moveTo(1450,64);c.lineTo(1490,91);c.lineTo(1450,118);c.fill();
+    [['Ký kết liên danh',140],['Khai trương Km5',480],['Tuyến đầu vận hành',820],['Mốc tiếp theo',1160]].forEach(([t,x],i)=>{c.beginPath();c.arc(x,91,17,0,7);c.fillStyle=i<3?'#2DBE60':'#fff';c.fill();c.strokeStyle=i<3?'#fff':'#2DBE60';c.lineWidth=5;c.stroke();
+      c.fillStyle='#15241C';c.font=fnt(700,24);c.textAlign='center';c.fillText(t,x,152);c.textAlign='left';});});
+  decal(journeyTex,10,1.2,11,1.6,-1.41,0);
+  const valuesTex=tex(1500,180,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);
+    c.fillStyle='#15241C';c.font=fnt(800,30);c.fillText('Bốn giá trị Km5',20,40);
+    ['Chính xác','Liên tục','Minh bạch','Đồng lòng'].forEach((t,i)=>{const x=20+i*370;c.fillStyle=i===3?'#0E7A4A':'#1E3A5F';rr(c,x,62,350,100,10);c.fill();
+      c.fillStyle='#fff';c.font=fnt(800,40);c.textAlign='center';c.fillText(t,x+175,126);c.textAlign='left';});});
+  decal(valuesTex,10,1.2,-11,1.6,1.41,Math.PI);
+
+  // ---------- decor: NOC ----------
+  decal(tex(1200,64,(c,w,h)=>{c.fillStyle='#1E3A5F';c.fillRect(0,0,w,h);c.fillStyle='#fff';c.font=fnt(700,34);c.textAlign='center';c.fillText('Trung tâm điều hành 24/7 · Km5+01',w/2,45);}),6.2,0.34,-9,2.83,-9.9);
+  const acou=tex(260,460,(c,w,h)=>{c.fillStyle='#1E3A5F';c.fillRect(0,0,w,h);[.9,.6,.35].forEach((a,i)=>{c.fillStyle=`rgba(45,190,96,${a})`;c.fillRect(28+i*44,0,24,h);});});
+  [-13.1,-4.9].forEach(x=>box(1.3,2.4,0.06,0x1E3A5F,x,1.55,-9.89,decor));
+  decal(acou,1.3,2.4,-13.1,1.55,-9.855);
+  const acou2=tex(260,460,(c,w,h)=>{c.fillStyle='#1E3A5F';c.fillRect(0,0,w,h);[.35,.6,.9].forEach((a,i)=>{c.fillStyle=`rgba(45,190,96,${a})`;c.fillRect(140+i*44,0,24,h);});});
+  decal(acou2,1.3,2.4,-4.9,1.55,-9.855);
+  decal(tex(300,300,(c,w,h)=>{c.fillStyle='#15241C';rr(c,6,6,w-12,h-12,24);c.fill();c.fillStyle='#45CF75';c.font=fnt(700,86,M);c.textAlign='center';c.fillText('23:59',w/2,170);c.fillStyle='#fff';c.font=fnt(600,30);c.fillText('Đồng hồ 24 giờ',w/2,240);}),0.75,0.75,-17.91,2.1,-7.2,Math.PI/2);
+  decal(tex(300,400,(c,w,h)=>{c.fillStyle='#fff';c.fillRect(0,0,w,h);c.strokeStyle='#A8B2AC';c.lineWidth=6;c.strokeRect(3,3,w-6,h-6);c.fillStyle='#1E3A5F';c.font=fnt(800,34);c.fillText('CA TRỰC',24,52);
+    c.strokeStyle='#C9D2CC';c.lineWidth=2;for(let i=0;i<7;i++){c.beginPath();c.moveTo(24,90+i*42);c.lineTo(w-24,90+i*42);c.stroke();c.fillStyle=['#2DBE60','#F5A623','#1E3A5F'][i%3];c.beginPath();c.arc(40,112+i*42,9,0,7);c.fill();}}),0.8,1.05,-17.91,1.5,-4.4,Math.PI/2);
+  plant(-17.3,-9.3); plant(-0.8,-9.3); plant(-17.3,-2.3,0.8);
+
+  // ---------- decor: R2 ----------
+  decal(tex(1800,225,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);c.fillStyle='#15241C';c.font=fnt(800,46);c.fillText('Một lượt xe, năm mắt xích',24,58);
+    c.fillStyle='#0E7A4A';c.font=fnt(600,30);c.textAlign='right';c.fillText('Khớp từng giao dịch, vững từng niềm tin',w-24,56);c.textAlign='left';
+    c.fillStyle='#2F3A36';c.fillRect(24,106,w-48,30);c.strokeStyle='#F5A623';c.lineWidth=4;c.setLineDash([28,18]);c.beginPath();c.moveTo(34,121);c.lineTo(w-34,121);c.stroke();c.setLineDash([]);
+    ['Xe qua trạm','Ghi nhận giao dịch','Đối soát','Thanh toán, quyết toán','Báo cáo chủ đầu tư'].forEach((t,i)=>{const x=180+i*360;c.beginPath();c.arc(x,121,30,0,7);c.fillStyle=i===2?'#2DBE60':'#0E7A4A';c.fill();c.strokeStyle='#fff';c.lineWidth=5;c.stroke();
+      c.fillStyle='#fff';c.font=fnt(800,30);c.textAlign='center';c.fillText(String(i+1),x,132);c.fillStyle='#15241C';c.font=fnt(700,26);c.fillText(t,x,200);c.textAlign='left';});}),12,1.5,9,1.75,-9.91);
+  plant(0.8,-9.3); plant(17.3,-9.3); plant(17.3,-2.3,0.8);
+
+  // ---------- decor: R3 ----------
+  decal(tex(1500,270,(c,w,h)=>{c.fillStyle='#0E7A4A';c.fillRect(0,0,w,58);c.strokeStyle='#fff';c.lineWidth=4;c.strokeRect(8,8,w-16,42);c.fillStyle='#fff';c.font=fnt(800,32);c.fillText('Gỡ nút, thông làn',26,41);
+    c.fillStyle='#FCFCFB';c.fillRect(0,66,w,h-66);c.strokeStyle='#B8C1BC';c.lineWidth=3;c.strokeRect(1,67,w-2,h-68);
+    const r=seeded(3);['Tiếp nhận','Đang xử lý','Chờ phối hợp','Đã thông'].forEach((t,i)=>{const x=i*375;if(i){c.beginPath();c.moveTo(x,74);c.lineTo(x,h-8);c.stroke();}
+      c.fillStyle='#15241C';c.font=fnt(700,26);c.fillText(t,x+20,104);const n=[3,2,2,4][i];
+      for(let k=0;k<n;k++){c.fillStyle=['#F5C46B','#CDEFD8','#CDEFD8','#7FD39C'][i];c.fillRect(x+20+(k%2)*170,120+Math.floor(k/2)*68,150,56);c.fillStyle='rgba(21,36,28,.55)';c.fillRect(x+32+(k%2)*170,138+Math.floor(k/2)*68,60+r()*60,6);}});}),10,1.8,-11,1.75,9.91,Math.PI);
+  decal(tex(400,260,(c,w,h)=>{c.fillStyle='#E8F8EE';c.fillRect(0,0,w,h);c.strokeStyle='#0E7A4A';c.lineWidth=6;c.strokeRect(3,3,w-6,h-6);c.fillStyle='#15241C';c.font=fnt(800,30);c.fillText('Ba câu trước khi đóng',22,52);
+    c.font=fnt(500,26);['Đúng chưa?','Báo ai?','Rút ra gì?'].forEach((t,i)=>c.fillText(t,30,112+i*46));}),0.9,0.58,-4.2,1.6,9.91,Math.PI);
+  plant(-17.3,9.3); plant(-0.8,2.3,0.8);
+
+  // ---------- decor: R4 ----------
+  decal(tex(1700,140,(c,w,h)=>{c.fillStyle='rgba(255,255,255,.72)';c.fillRect(0,0,w,h);const r=seeded(11);
+    ['#0E7A4A','#2DBE60','#1E3A5F'].forEach((col,row)=>{let x=10;c.fillStyle=col;while(x<w-20){const lw=20+r()*110;c.fillRect(x,22+row*36,lw,16);x+=lw+12+r()*24;}});}),8.5,0.7,11.96,1.5,5.75,-Math.PI/2,decor,true);
+  decal(tex(400,500,(c,w,h)=>{c.fillStyle='#1E3A5F';c.fillRect(0,0,w,h);c.fillStyle='#fff';c.font=fnt(800,34);c.fillText('An toàn dữ liệu',28,62);
+    c.font=fnt(500,25);['Không chụp màn hình','Không mang thiết bị lạ','Khóa máy khi rời bàn','Ẩn danh trước khi chia sẻ','Có sự cố, báo ngay'].forEach((t,i)=>{c.fillStyle='#2DBE60';c.fillRect(28,108+i*68,10,32);c.fillStyle='#fff';c.fillText(t,52,134+i*68);});}),0.8,1.0,9.6,1.6,1.59,0);
+  decal(tex(1600,150,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);c.fillStyle='#1E3A5F';c.font=fnt(800,80);c.textAlign='center';c.fillText('Dữ liệu đúng, quyết định trúng',w/2,104);}),7.5,0.7,5.8,2.35,9.91,Math.PI);
+  plant(0.8,9.3); plant(11.4,2.3,0.8);
+
+  // ---------- decor: rest ----------
+  decal(tex(440,220,(c,w,h)=>{c.fillStyle='#0E7A4A';rr(c,4,4,w-8,h-8,24);c.fill();c.strokeStyle='#fff';c.lineWidth=7;rr(c,18,18,w-36,h-36,14);c.stroke();
+    c.fillStyle='#fff';c.font=fnt(800,44);c.fillText('Trạm dừng nghỉ',40,84);c.font=fnt(700,60,M);c.fillText('Km5',40,152);c.font=fnt(500,22);c.fillText('Nạp năng lượng, lăn bánh tiếp',40,190);}),2.2,1.1,-21.91,1.95,-1.7,Math.PI/2);
+  decal(tex(520,300,(c,w,h)=>{c.fillStyle='#F4F6F4';c.fillRect(0,0,w,h);const cols=['#BFD3E6','#E7E1D3','#CDEFD8','#F5D9A8','#D6DCE8','#CDEFD8','#E7E1D3','#BFD3E6'];
+    cols.forEach((col,i)=>{const x=14+(i%4)*126,y=14+Math.floor(i/4)*116;c.fillStyle='#fff';c.fillRect(x,y,114,104);c.fillStyle=col;c.fillRect(x+8,y+8,98,88);
+      c.fillStyle='rgba(30,58,95,.35)';for(let k=0;k<3;k++){c.beginPath();c.arc(x+30+k*27,y+52,10,0,7);c.fill();c.fillRect(x+21+k*27,y+64,18,24);}});
+    c.fillStyle='#15241C';c.font=fnt(800,30);c.fillText('Tường đồng hành',14,282);}),2.6,1.5,-21.91,1.6,1.7,Math.PI/2);
+  decal(tex(360,240,(c,w,h)=>{c.fillStyle='#E8F8EE';c.fillRect(0,0,w,h);c.strokeStyle='#0E7A4A';c.lineWidth=6;c.strokeRect(3,3,w-6,h-6);c.fillStyle='#15241C';c.font=fnt(800,26);c.fillText('Chào bạn mới',24,46);c.fillText('Sinh nhật tháng',24,82);
+    for(let i=0;i<3;i++){c.beginPath();c.arc(70+i*110,160,38,0,7);c.fillStyle='#fff';c.fill();c.strokeStyle='#2DBE60';c.lineWidth=4;c.stroke();}}),1.2,0.8,-20.2,1.6,3.41,Math.PI);
+  plant(-21.5,3.0,0.9);
+
+  // ---------- labels ----------
+  function label(text,sub,x,z){const t=tex(560,170,(c,w,h)=>{c.fillStyle='rgba(255,255,255,.94)';rr(c,4,4,w-8,h-8,22);c.fill();c.strokeStyle='#0E7A4A';c.lineWidth=5;c.stroke();
+      c.fillStyle='#0E7A4A';c.font=fnt(700,30,M);c.fillText(sub,30,58);c.fillStyle='#15241C';c.font=fnt(800,44);c.fillText(text,30,122);});
+    const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,depthTest:false})); s.scale.set(5.2,1.58,1); s.position.set(x,5.2,z); s.renderOrder=10; labels.add(s);}
+  label('NOC 24/7','Km5+01',-9,-5.8); label('Đối soát','Km5+02',9,-5.8); label('Vận hành','Km5+03',-9,5.8); label('Dữ liệu','Km5+04',6,5.8);
+  label('Sảnh Km5','Thang máy',20,0); label('Dừng nghỉ','Km5',-20,0);
+
+  // ---------- UI ----------
+  const btns=[...document.querySelectorAll('[data-view]')];
+  const pKm=document.getElementById('p-km'),pT=document.getElementById('p-title'),pX=document.getElementById('p-text');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let anim=null;
+  function go(key){const a=AREAS[key]; if(!a) return;
+    btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===key?'true':'false'));
+    pKm.textContent=a.km;pT.textContent=a.title;pX.textContent=a.text;
+    labels.visible=(key==='overview');
+    const to={p:new THREE.Vector3(...a.pos),t:new THREE.Vector3(...a.tgt)};
+    if(reduce){camera.position.copy(to.p);controls.target.copy(to.t);return;}
+    anim={t0:performance.now(),d:1100,fp:camera.position.clone(),ft:controls.target.clone(),to};}
+  btns.forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+  const dBtn=document.getElementById('decorBtn'),badge=document.getElementById('badge');
+  dBtn.addEventListener('click',()=>{decor.visible=!decor.visible;dBtn.textContent=decor.visible?'Tắt decor':'Bật decor';dBtn.setAttribute('aria-pressed',String(decor.visible));badge.textContent=decor.visible?'Có decor':'Hiện trạng, chưa decor';});
+
+  function resize(){const w=viewer.clientWidth,h=viewer.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+  new ResizeObserver(resize).observe(viewer); resize();
+
+  function loop(now){
+    if(anim){let k=Math.min(1,(now-anim.t0)/anim.d);const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      camera.position.lerpVectors(anim.fp,anim.to.p,e);controls.target.lerpVectors(anim.ft,anim.to.t,e);if(k>=1)anim=null;}
+    controls.update();renderer.render(scene,camera);requestAnimationFrame(loop);}
+  requestAnimationFrame(loop);
+  const hash=(location.hash||'').slice(1); if(AREAS[hash]) go(hash);
+}
+
+const fontsReady=document.fonts?Promise.all([document.fonts.load('800 40px "Be Vietnam Pro"'),document.fonts.load('700 40px "Be Vietnam Pro"'),document.fonts.load('500 40px "Be Vietnam Pro"'),document.fonts.load('700 40px "Roboto Mono"')]).catch(()=>{}):Promise.resolve();
+Promise.race([fontsReady,new Promise(r=>setTimeout(r,2500))]).then(start);
+})();
+</script>
