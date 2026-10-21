@@ -1,0 +1,569 @@
+<title>Km5 Chung một làn</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;700&display=swap">
+<style>
+/* Bố cục: bản thuyết minh thiết kế dạng hồ sơ kỹ thuật, đi theo lý trình Km5+00 đến Km5+05, mỗi phòng một mặt dựng SVG và bảng hạng mục */
+:root{
+  --bg:#F5F8F6; --surface:#FFFFFF; --ink:#15241C; --muted:#56665D; --line:#D8E2DB;
+  --sign:#0E7A4A; --green:#2DBE60; --green-pale:#E8F8EE; --navy:#1E3A5F; --amber:#F5A623;
+  /* màu bản vẽ: giữ nguyên ở cả hai chế độ để mô phỏng vật liệu thật */
+  --d-wall:#EEF1EE; --d-wall2:#E3E8E4; --d-floor:#B9C2BC; --d-ceil:#DDE3DF; --d-asphalt:#2F3A36;
+  --d-screen:#1B2A33; --d-screen2:#24404F; --d-wood:#C9A77C; --d-plant:#3E8E5A; --d-white:#FFFFFF; --d-ink:#15241C; --d-glass:#CFE3DA;
+  --f-display:"Be Vietnam Pro", Arial, sans-serif; --f-body:"Be Vietnam Pro", Arial, sans-serif; --f-mono:"Roboto Mono", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1714; --surface:#16211C; --ink:#E5EEE8; --muted:#9DAEA4; --line:#2A3832;
+  --sign:#2FA36B; --green:#45CF75; --green-pale:#1A3325; --navy:#9EBBE0; --amber:#F7B547; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1714; --surface:#16211C; --ink:#E5EEE8; --muted:#9DAEA4; --line:#2A3832;
+  --sign:#2FA36B; --green:#45CF75; --green-pale:#1A3325; --navy:#9EBBE0; --amber:#F7B547; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.25;margin:0}
+h1{font-size:clamp(2rem,5vw,3.25rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sign);font-weight:700}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px}
+.sechead{display:flex;flex-direction:column;gap:8px;border-top:2px solid var(--ink);padding-top:16px}
+.km{font-family:var(--f-mono);font-weight:700;color:var(--sign)}
+
+/* hero */
+.hero{padding-top:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.hero>div{min-width:0;display:flex;flex-direction:column;gap:16px}
+.hero .lead{font-size:1.1rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.82rem;border:1px solid var(--line);background:var(--surface);padding:4px 10px;border-radius:999px}
+.bigsign{background:var(--sign);color:#fff;border-radius:14px;padding:28px;border:4px solid #fff;outline:2px solid var(--sign);display:flex;flex-direction:column;gap:6px}
+.bigsign .k{font-family:var(--f-mono);font-size:3rem;font-weight:700;line-height:1}
+.bigsign .t{font-size:1.5rem;font-weight:800}
+.bigsign .s{font-size:.95rem;opacity:.92}
+.lanes{height:10px;background:repeating-linear-gradient(90deg,#fff 0 28px,transparent 28px 44px);margin-top:12px;opacity:.9}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid3>*,.grid2>*,.grid4>*{min-width:0}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.box p{font-size:.95rem}
+.swatch{height:64px;border-radius:8px;border:1px solid var(--line)}
+.sw-label{font-size:.85rem}
+.sw-label b{display:block}
+.sw-label code{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.draw{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;overflow-x:auto}
+.draw svg{display:block;width:100%;height:auto;min-width:560px}
+.draw.small svg{min-width:0}
+figcaption{font-size:.85rem;color:var(--muted)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;background:var(--green-pale)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+
+.room{display:grid;grid-template-columns:1fr;gap:16px}
+.roomhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+.tagline{border-left:4px solid var(--amber);padding:6px 0 6px 14px;font-weight:600;font-size:1.05rem}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+li{max-width:68ch}
+.note{background:var(--green-pale);border-radius:10px;padding:16px 18px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.warn{border:1px solid var(--amber);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.slogans{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.slogans>div{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.slogans b{display:block;font-size:1.05rem}
+.slogans span{font-size:.85rem;color:var(--muted)}
+.foot{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+/* SVG fills */
+.w{fill:var(--d-wall)}.w2{fill:var(--d-wall2)}.fl{fill:var(--d-floor)}.ce{fill:var(--d-ceil)}.as{fill:var(--d-asphalt)}
+.sc{fill:var(--d-screen)}.sc2{fill:var(--d-screen2)}.wd{fill:var(--d-wood)}.pl{fill:var(--d-plant)}.wh{fill:var(--d-white)}
+.gl{fill:var(--d-glass)}.sg{fill:#0E7A4A}.gr{fill:#2DBE60}.gp{fill:#E8F8EE}.am{fill:#F5A623}.nv{fill:#1E3A5F}.ik{fill:var(--d-ink)}
+.st-w{stroke:#fff;fill:none}.st-g{stroke:#2DBE60;fill:none}.st-a{stroke:#F5A623;fill:none}.st-n{stroke:#1E3A5F;fill:none}.st-k{stroke:#8A968F;fill:none}
+.tx{font-family:var(--f-body);fill:var(--d-ink)}.txw{font-family:var(--f-body);fill:#fff}.txm{font-family:var(--f-mono);fill:#fff}.txmk{font-family:var(--f-mono);fill:var(--d-ink)}
+.txg{font-family:var(--f-body);fill:#55635B}
+
+@media (max-width:820px){.hero{grid-template-columns:1fr}.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}}
+@media (max-width:560px){.grid2,.slogans{grid-template-columns:1fr}}
+@media (max-width:420px){.grid4{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <span class="eyebrow">Ý tưởng decor sơ bộ · Bản tham khảo nội bộ</span>
+    <h1>Km5 · Chung một làn</h1>
+    <p class="lead">Đề xuất trang trí tầng 5, số 5 Tôn Thất Thuyết, văn phòng liên danh dự án cao tốc do Cục Đường bộ Việt Nam làm chủ đầu tư. Bốn phòng, khoảng 150 nhân sự đến từ nhiều đơn vị, cùng làm một việc: giữ cho từng chuyến xe đi qua trạm được thông suốt.</p>
+    <p class="muted">Tài liệu dành cho nhân viên thiết kế và truyền thông nội bộ. Mọi hình vẽ là mô phỏng minh họa, cần đo hiện trạng trước khi sản xuất.</p>
+    <div class="meta">
+      <span class="chip">4 phòng chức năng</span><span class="chip">~150 nhân sự</span><span class="chip">NOC vận hành 24/7</span><span class="chip">Cơ sở nhà nước</span>
+    </div>
+  </div>
+  <div>
+    <div class="bigsign" role="img" aria-label="Biển chỉ dẫn mô phỏng Km5 Chung một làn">
+      <span class="k">Km5</span>
+      <span class="t">Chung một làn</span>
+      <span class="s">Cùng một đích · Tầng 5 · Số 5 Tôn Thất Thuyết</span>
+      <div class="lanes"></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Ý tưởng chủ đạo</span><h2>Vì sao là "Km5" và "chung một làn"</h2></div>
+  <div class="grid3">
+    <div class="box"><h3>Km5 là địa chỉ chung</h3><p>Tầng 5, số 5. Gọi văn phòng là một cột mốc lý trình trên tuyến cao tốc. Không thuộc riêng đơn vị nào, ai làm ở đây cũng là người "Km5".</p></div>
+    <div class="box"><h3>Hợp làn thay vì chia làn</h3><p>Hình ảnh nhiều làn xe nhập vào một trục chính là ẩn dụ cho liên danh: mỗi bên một xuất phát điểm, cùng chạy về một đích. Đây là họa tiết xuyên suốt toàn tầng.</p></div>
+    <div class="box"><h3>Ngôn ngữ biển báo cao tốc</h3><p>Biển tên phòng, chỉ dẫn và khẩu hiệu mượn phong cách biển chỉ dẫn cao tốc nền xanh chữ trắng. Quen thuộc với người làm giao thông, trang trọng vừa đủ cho cơ sở nhà nước.</p></div>
+  </div>
+  <div class="warn">
+    <h3>Ba nguyên tắc phải giữ</h3>
+    <ul>
+      <li><b>Ngang hàng giữa các bên.</b> Không phòng nào mang màu hay logo của riêng một đơn vị. Logo chỉ xuất hiện ở khu vực chung, cùng chiều cao, thứ tự theo văn bản liên danh (chủ đầu tư trước).</li>
+      <li><b>Chuẩn mực cơ quan nhà nước.</b> Giữ nguyên các vị trí trang trọng theo quy định của cơ quan chủ quản (Quốc kỳ, ảnh Bác, khẩu hiệu chính trị nếu có). Decor không lấn sang các vị trí này.</li>
+      <li><b>Không cản vận hành.</b> NOC và trung tâm dữ liệu ưu tiên tầm nhìn, ánh sáng, an toàn PCCC và bảo mật. Trang trí ít mà chắc.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Hệ nhận diện không gian</span><h2>Màu, chữ và họa tiết dùng chung</h2>
+  <p class="muted">Bảng màu trung tính của liên danh, lấy từ chính thế giới đường cao tốc: biển chỉ dẫn, mặt đường, vạch sơn. Không dùng nguyên bộ nhận diện của một thành viên nào.</p></div>
+  <div class="grid4">
+    <div class="box"><div class="swatch" style="background:#0E7A4A"></div><div class="sw-label"><b>Xanh biển chỉ dẫn</b><code>#0E7A4A</code><br>Biển tên phòng, chỉ dẫn, dải tiêu đề</div></div>
+    <div class="box"><div class="swatch" style="background:#2DBE60"></div><div class="sw-label"><b>Xanh kết nối</b><code>#2DBE60</code><br>Đường hợp làn, điểm nhấn kết nối</div></div>
+    <div class="box"><div class="swatch" style="background:#1E3A5F"></div><div class="sw-label"><b>Xanh than</b><code>#1E3A5F</code><br>Chữ lớn, nền NOC, chỉ số</div></div>
+    <div class="box"><div class="swatch" style="background:#F5A623"></div><div class="sw-label"><b>Vàng vạch sơn</b><code>#F5A623</code><br>Chỉ để nhấn, tối đa 5% diện tích</div></div>
+  </div>
+  <div class="grid3">
+    <div class="box"><h3>Chữ</h3><p>Be Vietnam Pro cho toàn bộ decal, biển và khẩu hiệu, đủ dấu tiếng Việt. Số lý trình dùng phông dạng đơn cách. Bản in Word dùng Arial.</p></div>
+    <div class="box"><h3>Họa tiết hợp làn</h3><p>Ba đến bốn vạch song song từ trái uốn về một trục bên phải. Dùng trên kính, hành lang, tường điểm. Tối đa 40% mặt tường, vạch đậm không nhiều hơn vạch nhạt.</p></div>
+    <div class="box"><h3>Tỉ lệ màu</h3><p>Nền tường trắng xám giữ 60 đến 70%. Xanh khoảng 25%. Xanh than và vàng là phần còn lại. Không sơn cả bức tường màu đậm.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Mặt bằng</span><h2>Lộ trình decor trên tầng 5</h2>
+  <p class="muted">Sơ đồ minh họa vị trí các điểm decor, không theo hiện trạng thật. Đội thiết kế đo và vẽ lại trên mặt bằng thực tế.</p></div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 860 380" role="img" aria-label="Sơ đồ minh họa tầng 5 với bốn phòng hai bên hành lang">
+        <rect x="0" y="0" width="860" height="380" class="w"/>
+        <rect x="20" y="20" width="370" height="140" class="gp" stroke="#0E7A4A" stroke-width="2"/>
+        <rect x="400" y="20" width="370" height="140" class="gp" stroke="#0E7A4A" stroke-width="2"/>
+        <rect x="20" y="220" width="370" height="140" class="gp" stroke="#0E7A4A" stroke-width="2"/>
+        <rect x="400" y="220" width="370" height="140" class="gp" stroke="#0E7A4A" stroke-width="2"/>
+        <rect x="20" y="160" width="750" height="60" class="as"/>
+        <line x1="30" y1="190" x2="760" y2="190" class="st-a" stroke-width="3" stroke-dasharray="22 14"/>
+        <rect x="780" y="140" width="64" height="100" class="nv"/>
+        <text x="812" y="186" class="txw" font-size="12" text-anchor="middle" font-weight="700">Sảnh</text>
+        <text x="812" y="202" class="txw" font-size="11" text-anchor="middle">thang máy</text>
+        <g font-size="13">
+          <text x="36" y="46" class="txmk" font-weight="700">Km5+01</text><text x="36" y="68" class="tx" font-weight="700" font-size="16">Phòng 1 · NOC 24/7</text>
+          <text x="416" y="46" class="txmk" font-weight="700">Km5+02</text><text x="416" y="68" class="tx" font-weight="700" font-size="16">Phòng 2 · Đối soát, giao dịch</text>
+          <text x="36" y="246" class="txmk" font-weight="700">Km5+03</text><text x="36" y="268" class="tx" font-weight="700" font-size="16">Phòng 3 · Vận hành, xử lý bất thường</text>
+          <text x="416" y="246" class="txmk" font-weight="700">Km5+04</text><text x="416" y="268" class="tx" font-weight="700" font-size="16">Phòng 4 · Trung tâm dữ liệu</text>
+        </g>
+        <g font-size="12">
+          <circle cx="740" cy="190" r="14" class="am"/><text x="740" y="194" class="tx" text-anchor="middle" font-weight="700">A</text>
+          <circle cx="420" cy="190" r="14" class="am"/><text x="420" y="194" class="tx" text-anchor="middle" font-weight="700">B</text>
+          <circle cx="60" cy="190" r="14" class="am"/><text x="60" y="194" class="tx" text-anchor="middle" font-weight="700">C</text>
+          <circle cx="200" cy="160" r="9" class="gr"/><circle cx="580" cy="160" r="9" class="gr"/><circle cx="200" cy="220" r="9" class="gr"/><circle cx="580" cy="220" r="9" class="gr"/>
+        </g>
+        <g font-size="12" class="txg">
+          <text x="36" y="100" class="txg">Tường điểm sau màn hình, tấm tiêu âm</text><text x="36" y="118" class="txg">đồng hồ 24h, bảng ca trực</text>
+          <text x="416" y="100" class="txg">Tường dòng chảy giao dịch</text><text x="416" y="118" class="txg">decal kính hợp làn, cây xanh</text>
+          <text x="36" y="300" class="txg">Tường bảng trắng xử lý sự việc</text><text x="36" y="318" class="txg">góc họp đứng nhanh</text>
+          <text x="416" y="300" class="txg">Decal kính mờ dữ liệu, quy tắc bảo mật</text><text x="416" y="318" class="txg">không decor trong phòng máy</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A: tường chào ở sảnh thang máy · B: tường hành lang "Bản đồ hành trình" · C: góc "Trạm dừng nghỉ Km5" (nếu có diện tích, hoặc dùng phòng nghỉ sẵn có) · chấm xanh: biển tên phòng tại cửa.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Khu vực chung · A, B</span><h2>Sảnh và hành lang: nơi các bên gặp nhau</h2>
+  <p class="muted">Đây là nơi duy nhất đặt logo các bên. Mục tiêu: ai bước ra thang máy cũng thấy mình thuộc về một tập thể chung.</p></div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 320" role="img" aria-label="Mặt dựng tường chào sảnh thang máy với họa tiết hợp làn và hàng logo ngang hàng">
+        <rect x="0" y="0" width="800" height="320" class="w"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="282" width="800" height="38" class="fl"/>
+        <path d="M30 90 C 220 90, 260 150, 470 150" class="st-g" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+        <path d="M30 130 C 220 130, 260 155, 470 155" class="st-g" stroke-width="10" stroke-linecap="round" opacity=".65"/>
+        <path d="M30 175 C 220 175, 260 160, 470 160" class="st-g" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+        <path d="M30 220 C 220 220, 260 165, 470 165" class="st-n" stroke-width="10" stroke-linecap="round"/>
+        <rect x="470" y="140" width="300" height="40" class="sg"/>
+        <line x1="490" y1="160" x2="760" y2="160" class="st-w" stroke-width="3" stroke-dasharray="18 12"/>
+        <text x="500" y="78" class="tx" font-size="30" font-weight="800">Chung một làn</text>
+        <text x="500" y="112" class="tx" font-size="22" font-weight="600">Cùng một đích</text>
+        <text x="500" y="210" class="txg" font-size="13">Văn phòng liên danh dự án [tên dự án]</text>
+        <text x="500" y="228" class="txg" font-size="13">Chủ đầu tư: Cục Đường bộ Việt Nam</text>
+        <g>
+          <rect x="40" y="244" width="120" height="30" rx="4" class="wh" stroke="#8A968F"/><text x="100" y="264" class="txg" font-size="11" text-anchor="middle">Logo chủ đầu tư</text>
+          <rect x="175" y="244" width="120" height="30" rx="4" class="wh" stroke="#8A968F"/><text x="235" y="264" class="txg" font-size="11" text-anchor="middle">Logo thành viên 1</text>
+          <rect x="310" y="244" width="120" height="30" rx="4" class="wh" stroke="#8A968F"/><text x="370" y="264" class="txg" font-size="11" text-anchor="middle">Logo thành viên 2</text>
+          <rect x="445" y="244" width="120" height="30" rx="4" class="wh" stroke="#8A968F"/><text x="505" y="264" class="txg" font-size="11" text-anchor="middle">Logo thành viên 3</text>
+        </g>
+        <rect x="640" y="200" width="18" height="82" class="wd"/><ellipse cx="649" cy="196" rx="30" ry="34" class="pl"/>
+      </svg>
+    </div>
+    <figcaption>Tường A, sảnh thang máy. Logo cùng chiều cao, khoảng cách đều, thứ tự theo văn bản liên danh. Chữ chính bằng mica nổi hoặc alu cắt CNC, họa tiết bằng decal cán mờ.</figcaption>
+  </figure>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 240" role="img" aria-label="Mặt dựng tường hành lang Bản đồ hành trình dạng trục cao tốc với các cột mốc">
+        <rect x="0" y="0" width="800" height="240" class="w"/>
+        <rect x="0" y="210" width="800" height="30" class="fl"/>
+        <text x="30" y="44" class="tx" font-size="22" font-weight="800">Hành trình Km5</text>
+        <text x="30" y="66" class="txg" font-size="13">Các cột mốc của dự án và của tập thể, cập nhật theo thời gian</text>
+        <rect x="30" y="116" width="740" height="26" class="as"/>
+        <line x1="40" y1="129" x2="760" y2="129" class="st-a" stroke-width="2.5" stroke-dasharray="16 10"/>
+        <g font-size="11">
+          <circle cx="90" cy="129" r="10" class="gr" stroke="#fff" stroke-width="3"/><text x="90" y="170" class="tx" text-anchor="middle" font-weight="700">Mốc 1</text><text x="90" y="186" class="txg" text-anchor="middle">Ký kết liên danh</text>
+          <circle cx="260" cy="129" r="10" class="gr" stroke="#fff" stroke-width="3"/><text x="260" y="170" class="tx" text-anchor="middle" font-weight="700">Mốc 2</text><text x="260" y="186" class="txg" text-anchor="middle">Khai trương Km5</text>
+          <circle cx="430" cy="129" r="10" class="gr" stroke="#fff" stroke-width="3"/><text x="430" y="170" class="tx" text-anchor="middle" font-weight="700">Mốc 3</text><text x="430" y="186" class="txg" text-anchor="middle">Đưa tuyến đầu vào vận hành</text>
+          <circle cx="600" cy="129" r="10" class="wh" stroke="#2DBE60" stroke-width="3"/><text x="600" y="170" class="tx" text-anchor="middle" font-weight="700">Mốc tiếp theo</text><text x="600" y="186" class="txg" text-anchor="middle">Để trống, dán bổ sung</text>
+        </g>
+        <path d="M740 104 L770 129 L740 154 Z" class="sg"/>
+        <rect x="520" y="22" width="250" height="60" rx="6" class="wh" stroke="#8A968F"/>
+        <text x="645" y="48" class="txg" font-size="12" text-anchor="middle">Khung ảnh tập thể liên đơn vị</text>
+        <text x="645" y="66" class="txg" font-size="12" text-anchor="middle">(thay theo quý)</text>
+      </svg>
+    </div>
+    <figcaption>Tường B, hành lang. Trục đường in decal, các mốc là tấm mica tròn gắn bằng băng dính hai mặt hoặc nam châm để thêm mốc mới mà không phải in lại. Nội dung mốc do ban điều hành liên danh duyệt.</figcaption>
+  </figure>
+  <div>
+    <h3 style="margin-bottom:12px">Biển tên phòng theo kiểu biển chỉ dẫn cao tốc</h3>
+    <div class="grid4">
+      <div class="draw small"><svg viewBox="0 0 240 150" role="img" aria-label="Biển tên phòng NOC"><rect x="4" y="4" width="232" height="142" rx="12" class="sg"/><rect x="10" y="10" width="220" height="130" rx="8" class="st-w" stroke-width="3"/><text x="24" y="40" class="txm" font-size="14" font-weight="700">Km5+01</text><text x="24" y="78" class="txw" font-size="26" font-weight="800">NOC</text><text x="24" y="104" class="txw" font-size="13">Trung tâm điều hành 24/7</text><line x1="24" y1="124" x2="216" y2="124" class="st-w" stroke-width="3" stroke-dasharray="14 8"/></svg></div>
+      <div class="draw small"><svg viewBox="0 0 240 150" role="img" aria-label="Biển tên phòng đối soát"><rect x="4" y="4" width="232" height="142" rx="12" class="sg"/><rect x="10" y="10" width="220" height="130" rx="8" class="st-w" stroke-width="3"/><text x="24" y="40" class="txm" font-size="14" font-weight="700">Km5+02</text><text x="24" y="78" class="txw" font-size="24" font-weight="800">Đối soát</text><text x="24" y="104" class="txw" font-size="13">Đối soát và giao dịch</text><line x1="24" y1="124" x2="216" y2="124" class="st-w" stroke-width="3" stroke-dasharray="14 8"/></svg></div>
+      <div class="draw small"><svg viewBox="0 0 240 150" role="img" aria-label="Biển tên phòng vận hành"><rect x="4" y="4" width="232" height="142" rx="12" class="sg"/><rect x="10" y="10" width="220" height="130" rx="8" class="st-w" stroke-width="3"/><text x="24" y="40" class="txm" font-size="14" font-weight="700">Km5+03</text><text x="24" y="78" class="txw" font-size="24" font-weight="800">Vận hành</text><text x="24" y="104" class="txw" font-size="13">Xử lý giao dịch bất thường</text><line x1="24" y1="124" x2="216" y2="124" class="st-w" stroke-width="3" stroke-dasharray="14 8"/></svg></div>
+      <div class="draw small"><svg viewBox="0 0 240 150" role="img" aria-label="Biển tên phòng dữ liệu"><rect x="4" y="4" width="232" height="142" rx="12" class="sg"/><rect x="10" y="10" width="220" height="130" rx="8" class="st-w" stroke-width="3"/><text x="24" y="40" class="txm" font-size="14" font-weight="700">Km5+04</text><text x="24" y="78" class="txw" font-size="24" font-weight="800">Dữ liệu</text><text x="24" y="104" class="txw" font-size="13">Trung tâm dữ liệu tập trung</text><line x1="24" y1="124" x2="216" y2="124" class="st-w" stroke-width="3" stroke-dasharray="14 8"/></svg></div>
+    </div>
+    <p class="muted" style="margin-top:10px;font-size:.9rem">Alu dán decal hoặc mica, khoảng 60 x 38 cm, treo cạnh cửa ở độ cao mắt nhìn khoảng 1,5 m. Phong cách tham khảo biển chỉ dẫn cao tốc, không sao chép đúng biển báo hiệu theo quy chuẩn để tránh nhầm lẫn.</p>
+  </div>
+</section>
+
+<section class="room">
+  <div class="sechead">
+    <div class="roomhead"><span class="km">Km5+01</span><span class="eyebrow">Phòng 1</span></div>
+    <h2>NOC, trung tâm kiểm soát 24/7</h2>
+    <p class="tagline">"Hai mươi bốn giờ dõi theo, để từng chuyến xe thông suốt"</p>
+    <p class="muted">Phòng làm việc theo ca, kể cả ban đêm. Decor phải giúp tập trung, giảm mỏi mắt, không phản chiếu lên màn hình. Phần trang trí dồn về tường sau và hai bên video wall, không đặt gì trên mặt màn hình.</p>
+  </div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 320" role="img" aria-label="Mặt dựng phòng NOC với video wall, tấm tiêu âm hai bên, đồng hồ 24 giờ và bảng ca trực">
+        <rect x="0" y="0" width="800" height="320" class="w2"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="282" width="800" height="38" class="fl"/>
+        <rect x="200" y="30" width="400" height="28" class="nv"/>
+        <text x="400" y="50" class="txw" font-size="15" font-weight="700" text-anchor="middle">Trung tâm điều hành 24/7 · Km5+01</text>
+        <g>
+          <rect x="200" y="66" width="130" height="72" class="sc"/><rect x="335" y="66" width="130" height="72" class="sc2"/><rect x="470" y="66" width="130" height="72" class="sc"/>
+          <rect x="200" y="143" width="130" height="72" class="sc2"/><rect x="335" y="143" width="130" height="72" class="sc"/><rect x="470" y="143" width="130" height="72" class="sc2"/>
+        </g>
+        <text x="400" y="235" class="txg" font-size="12" text-anchor="middle">Video wall (giữ nguyên, không dán decor)</text>
+        <g>
+          <rect x="40" y="66" width="130" height="190" class="nv"/>
+          <rect x="52" y="66" width="10" height="190" class="gr" opacity=".9"/><rect x="72" y="66" width="10" height="190" class="gr" opacity=".6"/><rect x="92" y="66" width="10" height="190" class="gr" opacity=".35"/>
+          <circle cx="135" cy="110" r="26" class="wh"/><text x="135" y="115" class="txmk" font-size="12" text-anchor="middle" font-weight="700">00:00</text>
+          <text x="135" y="152" class="txw" font-size="10" text-anchor="middle">Đồng hồ</text><text x="135" y="166" class="txw" font-size="10" text-anchor="middle">24 giờ</text>
+        </g>
+        <g>
+          <rect x="630" y="66" width="130" height="190" class="nv"/>
+          <rect x="738" y="66" width="10" height="190" class="gr" opacity=".9"/><rect x="718" y="66" width="10" height="190" class="gr" opacity=".6"/><rect x="698" y="66" width="10" height="190" class="gr" opacity=".35"/>
+          <rect x="642" y="80" width="50" height="80" rx="3" class="wh"/>
+          <text x="667" y="100" class="txmk" font-size="9" text-anchor="middle" font-weight="700">CA TRỰC</text>
+          <line x1="648" y1="112" x2="686" y2="112" class="st-k"/><line x1="648" y1="124" x2="686" y2="124" class="st-k"/><line x1="648" y1="136" x2="686" y2="136" class="st-k"/><line x1="648" y1="148" x2="686" y2="148" class="st-k"/>
+          <text x="667" y="182" class="txw" font-size="10" text-anchor="middle">Bảng ca trực</text><text x="667" y="196" class="txw" font-size="10" text-anchor="middle">nam châm</text>
+        </g>
+        <rect x="160" y="252" width="480" height="30" class="wd"/>
+        <text x="400" y="272" class="tx" font-size="11" text-anchor="middle">Bàn điều hành</text>
+        <rect x="20" y="226" width="14" height="56" class="wd"/><ellipse cx="27" cy="222" rx="18" ry="22" class="pl"/>
+      </svg>
+    </div>
+    <figcaption>Tấm tiêu âm bọc vải màu xanh than ốp hai bên video wall, sọc hợp làn in trên vải. Vừa trang trí vừa giảm ồn cho phòng nhiều người nói chuyện qua bộ đàm, điện thoại.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Hạng mục</th><th>Vị trí</th><th>Vật liệu, kích thước gợi ý</th><th>Ghi chú</th></tr>
+    <tr><td>Dải tiêu đề phòng</td><td>Trên video wall</td><td>Hộp đèn mỏng hoặc alu, chữ trắng nền xanh than, dài bằng video wall, cao 30 đến 40 cm</td><td>Đèn ánh sáng dịu, không chiếu thẳng vào màn hình</td></tr>
+    <tr><td>Tấm tiêu âm hợp làn</td><td>Hai bên video wall, tường sau</td><td>Tấm foam hoặc bông khoáng bọc vải, in sọc, mỗi tấm khoảng 60 x 120 cm</td><td>Vật liệu chống cháy lan, có chứng nhận</td></tr>
+    <tr><td>Đồng hồ 24 giờ</td><td>Tường bên, ngang tầm nhìn</td><td>Đồng hồ số cỡ lớn, có thể thêm 1 đến 2 múi giờ tham chiếu</td><td>Đồng bộ giờ chuẩn, phục vụ ghi nhật ký ca</td></tr>
+    <tr><td>Bảng ca trực</td><td>Tường bên</td><td>Bảng từ trắng, thẻ tên nam châm cùng một mẫu cho mọi đơn vị</td><td>Không ghi thông tin hệ thống, mật khẩu</td></tr>
+    <tr><td>Góc "giao ca"</td><td>Gần cửa</td><td>Kệ nhỏ, bình nước, bảng "Lời nhắn cho ca sau"</td><td>Tạo thói quen bàn giao có tình người</td></tr>
+    <tr><td>Cây xanh</td><td>Góc phòng, xa thiết bị</td><td>Cây chịu bóng: lưỡi hổ, kim tiền, trầu bà, chậu khô</td><td>Không đặt gần rack, ổ điện</td></tr>
+  </table></div>
+</section>
+
+<section class="room">
+  <div class="sechead">
+    <div class="roomhead"><span class="km">Km5+02</span><span class="eyebrow">Phòng 2</span></div>
+    <h2>Phòng đối soát, giao dịch</h2>
+    <p class="tagline">"Khớp từng giao dịch, vững từng niềm tin"</p>
+    <p class="muted">Công việc cần sự tỉ mỉ, làm việc với số liệu nhiều giờ. Không gian sáng, thoáng, có một bức tường kể câu chuyện "một lượt xe đi qua trạm" để ai mới vào cũng hiểu mình đang làm mắt xích nào.</p>
+  </div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Mặt dựng phòng đối soát với tường dòng chảy giao dịch năm bước">
+        <rect x="0" y="0" width="800" height="300" class="w"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="262" width="800" height="38" class="fl"/>
+        <text x="40" y="56" class="tx" font-size="22" font-weight="800">Một lượt xe, năm mắt xích</text>
+        <text x="40" y="78" class="txg" font-size="13">Khớp từng giao dịch, vững từng niềm tin</text>
+        <rect x="40" y="132" width="720" height="22" class="as"/>
+        <line x1="50" y1="143" x2="750" y2="143" class="st-a" stroke-width="2.5" stroke-dasharray="14 10"/>
+        <g font-size="12">
+          <circle cx="100" cy="143" r="26" class="sg"/><text x="100" y="148" class="txw" font-weight="700" text-anchor="middle">1</text>
+          <text x="100" y="196" class="tx" font-weight="700" text-anchor="middle">Xe qua trạm</text>
+          <circle cx="250" cy="143" r="26" class="sg"/><text x="250" y="148" class="txw" font-weight="700" text-anchor="middle">2</text>
+          <text x="250" y="196" class="tx" font-weight="700" text-anchor="middle">Ghi nhận giao dịch</text>
+          <circle cx="400" cy="143" r="26" class="gr"/><text x="400" y="148" class="txw" font-weight="700" text-anchor="middle">3</text>
+          <text x="400" y="196" class="tx" font-weight="700" text-anchor="middle">Đối soát</text>
+          <circle cx="550" cy="143" r="26" class="sg"/><text x="550" y="148" class="txw" font-weight="700" text-anchor="middle">4</text>
+          <text x="550" y="196" class="tx" font-weight="700" text-anchor="middle">Thanh toán, quyết toán</text>
+          <circle cx="700" cy="143" r="26" class="sg"/><text x="700" y="148" class="txw" font-weight="700" text-anchor="middle">5</text>
+          <text x="700" y="196" class="tx" font-weight="700" text-anchor="middle">Báo cáo chủ đầu tư</text>
+        </g>
+        <text x="400" y="222" class="txg" font-size="11" text-anchor="middle">Phòng 2 được đánh dấu bằng chấm xanh sáng: "chúng ta ở đây"</text>
+        <rect x="720" y="210" width="16" height="52" class="wd"/><ellipse cx="728" cy="206" rx="22" ry="26" class="pl"/>
+      </svg>
+    </div>
+    <figcaption>Tường dòng chảy giao dịch. Các bước là ví dụ, đội vận hành điều chỉnh đúng quy trình thực tế của dự án trước khi in. Không in số liệu doanh thu, sản lượng.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Hạng mục</th><th>Vị trí</th><th>Vật liệu, kích thước gợi ý</th><th>Ghi chú</th></tr>
+    <tr><td>Tường dòng chảy giao dịch</td><td>Tường dài nhất, đối diện cửa</td><td>Decal PP cán mờ, khoảng 4 x 1,2 m, số bước bằng mica nổi</td><td>Nội dung qua phòng vận hành rà</td></tr>
+    <tr><td>Decal kính hợp làn</td><td>Vách kính, cửa kính</td><td>Decal mờ dạng sọc, cao 90 đến 150 cm tính từ sàn</td><td>Vừa trang trí vừa báo kính, tránh va</td></tr>
+    <tr><td>Bảng "Khớp hôm nay"</td><td>Cạnh cửa</td><td>Bảng từ, ghi lời cảm ơn, lời khen chéo giữa các đơn vị</td><td>Chỉ ghi lời ghi nhận, không ghi số liệu</td></tr>
+    <tr><td>Vách ngăn bàn</td><td>Giữa các cụm bàn</td><td>Vách nỉ màu xanh nhạt, có thể ghim giấy</td><td>Giảm ồn, tăng riêng tư màn hình</td></tr>
+    <tr><td>Cây xanh để bàn</td><td>Mỗi cụm 4 đến 6 bàn</td><td>Chậu nhỏ đồng bộ một mẫu, cây dễ chăm</td><td>Phân công chăm theo cụm, không theo đơn vị</td></tr>
+  </table></div>
+</section>
+
+<section class="room">
+  <div class="sechead">
+    <div class="roomhead"><span class="km">Km5+03</span><span class="eyebrow">Phòng 3</span></div>
+    <h2>Quản lý vận hành, xử lý giao dịch bất thường</h2>
+    <p class="tagline">"Bất thường xử lý nhanh, vận hành luôn bình thường"</p>
+    <p class="muted">Phòng của những cuộc trao đổi nhanh, phối hợp liên tục giữa các bên. Decor ở đây là công cụ: tường viết được, bảng theo dõi trực quan, chỗ đứng họp năm phút.</p>
+  </div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Mặt dựng phòng vận hành với tường bảng trắng bốn cột và góc họp đứng">
+        <rect x="0" y="0" width="800" height="300" class="w"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="262" width="800" height="38" class="fl"/>
+        <rect x="30" y="34" width="500" height="34" class="sg"/>
+        <text x="46" y="57" class="txw" font-size="15" font-weight="700">Gỡ nút, thông làn</text>
+        <rect x="30" y="72" width="500" height="160" class="wh" stroke="#8A968F"/>
+        <g font-size="11">
+          <text x="92" y="92" class="tx" font-weight="700" text-anchor="middle">Tiếp nhận</text>
+          <text x="217" y="92" class="tx" font-weight="700" text-anchor="middle">Đang xử lý</text>
+          <text x="342" y="92" class="tx" font-weight="700" text-anchor="middle">Chờ phối hợp</text>
+          <text x="467" y="92" class="tx" font-weight="700" text-anchor="middle">Đã thông</text>
+        </g>
+        <line x1="155" y1="80" x2="155" y2="226" class="st-k"/><line x1="280" y1="80" x2="280" y2="226" class="st-k"/><line x1="405" y1="80" x2="405" y2="226" class="st-k"/>
+        <g>
+          <rect x="52" y="104" width="80" height="26" class="am" opacity=".8"/><rect x="52" y="138" width="80" height="26" class="am" opacity=".8"/>
+          <rect x="177" y="104" width="80" height="26" class="gp" stroke="#2DBE60"/><rect x="302" y="104" width="80" height="26" class="gp" stroke="#2DBE60"/>
+          <rect x="427" y="104" width="80" height="26" class="gr" opacity=".7"/><rect x="427" y="138" width="80" height="26" class="gr" opacity=".7"/><rect x="427" y="172" width="80" height="26" class="gr" opacity=".7"/>
+        </g>
+        <text x="280" y="250" class="txg" font-size="11" text-anchor="middle">Tường sơn bảng viết hoặc kính cường lực viết bút lông, thẻ chỉ ghi mã sự việc</text>
+        <rect x="600" y="150" width="140" height="14" class="wd"/><rect x="664" y="164" width="12" height="98" class="wd"/>
+        <text x="670" y="140" class="tx" font-size="12" text-anchor="middle" font-weight="700">Góc họp đứng</text>
+        <text x="670" y="124" class="txg" font-size="11" text-anchor="middle">5 phút đầu ca</text>
+        <rect x="580" y="40" width="180" height="62" rx="6" class="gp" stroke="#0E7A4A"/>
+        <text x="670" y="66" class="tx" font-size="12" text-anchor="middle" font-weight="700">Ba câu trước khi đóng</text>
+        <text x="670" y="86" class="txg" font-size="10" text-anchor="middle">Đúng chưa? Báo ai? Rút ra gì?</text>
+      </svg>
+    </div>
+    <figcaption>Thẻ trên bảng chỉ ghi mã sự việc nội bộ, tuyệt đối không ghi biển số, số thẻ, số dư hay thông tin khách hàng.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Hạng mục</th><th>Vị trí</th><th>Vật liệu, kích thước gợi ý</th><th>Ghi chú</th></tr>
+    <tr><td>Tường bảng viết</td><td>Một mặt tường dài</td><td>Sơn bảng viết chuyên dụng hoặc kính cường lực, rộng 4 đến 5 m</td><td>Thay cho nhiều bảng rời, tiết kiệm diện tích</td></tr>
+    <tr><td>Dải tiêu đề "Gỡ nút, thông làn"</td><td>Trên tường bảng</td><td>Decal nền xanh biển chỉ dẫn, chữ trắng</td><td>Cùng ngôn ngữ biển của toàn tầng</td></tr>
+    <tr><td>Góc họp đứng</td><td>Gần cửa sổ hoặc góc phòng</td><td>Bàn cao 105 cm, không ghế</td><td>Họp đầu ca ngắn, có đại diện các bên</td></tr>
+    <tr><td>Tấm "Ba câu trước khi đóng"</td><td>Cạnh bảng</td><td>Mica A3</td><td>Nhắc quy trình, đội vận hành chốt câu chữ</td></tr>
+    <tr><td>Kệ tài liệu quy trình</td><td>Tường cạnh cửa</td><td>Kệ mở, nhãn đồng nhất màu xanh</td><td>Tài liệu mật cất tủ khóa, không để kệ mở</td></tr>
+  </table></div>
+</section>
+
+<section class="room">
+  <div class="sechead">
+    <div class="roomhead"><span class="km">Km5+04</span><span class="eyebrow">Phòng 4</span></div>
+    <h2>Trung tâm cơ sở dữ liệu tập trung</h2>
+    <p class="tagline">"Dữ liệu đúng, quyết định trúng"</p>
+    <p class="muted">Khu vực bảo mật cao. Nếu phòng có khu đặt máy chủ thì không decor bên trong khu máy, chỉ trang trí khu làm việc của nhân sự và mặt kính bên ngoài. Decor nhấn vào ý thức an toàn dữ liệu.</p>
+  </div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 300" role="img" aria-label="Mặt dựng phòng dữ liệu với vách kính decal mờ hoạ tiết dữ liệu và bảng quy tắc an toàn dữ liệu">
+        <rect x="0" y="0" width="800" height="300" class="w"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="262" width="800" height="38" class="fl"/>
+        <rect x="30" y="30" width="460" height="232" class="gl" opacity=".8"/>
+        <line x1="260" y1="30" x2="260" y2="262" class="st-k" stroke-width="2"/>
+        <g>
+          <rect x="30" y="120" width="460" height="70" class="wh" opacity=".75"/>
+          <g fill="#0E7A4A">
+            <rect x="44" y="134" width="40" height="6"/><rect x="92" y="134" width="12" height="6"/><rect x="112" y="134" width="64" height="6"/><rect x="184" y="134" width="20" height="6"/><rect x="212" y="134" width="40" height="6"/>
+            <rect x="270" y="134" width="30" height="6"/><rect x="308" y="134" width="56" height="6"/><rect x="372" y="134" width="12" height="6"/><rect x="392" y="134" width="80" height="6"/>
+          </g>
+          <g fill="#2DBE60">
+            <rect x="44" y="152" width="20" height="6"/><rect x="72" y="152" width="80" height="6"/><rect x="160" y="152" width="30" height="6"/><rect x="198" y="152" width="54" height="6"/>
+            <rect x="270" y="152" width="60" height="6"/><rect x="338" y="152" width="16" height="6"/><rect x="362" y="152" width="50" height="6"/><rect x="420" y="152" width="52" height="6"/>
+          </g>
+          <g fill="#1E3A5F">
+            <rect x="44" y="170" width="56" height="6"/><rect x="108" y="170" width="24" height="6"/><rect x="140" y="170" width="70" height="6"/><rect x="218" y="170" width="34" height="6"/>
+            <rect x="270" y="170" width="18" height="6"/><rect x="296" y="170" width="74" height="6"/><rect x="378" y="170" width="40" height="6"/><rect x="426" y="170" width="46" height="6"/>
+          </g>
+        </g>
+        <text x="260" y="104" class="tx" font-size="18" font-weight="800" text-anchor="middle">Dữ liệu đúng, quyết định trúng</text>
+        <text x="260" y="226" class="txg" font-size="11" text-anchor="middle">Vách kính: dải decal mờ dạng "luồng dữ liệu", cao 90 đến 160 cm</text>
+        <rect x="540" y="40" width="220" height="200" rx="6" class="nv"/>
+        <text x="650" y="72" class="txw" font-size="15" font-weight="700" text-anchor="middle">An toàn dữ liệu</text>
+        <g font-size="11">
+          <text x="560" y="104" class="txw">Không chụp màn hình</text>
+          <text x="560" y="128" class="txw">Không mang thiết bị lạ vào</text>
+          <text x="560" y="152" class="txw">Khóa máy khi rời bàn</text>
+          <text x="560" y="176" class="txw">Ẩn danh trước khi chia sẻ</text>
+          <text x="560" y="200" class="txw">Có sự cố, báo ngay</text>
+        </g>
+        <rect x="560" y="214" width="180" height="6" class="gr"/>
+      </svg>
+    </div>
+    <figcaption>Nội dung bảng an toàn dữ liệu là ví dụ. Câu chữ chính thức phải khớp quy chế bảo mật của dự án và được bộ phận an ninh thông tin duyệt.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Hạng mục</th><th>Vị trí</th><th>Vật liệu, kích thước gợi ý</th><th>Ghi chú</th></tr>
+    <tr><td>Decal kính "luồng dữ liệu"</td><td>Vách kính ngăn khu máy và khu làm việc</td><td>Decal mờ, dải cao 70 cm, chạy hết chiều dài vách</td><td>Che tầm nhìn vào khu máy, vẫn lấy sáng</td></tr>
+    <tr><td>Bảng an toàn dữ liệu</td><td>Cạnh cửa ra vào</td><td>Alu hoặc mica, khoảng 60 x 80 cm</td><td>Ngôn ngữ ngắn, dễ nhớ</td></tr>
+    <tr><td>Khẩu hiệu phòng</td><td>Tường điểm khu làm việc</td><td>Chữ alu cắt CNC màu xanh than</td><td>Không dùng hộp đèn để hạn chế thiết bị điện</td></tr>
+    <tr><td>Khu máy chủ</td><td>Bên trong phòng máy</td><td>Không decor, chỉ biển an toàn, sơ đồ thoát hiểm theo quy định</td><td>Không vật liệu dễ cháy, không cây xanh</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Khu vực chung · C</span><h2>Trạm dừng nghỉ Km5 và chất keo gắn kết</h2>
+  <p class="muted">Decor chỉ là vỏ. Sự gắn kết đến từ những chi tiết nhỏ khiến người của các đơn vị khác nhau thấy mình là đồng đội.</p></div>
+  <figure>
+    <div class="draw">
+      <svg viewBox="0 0 800 280" role="img" aria-label="Mặt dựng góc Trạm dừng nghỉ Km5 với biển, tường ảnh đồng hành và bảng sinh nhật">
+        <rect x="0" y="0" width="800" height="280" class="w"/>
+        <rect x="0" y="0" width="800" height="18" class="ce"/>
+        <rect x="0" y="242" width="800" height="38" class="fl"/>
+        <rect x="30" y="34" width="220" height="110" rx="10" class="sg"/>
+        <rect x="36" y="40" width="208" height="98" rx="6" class="st-w" stroke-width="3"/>
+        <text x="50" y="72" class="txw" font-size="20" font-weight="800">Trạm dừng nghỉ</text>
+        <text x="50" y="104" class="txm" font-size="26" font-weight="700">Km5</text>
+        <text x="50" y="126" class="txw" font-size="11">Nạp năng lượng, lăn bánh tiếp</text>
+        <g>
+          <rect x="290" y="34" width="70" height="56" class="wh" stroke="#8A968F"/><rect x="368" y="34" width="70" height="56" class="wh" stroke="#8A968F"/><rect x="446" y="34" width="70" height="56" class="wh" stroke="#8A968F"/>
+          <rect x="290" y="98" width="70" height="56" class="wh" stroke="#8A968F"/><rect x="368" y="98" width="70" height="56" class="wh" stroke="#8A968F"/><rect x="446" y="98" width="70" height="56" class="wh" stroke="#8A968F"/>
+        </g>
+        <text x="403" y="176" class="tx" font-size="13" font-weight="700" text-anchor="middle">Tường đồng hành</text>
+        <text x="403" y="194" class="txg" font-size="11" text-anchor="middle">Ảnh ca trực, sinh hoạt chung, chụp lẫn các đơn vị</text>
+        <rect x="560" y="34" width="200" height="120" rx="6" class="gp" stroke="#0E7A4A"/>
+        <text x="660" y="62" class="tx" font-size="13" font-weight="700" text-anchor="middle">Chào bạn mới · Sinh nhật tháng</text>
+        <circle cx="610" cy="102" r="18" class="wh" stroke="#2DBE60" stroke-width="2"/><circle cx="660" cy="102" r="18" class="wh" stroke="#2DBE60" stroke-width="2"/><circle cx="710" cy="102" r="18" class="wh" stroke="#2DBE60" stroke-width="2"/>
+        <text x="660" y="140" class="txg" font-size="10" text-anchor="middle">Chỉ dùng ảnh đã được đồng ý</text>
+        <rect x="40" y="186" width="200" height="56" class="wd"/>
+        <text x="140" y="220" class="tx" font-size="11" text-anchor="middle">Kệ trà, nước, bánh</text>
+        <rect x="560" y="196" width="16" height="46" class="wd"/><ellipse cx="568" cy="192" rx="20" ry="24" class="pl"/>
+      </svg>
+    </div>
+    <figcaption>Nếu tầng không có diện tích riêng, gom góc này vào một mảng tường hành lang hoặc phòng nghỉ sẵn có. Với ca đêm NOC, đây là nơi đáng đầu tư nhất.</figcaption>
+  </figure>
+  <div class="grid3">
+    <div class="box"><h3>Bảng tên bàn đồng nhất</h3><p>Một mẫu cho tất cả 150 người: tên, vị trí công việc, phòng. Không in logo đơn vị trên bảng tên bàn. Đơn vị gốc vẫn ghi trong hồ sơ, không cần ghi trên bàn.</p></div>
+    <div class="box"><h3>Dây đeo thẻ theo phòng</h3><p>Phân màu dây đeo theo phòng chức năng thay vì theo công ty. Người nhìn vào sẽ hỏi "bạn ở NOC à" thay vì "bạn bên công ty nào".</p></div>
+    <div class="box"><h3>Ngồi xen kẽ</h3><p>Đề xuất với ban điều hành: bố trí chỗ ngồi xen kẽ nhân sự các đơn vị trong cùng phòng. Đây là "decor" rẻ nhất mà hiệu quả nhất.</p></div>
+    <div class="box"><h3>Cốc và sổ chung</h3><p>Bộ quà chào thành viên mới: cốc sứ, sổ tay in "Km5 · Chung một làn". Cùng một bộ cho mọi người, kể cả cán bộ biệt phái.</p></div>
+    <div class="box"><h3>Nghi thức nhỏ hàng tháng</h3><p>Sinh nhật chung theo tháng, ảnh tập thể theo quý dán lên tường hành lang. Mỗi lần một phòng đăng cai, luân phiên giữa các đơn vị.</p></div>
+    <div class="box"><h3>Gọi tên chung</h3><p>Truyền thông nội bộ dùng thống nhất cách gọi "người Km5", "đội Km5" trong thông báo, nhóm chat, sự kiện.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Ngân hàng khẩu hiệu</span><h2>Câu chữ đề xuất, chờ duyệt</h2>
+  <p class="muted">Bản nháp để ban điều hành chọn. Chưa dùng chính thức khi chưa có người có thẩm quyền duyệt.</p></div>
+  <div class="slogans">
+    <div><b>Chung một làn, cùng một đích</b><span>Sảnh thang máy, khẩu hiệu chủ đạo</span></div>
+    <div><b>Hai mươi bốn giờ dõi theo, để từng chuyến xe thông suốt</b><span>NOC</span></div>
+    <div><b>Khớp từng giao dịch, vững từng niềm tin</b><span>Phòng đối soát</span></div>
+    <div><b>Bất thường xử lý nhanh, vận hành luôn bình thường</b><span>Phòng vận hành</span></div>
+    <div><b>Dữ liệu đúng, quyết định trúng</b><span>Trung tâm dữ liệu</span></div>
+    <div><b>Nạp năng lượng, lăn bánh tiếp</b><span>Trạm dừng nghỉ</span></div>
+    <div><b>Mỗi đơn vị một thế mạnh, chung một con đường</b><span>Phương án thay thế cho sảnh</span></div>
+    <div><b>Chính xác · Liên tục · Minh bạch · Đồng lòng</b><span>Bốn giá trị làm việc, dùng trên tường hành lang hoặc lịch bàn</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Lưu ý kỹ thuật và tuân thủ</span><h2>Trước khi sản xuất</h2></div>
+  <div class="grid2">
+    <div class="box"><h3>Công trình nhà nước, đang cải tạo</h3><ul>
+      <li>Xin ý kiến Cục Đường bộ về việc khoan, đục, sơn tường. Ưu tiên giải pháp tháo lắp được: decal, rail treo tranh, băng dính hai mặt chịu lực.</li>
+      <li>Vật liệu có chứng nhận chống cháy lan, đặc biệt tấm tiêu âm và vải bọc.</li>
+      <li>Không che biển thoát hiểm, bình chữa cháy, đầu báo khói, tủ điện.</li>
+    </ul></div>
+    <div class="box"><h3>Bảo mật và dữ liệu</h3><ul>
+      <li>Không in sơ đồ hệ thống, địa chỉ IP, tên máy chủ, số liệu vận hành lên decor.</li>
+      <li>Không dùng ảnh, tên khách hàng, biển số xe thật trong bất kỳ hình trang trí nào.</li>
+      <li>Ảnh nhân sự trên tường phải có sự đồng ý của người trong ảnh.</li>
+    </ul></div>
+    <div class="box"><h3>Ánh sáng và sức khỏe ca trực</h3><ul>
+      <li>NOC dùng ánh sáng gián tiếp, khoảng 4000K, tránh đèn chiếu thẳng lên màn hình.</li>
+      <li>Không dùng vật liệu bóng gương ở tường đối diện màn hình.</li>
+      <li>Cây xanh loại chịu bóng, chậu khô, không đặt cạnh thiết bị điện.</li>
+    </ul></div>
+    <div class="box"><h3>Thương hiệu các bên</h3><ul>
+      <li>Xin file logo gốc từ từng đơn vị, kiểm tra quy chuẩn sử dụng logo của từng bên.</li>
+      <li>Logo cùng chiều cao, cùng khoảng cách, thứ tự theo văn bản liên danh.</li>
+      <li>Mẫu decor có logo gửi đầu mối thương hiệu của các bên xác nhận trước khi in.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Triển khai</span><h2>Lộ trình gợi ý bốn tuần</h2></div>
+  <div class="tbl"><table>
+    <tr><th>Tuần</th><th>Việc chính</th><th>Đầu mối</th><th>Đầu ra</th></tr>
+    <tr><td>Tuần 1</td><td>Đo hiện trạng, chụp ảnh từng mặt tường, hỏi ý kiến nhanh nhân sự 4 phòng (phiếu 5 câu)</td><td>Thiết kế, truyền thông nội bộ</td><td>Mặt bằng đo thực tế, kết quả khảo sát</td></tr>
+    <tr><td>Tuần 2</td><td>Dựng phối cảnh chi tiết theo ý tưởng này, chốt khẩu hiệu, xin logo các bên</td><td>Thiết kế</td><td>Bộ phối cảnh, file in nháp</td></tr>
+    <tr><td>Tuần 3</td><td>Trình duyệt ban điều hành liên danh và Cục Đường bộ, chỉnh sửa, đặt sản xuất</td><td>Đầu mối hành chính</td><td>Bản duyệt có chữ ký</td></tr>
+    <tr><td>Tuần 4</td><td>Thi công ngoài giờ, NOC thi công theo từng mảng để không gián đoạn ca trực. Tổ chức buổi "khai trương Km5"</td><td>Hành chính, nhà thầu</td><td>Không gian hoàn thiện, ảnh tập thể đầu tiên cho tường hành trình</td></tr>
+  </table></div>
+  <div class="note">
+    <h3>Ưu tiên nếu ngân sách hạn chế</h3>
+    <p>Làm trước: biển tên phòng, tường chào sảnh, tấm tiêu âm NOC, góc Trạm dừng nghỉ. Làm sau: tường hành trình, decal kính, quà chào thành viên mới. Đội thiết kế lập dự toán theo báo giá thực tế của nhà cung cấp, tài liệu này không đưa đơn giá.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="eyebrow">Cần người phụ trách chốt</span><h2>Những điểm còn để ngỏ</h2></div>
+  <ul>
+    <li>Tên chính thức của dự án và văn phòng liên danh, để điền vào tường chào và biển phòng.</li>
+    <li>Tên pháp lý, thứ tự và file logo của các thành viên liên danh.</li>
+    <li>Phạm vi được phép cải tạo tại trụ sở: có được khoan, sơn, lắp hộp đèn hay không.</li>
+    <li>Các vị trí trang trọng bắt buộc theo quy định của cơ quan chủ quản và nơi đặt.</li>
+    <li>Phòng 4 có khu máy chủ trong phòng hay chỉ là khu làm việc của nhân sự dữ liệu.</li>
+    <li>Diện tích thực tế cho góc Trạm dừng nghỉ.</li>
+  </ul>
+  <p class="foot">Bản ý tưởng sơ bộ do AI hỗ trợ soạn, dùng để tham khảo nội bộ. Người có thẩm quyền rà soát và quyết định trước khi triển khai. Hình vẽ là mô phỏng, không phải bản vẽ thi công.</p>
+</section>
+
+</div>
